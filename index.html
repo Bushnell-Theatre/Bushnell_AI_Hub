@@ -3,1387 +3,312 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Bushnell — AI 101: Welcome to Your AI Toolkit</title>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Barlow:wght@300;400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<title>The Bushnell — AI 101: Start Here</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Barlow:wght@300;400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
-:root {
-  --teal:        #007a7a;
-  --teal-dark:   #005f5f;
-  --teal-light:  #009999;
-  --teal-pale:   #e0f4f4;
-  --teal-xpale:  #f0fafa;
-  --gold:        #c9a84c;
-  --gold-light:  #e0c06a;
-  --navy:        #1a2238;
-  --navy-mid:    #2c3a56;
-  --red:         #9e2a2b;
-  --bg:          #f8f6f1;
-  --bg-alt:      #f2f0eb;
-  --white:       #ffffff;
-  --border:      #d8d4cc;
-  --border-teal: rgba(0,122,122,0.2);
-  --text:        #1a1a1a;
-  --text-mid:    #3d3d3d;
-  --muted:       #595959;
-  --muted-light: #9a9a9a;
-  --font-display:'Barlow Condensed','Arial Narrow',sans-serif;
-  --font-body:   'Barlow',Arial,sans-serif;
-  --font-serif:  'EB Garamond',Georgia,serif;
-  --claude:      #c9a84c;
-  --chatgpt:     #10a37f;
-  --copilot:     #0078d4;
-  --asana:       #f06a6a;
+:root{
+  --teal:#007a7a;--teal-dark:#005f5f;--teal-light:#009999;--teal-pale:#e0f4f4;--teal-xpale:#f0fafa;
+  --gold:#c9a84c;--gold-light:#e0c06a;--navy:#1a2238;--navy-mid:#2c3a56;--red:#9e2a2b;
+  --bg:#f8f6f1;--bg-alt:#f2f0eb;--white:#ffffff;--border:#d8d4cc;
+  --text:#1a1a1a;--muted:#595959;--muted-light:#9a9a9a;
+  --font-display:'Barlow Condensed','Arial Narrow',sans-serif;--font-body:'Barlow',Arial,sans-serif;--font-serif:'EB Garamond',Georgia,serif;
+  --claude:#c9a84c;--chatgpt:#10a37f;--copilot:#0078d4;
 }
-*{margin:0;padding:0;box-sizing:border-box;}
-body{background:var(--bg);color:var(--text);font-family:var(--font-body);overflow-x:hidden;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-body)}
+a{color:var(--teal)}
+a:hover{color:var(--teal-dark)}
+details summary::-webkit-details-marker{display:none}
+details summary{list-style:none}
 
-/* ── NAV ── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:200;height:64px;
-  background:var(--white);border-bottom:2px solid var(--teal);
-  display:flex;align-items:center;padding:0 48px;
-  box-shadow:0 2px 12px rgba(0,0,0,0.08);
-}
-.nav-brand{display:flex;align-items:center;gap:16px;}
-.nav-logo-main{font-family:var(--font-display);font-size:20px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--navy);line-height:1;}
-.nav-logo-sub{font-family:var(--font-display);font-size:10px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--teal);line-height:1;}
-.nav-sep{width:1px;height:28px;background:var(--border);}
-.nav-hub{font-family:var(--font-display);font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--teal);}
-nav ul{display:flex;gap:28px;list-style:none;margin-left:auto;}
-nav a{font-family:var(--font-display);font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;}
-nav a:hover{color:var(--teal);}
+.tool-card{transition:box-shadow .2s,transform .2s;}
+.tool-card:hover{box-shadow:0 8px 24px rgba(0,122,122,0.12);transform:translateY(-2px);}
+.track-card summary:hover{background:var(--teal-xpale);}
+.faq-item summary:hover{color:var(--teal-dark);}
 
-/* ── PROGRESS BANNER ── */
-.progress-banner{
-  margin-top:64px;
-  background:var(--navy);
-  padding:12px 48px;
-  display:flex;align-items:center;justify-content:space-between;
-  border-bottom:1px solid rgba(0,153,153,0.3);
-}
-.progress-label{font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.5);}
-.progress-steps{display:flex;align-items:center;gap:0;}
-.prog-step{
-  display:flex;align-items:center;gap:8px;
-  padding:6px 16px;cursor:pointer;
-  font-family:var(--font-display);font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
-  color:rgba(255,255,255,0.4);
-  transition:all .2s;border-bottom:2px solid transparent;
-}
-.prog-step.active{color:var(--teal-light);border-bottom-color:var(--teal-light);}
-.prog-step.done{color:rgba(255,255,255,0.55);}
-.prog-step-num{
-  width:20px;height:20px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:10px;font-weight:800;
-  border:1.5px solid currentColor;flex-shrink:0;
-}
-.prog-step.done .prog-step-num{background:var(--teal);border-color:var(--teal);color:#fff;}
-.prog-step.done .prog-step-num::after{content:'✓';}
-.prog-step-arrow{color:rgba(255,255,255,0.15);font-size:12px;padding:0 4px;}
+.modal-overlay{position:fixed;inset:0;display:none;place-items:center;padding:24px;background:rgba(26,34,56,.6);z-index:100;}
+.modal-overlay.open{display:grid;}
+.modal-box{width:min(460px,100%);max-height:90vh;overflow-y:auto;background:var(--white);box-shadow:0 20px 60px rgba(0,0,0,.3);}
 
-/* ── HERO ── */
-.hero{
-  background:var(--navy);position:relative;overflow:hidden;
-  padding:64px 48px 56px;
-}
-.hero-texture{
-  position:absolute;inset:0;
-  background-image:
-    repeating-linear-gradient(0deg,transparent,transparent 47px,rgba(0,122,122,0.07) 47px,rgba(0,122,122,0.07) 48px),
-    repeating-linear-gradient(90deg,transparent,transparent 47px,rgba(0,122,122,0.07) 47px,rgba(0,122,122,0.07) 48px);
-  mask-image:radial-gradient(ellipse 80% 100% at 70% 50%,black 20%,transparent 80%);
-}
-.hero-glow{position:absolute;right:-80px;top:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,153,153,0.15),transparent 70%);pointer-events:none;}
-.hero-inner{position:relative;z-index:1;max-width:1200px;}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-display);font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--teal-light);margin-bottom:16px;}
-.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--teal-light);}
-.hero h1{font-family:var(--font-display);font-size:clamp(40px,5.5vw,72px);font-weight:700;line-height:.95;letter-spacing:1px;text-transform:uppercase;color:#fff;margin-bottom:20px;}
-.hero h1 .accent{color:var(--teal-light);}
-.hero-text{font-family:var(--font-serif);font-size:17px;line-height:1.8;color:rgba(255,255,255,.78);max-width:660px;margin-bottom:28px;}
-.hero-text strong{color:#fff;font-weight:500;}
-.hero-row{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:start;}
-.hero-tools-preview{display:flex;flex-direction:column;gap:10px;min-width:260px;}
-.hero-tool-pill{
-  display:flex;align-items:center;gap:12px;
-  background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);
-  padding:10px 16px;cursor:pointer;transition:all .2s;
-}
-.hero-tool-pill:hover{background:rgba(0,153,153,0.15);border-color:rgba(0,153,153,0.4);}
-.htp-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
-.htp-name{font-family:var(--font-display);font-size:14px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;}
-.htp-tag{font-family:var(--font-display);font-size:9px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-left:auto;}
-.htp-licensed{color:var(--gold);font-size:9px;letter-spacing:1px;font-family:var(--font-display);text-transform:uppercase;font-weight:700;margin-left:auto;display:flex;align-items:center;gap:4px;}
-.htp-licensed::before{content:'★';}
-
-/* ── STAGE SELECT ── */
-.stage-select-section{padding:56px 48px;background:var(--bg-alt);}
-.section-kicker{font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:6px;display:flex;align-items:center;gap:10px;}
-.section-kicker::after{content:'';width:32px;height:1px;background:var(--teal);}
-.section-heading{font-family:var(--font-display);font-size:40px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--navy);line-height:1;margin-bottom:8px;}
-.section-desc{font-size:15px;color:var(--muted);max-width:600px;line-height:1.65;margin-bottom:36px;}
-
-/* Track selector tabs */
-.track-tabs{display:flex;gap:0;margin-bottom:0;border-bottom:2px solid var(--border);}
-.track-tab{
-  font-family:var(--font-display);font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
-  padding:14px 28px;cursor:pointer;background:none;border:none;
-  color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-2px;
-  transition:all .2s;
-}
-.track-tab:hover{color:var(--teal);}
-.track-tab.active{color:var(--navy);border-bottom-color:var(--teal);}
-.track-panel{display:none;padding-top:36px;}
-.track-panel.active{display:block;}
-
-/* Track cards grid */
-.track-intro{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:32px;}
-.track-intro-text{padding:28px;background:var(--white);border:1px solid var(--border);border-left:4px solid var(--teal);}
-.track-intro-text h3{font-family:var(--font-display);font-size:22px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--navy);margin-bottom:10px;}
-.track-intro-text p{font-size:14px;line-height:1.7;color:var(--muted);}
-.track-stat-row{display:flex;flex-direction:column;gap:12px;}
-.track-stat{background:var(--navy);padding:20px 24px;display:flex;align-items:center;gap:16px;}
-.track-stat-num{font-family:var(--font-display);font-size:40px;font-weight:800;color:var(--teal-light);line-height:1;letter-spacing:-1px;}
-.track-stat-lbl{font-family:var(--font-display);font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.55);}
-
-/* Steps list */
-.steps-list{display:flex;flex-direction:column;gap:0;}
-.step-item{
-  background:var(--white);border:1px solid var(--border);
-  border-top:none;display:flex;align-items:stretch;
-  transition:all .25s;cursor:pointer;
-  position:relative;overflow:hidden;
-}
-.step-item:first-child{border-top:1px solid var(--border);}
-.step-item:hover{border-color:var(--teal);z-index:1;box-shadow:0 4px 18px rgba(0,122,122,0.1);}
-.step-item.completed{background:var(--teal-xpale);}
-.step-num-col{
-  width:72px;flex-shrink:0;background:var(--bg-alt);
-  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;
-  border-right:1px solid var(--border);
-  font-family:var(--font-display);font-size:28px;font-weight:800;
-  color:var(--muted-light);letter-spacing:-1px;
-  transition:all .25s;
-}
-.step-item:hover .step-num-col{background:var(--teal-pale);color:var(--teal);}
-.step-item.completed .step-num-col{background:var(--teal);color:#fff;}
-.step-check{font-size:18px;display:none;}
-.step-item.completed .step-check{display:block;}
-.step-item.completed .step-digit{display:none;}
-.step-body{padding:20px 24px;flex:1;display:flex;align-items:center;gap:20px;}
-.step-content{flex:1;}
-.step-title{font-family:var(--font-display);font-size:17px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--navy);margin-bottom:4px;}
-.step-desc{font-size:13px;line-height:1.6;color:var(--muted);}
-.step-tool-badge{
-  flex-shrink:0;padding:5px 12px;
-  font-family:var(--font-display);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
-  border:1.5px solid var(--border);color:var(--muted);
-  white-space:nowrap;
-}
-.step-tool-badge.claude{border-color:var(--claude);color:var(--claude);}
-.step-tool-badge.chatgpt{border-color:var(--chatgpt);color:var(--chatgpt);}
-.step-tool-badge.copilot{border-color:var(--copilot);color:var(--copilot);}
-.step-tool-badge.asana{border-color:var(--asana);color:var(--asana);}
-.step-tool-badge.any{border-color:var(--teal);color:var(--teal);}
-.step-expand{
-  flex-shrink:0;width:36px;height:36px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:18px;color:var(--muted-light);
-  transition:transform .2s;
-}
-.step-item.open .step-expand{transform:rotate(90deg);}
-.step-detail{
-  display:none;padding:0 24px 22px 72px;
-  background:inherit;
-}
-.step-item.open .step-detail{display:block;}
-.step-detail-inner{
-  border-left:2px solid var(--border-teal);padding-left:20px;
-  font-size:13px;line-height:1.75;color:var(--muted);
-}
-.step-detail-inner ul{margin:10px 0 10px 16px;}
-.step-detail-inner li{margin-bottom:5px;}
-.step-detail-inner strong{color:var(--text-mid);}
-.prompt-box{
-  background:var(--teal-xpale);border:1px solid var(--border-teal);border-left:3px solid var(--teal);
-  padding:12px 14px;margin-top:12px;
-}
-.prompt-box-lbl{font-family:var(--font-display);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-bottom:6px;}
-.prompt-box p{font-family:var(--font-serif);font-size:13px;font-style:italic;line-height:1.6;color:var(--navy);}
-.try-btn{
-  display:inline-flex;align-items:center;gap:6px;margin-top:12px;
-  font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
-  color:var(--teal);background:none;border:none;cursor:pointer;padding:0;
-  border-bottom:1px solid var(--teal);transition:color .2s;
-}
-.try-btn:hover{color:var(--teal-dark);}
-
-/* ── TOOL SPOTLIGHT ── */
-.tools-section{padding:56px 48px;background:var(--white);}
-.tool-spotlight-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);}
-.tool-spot{
-  background:var(--white);padding:28px 24px;
-  border-top:4px solid var(--tc,var(--teal));
-  display:flex;flex-direction:column;gap:12px;
-  transition:all .2s;cursor:pointer;
-}
-.tool-spot:hover{background:var(--teal-xpale);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,122,122,0.1);}
-.ts-icon{font-size:28px;margin-bottom:2px;}
-.ts-name{font-family:var(--font-display);font-size:24px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--navy);line-height:1;}
-.ts-maker{font-family:var(--font-display);font-size:10px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--muted-light);}
-.ts-license{
-  display:inline-flex;align-items:center;gap:5px;
-  font-family:var(--font-display);font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
-  color:var(--gold);
-}
-.ts-license::before{content:'★';}
-.ts-desc{font-size:12px;line-height:1.65;color:var(--text-mid);flex:1;}
-.ts-strengths{border-top:1px solid var(--border);padding-top:12px;}
-.ts-strength-item{font-size:11px;color:var(--muted);display:flex;align-items:flex-start;gap:6px;margin-bottom:5px;line-height:1.4;}
-.ts-strength-item::before{content:'—';color:var(--teal);font-size:10px;flex-shrink:0;margin-top:1px;}
-.ts-open{margin-top:auto;font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--teal);border-top:1px solid var(--border);padding-top:12px;display:flex;align-items:center;gap:6px;}
-.ts-open::after{content:'→';}
-
-/* ── DO & DON'T ── */
-.safety-section{padding:56px 48px;background:var(--bg-alt);}
-.safety-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
-.safety-col{display:flex;flex-direction:column;gap:12px;}
-.safety-col-label{font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:4px;}
-.safety-col-label.do-lbl{color:var(--teal);}
-.safety-col-label.dont-lbl{color:var(--red);}
-.safety-item{padding:16px 18px;font-size:13px;line-height:1.6;display:flex;align-items:flex-start;gap:10px;}
-.safety-item.do-item{background:var(--teal-pale);border:1px solid var(--border-teal);border-left:3px solid var(--teal);}
-.safety-item.dont-item{background:rgba(158,42,43,0.05);border:1px solid rgba(158,42,43,0.2);border-left:3px solid var(--red);}
-.safety-item-icon{font-size:16px;flex-shrink:0;margin-top:1px;}
-.safety-item-text{color:var(--text-mid);}
-
-/* ── GLOSSARY ── */
-.glossary-section{padding:56px 48px;}
-.glossary-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;}
-.gloss-card{background:var(--white);border:1px solid var(--border);padding:18px 20px;transition:all .2s;}
-.gloss-card:hover{border-color:var(--teal);box-shadow:0 4px 14px rgba(0,122,122,0.08);}
-.gloss-term{font-family:var(--font-display);font-size:15px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--navy);margin-bottom:6px;}
-.gloss-def{font-size:13px;line-height:1.65;color:var(--muted);}
-
-/* ── FAQ ── */
-.faq-section{padding:56px 48px;background:var(--bg-alt);}
-.faq-list{max-width:800px;display:flex;flex-direction:column;gap:0;}
-.faq-item{background:var(--white);border:1px solid var(--border);border-top:none;}
-.faq-item:first-child{border-top:1px solid var(--border);}
-.faq-q{
-  padding:18px 24px;cursor:pointer;
-  display:flex;align-items:center;justify-content:space-between;
-  font-family:var(--font-display);font-size:16px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;
-  color:var(--navy);transition:all .2s;
-  background:none;border:none;width:100%;text-align:left;
-}
-.faq-q:hover{background:var(--teal-xpale);}
-.faq-chevron{font-size:16px;color:var(--teal);transition:transform .2s;flex-shrink:0;}
-.faq-item.open .faq-chevron{transform:rotate(90deg);}
-.faq-a{
-  display:none;padding:0 24px 20px;
-  font-size:14px;line-height:1.75;color:var(--muted);
-  border-top:1px solid var(--border);padding-top:16px;
-}
-.faq-item.open .faq-a{display:block;}
-
-/* ── NEXT STEPS FOOTER ── */
-.next-section{
-  background:var(--navy);padding:56px 48px;
-  position:relative;overflow:hidden;
-}
-.next-texture{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 47px,rgba(0,122,122,0.06) 47px,rgba(0,122,122,0.06) 48px),repeating-linear-gradient(90deg,transparent,transparent 47px,rgba(0,122,122,0.06) 47px,rgba(0,122,122,0.06) 48px);}
-.next-inner{position:relative;z-index:1;max-width:1200px;}
-.next-heading{font-family:var(--font-display);font-size:36px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#fff;margin-bottom:10px;}
-.next-sub{font-family:var(--font-serif);font-size:16px;color:rgba(255,255,255,.65);margin-bottom:36px;max-width:560px;line-height:1.7;}
-.next-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-.next-card{
-  background:rgba(255,255,255,0.06);border:1px solid rgba(0,153,153,0.25);
-  padding:24px;transition:all .2s;cursor:pointer;
-}
-.next-card:hover{background:rgba(0,153,153,0.12);border-color:rgba(0,153,153,0.5);}
-.next-card-icon{font-size:28px;margin-bottom:12px;}
-.next-card-title{font-family:var(--font-display);font-size:17px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--teal-light);margin-bottom:8px;}
-.next-card-desc{font-size:13px;line-height:1.6;color:rgba(255,255,255,.55);}
-
-/* ── MODAL ── */
-.modal-overlay{position:fixed;inset:0;z-index:500;background:rgba(10,18,36,.85);display:none;align-items:flex-start;justify-content:center;padding:40px 20px;overflow-y:auto;}
-.modal-overlay.open{display:flex;}
-.modal{background:var(--white);max-width:680px;width:100%;position:relative;max-height:90vh;overflow-y:auto;}
-.modal-header{padding:28px 32px 20px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--white);z-index:10;}
-.modal-close{position:absolute;top:20px;right:24px;background:none;border:none;font-size:22px;cursor:pointer;color:var(--muted);transition:color .2s;}
-.modal-close:hover{color:var(--text);}
-.modal-tag{font-family:var(--font-display);font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);margin-bottom:6px;}
-.modal-title{font-family:var(--font-display);font-size:32px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--navy);line-height:1;}
-.modal-byline{font-family:var(--font-display);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted-light);margin-top:4px;}
-.modal-body{padding:28px 32px;}
-.modal-section{margin-bottom:24px;}
-.modal-section h3{font-family:var(--font-display);font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-bottom:10px;}
-.modal-section p{font-size:14px;line-height:1.75;color:var(--muted);}
-.modal-section ul{margin-left:18px;margin-top:8px;}
-.modal-section li{font-size:14px;line-height:1.7;color:var(--muted);margin-bottom:4px;}
-.modal-note{background:var(--teal-pale);border-left:3px solid var(--teal);padding:14px 16px;margin-top:16px;font-size:13px;line-height:1.65;color:var(--text-mid);}
-.modal-note strong{color:var(--teal-dark);}
-.modal-cta{margin-top:8px;padding:18px 32px 28px;border-top:1px solid var(--border);}
-.modal-cta-btn{
-  display:inline-flex;align-items:center;gap:8px;
-  font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
-  background:var(--teal);color:#fff;border:none;padding:12px 24px;cursor:pointer;
-  text-decoration:none;transition:all .2s;
-}
-.modal-cta-btn:hover{background:var(--teal-dark);}
-
-/* ── ANIMATIONS ── */
-.reveal{opacity:0;transform:translateY(18px);transition:opacity .45s ease,transform .45s ease;}
-.reveal.visible{opacity:1;transform:none;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
-.hero-inner *{animation:fadeUp .6s ease both;}
-.hero h1{animation-delay:.05s;}
-.hero-text{animation-delay:.15s;}
-.hero-row{animation-delay:.25s;}
-
-/* Responsive */
 @media(max-width:900px){
-  .tool-spotlight-grid{grid-template-columns:1fr 1fr;}
-  .track-intro{grid-template-columns:1fr;}
-  .next-cards{grid-template-columns:1fr;}
-  .safety-grid{grid-template-columns:1fr;}
-  nav ul{display:none;}
-  .progress-steps{gap:0;overflow-x:auto;}
-  .prog-step span.prog-step-name{display:none;}
-  .hero-row{grid-template-columns:1fr;}
-  .hero-tools-preview{display:none;}
+  .tools-grid,.tracks-grid,.glossary-grid{grid-template-columns:1fr !important;}
 }
 @media(max-width:600px){
-  .section-heading{font-size:28px;}
-  nav,nav.progress-banner{padding:0 20px;}
-  .hero,.stage-select-section,.tools-section,.safety-section,.glossary-section,.faq-section,.next-section{padding-left:20px;padding-right:20px;}
-  .tool-spotlight-grid{grid-template-columns:1fr;}
+  nav,.hero-inner,.section-pad,.cta-band,.footer-bar{padding-left:20px !important;padding-right:20px !important;}
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-brand">
-    <div class="nav-logo-block">
-      <div class="nav-logo-main">The Bushnell</div>
-      <div class="nav-logo-sub">Center for the Arts</div>
-    </div>
-    <div class="nav-sep"></div>
-    <div class="nav-hub">AI 101 — Welcome Guide</div>
+<div style="position:relative;z-index:5;display:flex;align-items:center;gap:16px;height:64px;padding:0 40px;background:var(--white);border-bottom:2px solid var(--teal);box-shadow:0 2px 12px rgba(0,0,0,.08)">
+  <div style="display:flex;flex-direction:column;line-height:1">
+    <span style="font-family:var(--font-display);font-size:19px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--navy)">The Bushnell</span>
+    <span style="font-family:var(--font-display);font-size:9.5px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--teal)">AI 101 · Start Here</span>
   </div>
-  <ul>
-    <li><a href="#tracks">Choose Your Track</a></li>
-    <li><a href="#tools">Your Tools</a></li>
-    <li><a href="#videos">Videos</a></li>
-    <li><a href="#safety">Do's & Don'ts</a></li>
-    <li><a href="#glossary">Glossary</a></li>
-    <li><a href="#faq">FAQs</a></li>
-  </ul>
-</nav>
+  <a href="bushnell-ai-hub-v5-arts.html" style="margin-left:auto;font-family:var(--font-display);font-size:11.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);text-decoration:none">Full AI Playbook →</a>
+</div>
 
-<!-- PROGRESS BANNER -->
-<div class="progress-banner">
-  <div class="progress-label">Your Learning Path</div>
-  <div class="progress-steps">
-    <div class="prog-step active" id="prog-1" onclick="scrollToSection('tracks')">
-      <div class="prog-step-num prog-digit">1</div>
-      <span class="prog-step-name">Pick Your Track</span>
+<div style="background:var(--navy);position:relative;overflow:hidden;padding:60px 40px 52px">
+  <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 47px,rgba(0,122,122,0.07) 47px,rgba(0,122,122,0.07) 48px),repeating-linear-gradient(90deg,transparent,transparent 47px,rgba(0,122,122,0.07) 47px,rgba(0,122,122,0.07) 48px);mask-image:radial-gradient(ellipse 80% 100% at 70% 50%,black 20%,transparent 80%)"></div>
+  <div style="position:absolute;right:-80px;top:-80px;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,rgba(0,153,153,0.18),transparent 70%)"></div>
+  <div class="hero-inner" style="position:relative;z-index:1;max-width:760px;padding:0 40px">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+      <span style="width:28px;height:1px;background:var(--teal-light)"></span>
+      <span style="font-family:var(--font-display);font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--teal-light)">Welcome</span>
     </div>
-    <div class="prog-step-arrow">›</div>
-    <div class="prog-step" id="prog-2" onclick="scrollToSection('tools')">
-      <div class="prog-step-num">2</div>
-      <span class="prog-step-name">Know Your Tools</span>
+    <h1 style="font-family:var(--font-display);font-size:clamp(34px,4.6vw,54px);font-weight:700;line-height:.98;letter-spacing:1px;text-transform:uppercase;color:#fff;margin:0 0 20px">Your AI toolkit, in about <span style="color:var(--teal-light)">15 minutes</span></h1>
+    <p style="font-family:var(--font-serif);font-size:17px;line-height:1.8;color:rgba(255,255,255,.8);max-width:62ch;margin:0">Three licensed tools, five rules for using them safely, and a short path built for your role. No technical experience required — if you can write an email, you can use AI. Want the full reference — every tool, every use case, the official policy? <a href="bushnell-ai-hub-v5-arts.html" style="color:var(--teal-light);font-weight:500">Open the AI Playbook</a>.</p>
+  </div>
+</div>
+
+<div class="section-pad" style="padding:52px 40px;background:var(--bg-alt)">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px"><span style="width:32px;height:1px;background:var(--teal)"></span><span style="font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--teal)">Start here</span></div>
+  <h2 style="font-family:var(--font-display);font-size:34px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);line-height:1;margin:0 0 8px">Your AI Toolkit</h2>
+  <p style="font-size:15px;color:var(--muted);max-width:62ch;line-height:1.65;margin:0 0 28px">Three licensed tools, ready today. Tap any card for how to access it and where it fits.</p>
+  <div class="tools-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+
+    <div class="tool-card" style="background:var(--white);border:1px solid var(--border);border-top:3px solid var(--claude);padding:24px;cursor:pointer" onclick="openToolModal('claude')">
+      <div style="font-family:var(--font-display);font-size:10.5px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted-light);margin-bottom:8px">Anthropic · claude.ai</div>
+      <div style="font-family:var(--font-display);font-size:22px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--navy);margin-bottom:8px">Claude</div>
+      <span style="display:inline-block;font-family:var(--font-display);font-size:9.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:1.5px solid var(--claude);color:var(--claude);padding:4px 10px;margin-bottom:12px">Paid license</span>
+      <p style="font-size:13.5px;line-height:1.6;color:var(--muted);margin:0 0 14px">Best for writing — donor letters, grant drafts, long documents.</p>
+      <div style="font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--teal)">Learn more &amp; get started →</div>
     </div>
-    <div class="prog-step-arrow">›</div>
-    <div class="prog-step" id="prog-3" onclick="scrollToSection('safety')">
-      <div class="prog-step-num">3</div>
-      <span class="prog-step-name">Rules of the Road</span>
+
+    <div class="tool-card" style="background:var(--white);border:1px solid var(--border);border-top:3px solid var(--chatgpt);padding:24px;cursor:pointer" onclick="openToolModal('chatgpt')">
+      <div style="font-family:var(--font-display);font-size:10.5px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted-light);margin-bottom:8px">OpenAI · chatgpt.com</div>
+      <div style="font-family:var(--font-display);font-size:22px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--navy);margin-bottom:8px">ChatGPT</div>
+      <span style="display:inline-block;font-family:var(--font-display);font-size:9.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:1.5px solid var(--chatgpt);color:var(--chatgpt);padding:4px 10px;margin-bottom:12px">Paid license</span>
+      <p style="font-size:13.5px;line-height:1.6;color:var(--muted);margin:0 0 14px">Best for data &amp; images — spreadsheets, visuals, brainstorming.</p>
+      <div style="font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--teal)">Learn more &amp; get started →</div>
     </div>
-    <div class="prog-step-arrow">›</div>
-    <div class="prog-step" id="prog-4" onclick="scrollToSection('glossary')">
-      <div class="prog-step-num">4</div>
-      <span class="prog-step-name">Key Terms</span>
+
+    <div class="tool-card" style="background:var(--white);border:1px solid var(--border);border-top:3px solid var(--copilot);padding:24px;cursor:pointer" onclick="openToolModal('copilot')">
+      <div style="font-family:var(--font-display);font-size:10.5px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted-light);margin-bottom:8px">Microsoft · built into M365</div>
+      <div style="font-family:var(--font-display);font-size:22px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--navy);margin-bottom:8px">Copilot</div>
+      <span style="display:inline-block;font-family:var(--font-display);font-size:9.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:1.5px solid var(--copilot);color:var(--copilot);padding:4px 10px;margin-bottom:12px">M365 E5 — included</span>
+      <p style="font-size:13.5px;line-height:1.6;color:var(--muted);margin:0 0 14px">Best for M365 — summarize emails, recap meetings, draft in Word.</p>
+      <div style="font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--teal)">Learn more &amp; get started →</div>
     </div>
-    <div class="prog-step-arrow">›</div>
-    <div class="prog-step" id="prog-5" onclick="scrollToSection('next')">
-      <div class="prog-step-num">5</div>
-      <span class="prog-step-name">What's Next</span>
+
+  </div>
+</div>
+
+<div class="section-pad" style="padding:52px 40px;background:var(--white)">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px"><span style="width:32px;height:1px;background:var(--teal)"></span><span style="font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--teal)">Before you paste anything</span></div>
+  <h2 style="font-family:var(--font-display);font-size:34px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);line-height:1;margin:0 0 28px">Rules of the Road</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px">
+    <div>
+      <div style="font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--teal)">Do this</div>
+      <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px">
+        <li style="font-size:14px;line-height:1.6;color:var(--text);padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--teal);font-weight:700">—</span>Start with a role prompt — who you are, where you work, what tone you need.</li>
+        <li style="font-size:14px;line-height:1.6;color:var(--text);padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--teal);font-weight:700">—</span>Anonymize before pasting — replace names, amounts, show titles with placeholders.</li>
+        <li style="font-size:14px;line-height:1.6;color:var(--text);padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--teal);font-weight:700">—</span>Review before you send — AI is a first draft, not a final.</li>
+        <li style="font-size:14px;line-height:1.6;color:var(--text);padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--teal);font-weight:700">—</span>Iterate — "shorter," "more warmth," "try again."</li>
+        <li style="font-size:14px;line-height:1.6;color:var(--text);padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--teal);font-weight:700">—</span>Share good prompts — what works for you works for your team.</li>
+      </ul>
+    </div>
+    <div>
+      <div style="font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--red)">Don't do this</div>
+      <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px">
+        <li style="font-size:14px;line-height:1.6;color:var(--text);padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--red);font-weight:700">—</span>No real donor names or gift amounts — ever.</li>
+        <li style="font-size:14px;line-height:1.6;color:var(--text);padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--red);font-weight:700">—</span>No HR, salary, or personnel details — generalize only.</li>
+        <li style="font-size:14px;line-height:1.6;color:var(--text);padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--red);font-weight:700">—</span>Verify facts, stats, and dates — AI hallucinates confidently.</li>
+        <li style="font-size:14px;line-height:1.6;color:var(--text);padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--red);font-weight:700">—</span>No grant content without expert review — Development Director signs off.</li>
+        <li style="font-size:14px;line-height:1.6;color:var(--text);padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--red);font-weight:700">—</span>No board, legal, or strategic documents — keep these offline.</li>
+      </ul>
     </div>
   </div>
 </div>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-texture"></div>
-  <div class="hero-glow"></div>
-  <div class="hero-inner">
-    <div class="hero-eyebrow">AI 101 — Welcome Guide · The Bushnell</div>
-    <h1>Welcome to <span class="accent">Your AI</span> Toolkit</h1>
-    <div class="hero-row">
-      <div>
-        <p class="hero-text">
-          You now have access to some of the most powerful AI tools in the world — and they're already paid for. This guide will walk you through what you have, how to use it safely, and how to get your first real win in under an hour. <strong>No technical experience required.</strong>
-        </p>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;">
-          <button class="btn-teal" onclick="scrollToSection('tracks')">Start Here → Pick Your Track</button>
-          <button class="btn-outline-white" onclick="scrollToSection('tools')">See All 4 Tools</button>
-        </div>
+<div class="section-pad" style="padding:52px 40px;background:var(--bg-alt)">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px"><span style="width:32px;height:1px;background:var(--teal)"></span><span style="font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--teal)">Pick one</span></div>
+  <h2 style="font-family:var(--font-display);font-size:34px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);line-height:1;margin:0 0 8px">Your Path</h2>
+  <p style="font-size:15px;color:var(--muted);max-width:62ch;line-height:1.65;margin:0 0 28px">Open the track that matches your work — three tasks, about 30–45 minutes.</p>
+  <div class="tracks-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+
+    <details class="track-card" open style="background:var(--white);border:1px solid var(--border)">
+      <summary style="cursor:pointer;padding:22px">
+        <div style="font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:6px">Marketing · Development</div>
+        <div style="font-family:var(--font-display);font-size:19px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--navy);margin-bottom:6px">The Writer's Room</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.5">Claude-first, for anything you write.</div>
+      </summary>
+      <div style="padding:0 22px 22px">
+        <ul style="margin:0 0 14px;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:9px">
+          <li style="font-size:13px;line-height:1.55;display:flex;gap:8px;color:var(--text)"><span style="font-family:var(--font-display);font-weight:800;color:var(--teal);flex-shrink:0">1</span>Set your voice with a role prompt.</li>
+          <li style="font-size:13px;line-height:1.55;display:flex;gap:8px;color:var(--text)"><span style="font-family:var(--font-display);font-weight:800;color:var(--teal);flex-shrink:0">2</span>Draft a donor thank-you.</li>
+          <li style="font-size:13px;line-height:1.55;display:flex;gap:8px;color:var(--text)"><span style="font-family:var(--font-display);font-weight:800;color:var(--teal);flex-shrink:0">3</span>Repurpose one release into five posts (ChatGPT).</li>
+        </ul>
+        <div style="background:var(--teal-xpale);border-left:3px solid var(--teal);padding:11px 14px;font-size:12px;font-style:italic;line-height:1.5;color:var(--text)">"You are a communications professional at The Bushnell. Our voice is warm, professional, community-centered. Help me draft a 3-paragraph donor thank-you for our education programs."</div>
       </div>
-      <div class="hero-tools-preview">
-        <div style="font-family:var(--font-display);font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:4px;">Your Licensed AI Stack</div>
-        <div class="hero-tool-pill" onclick="openToolModal('claude')">
-          <div class="htp-dot" style="background:var(--claude);"></div>
-          <div class="htp-name">Claude</div>
-          <div class="htp-licensed">Paid License</div>
-        </div>
-        <div class="hero-tool-pill" onclick="openToolModal('chatgpt')">
-          <div class="htp-dot" style="background:var(--chatgpt);"></div>
-          <div class="htp-name">ChatGPT</div>
-          <div class="htp-licensed">Paid License</div>
-        </div>
-        <div class="hero-tool-pill" onclick="openToolModal('copilot')">
-          <div class="htp-dot" style="background:var(--copilot);"></div>
-          <div class="htp-name">Copilot</div>
-          <div class="htp-licensed">M365 E5 Included</div>
-        </div>
-        <div class="hero-tool-pill" onclick="openToolModal('asana')">
-          <div class="htp-dot" style="background:var(--asana);"></div>
-          <div class="htp-name">Asana AI</div>
-          <div class="htp-licensed">Included in License</div>
-        </div>
+    </details>
+
+    <details class="track-card" style="background:var(--white);border:1px solid var(--border)">
+      <summary style="cursor:pointer;padding:22px">
+        <div style="font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:6px">Finance · Ops · HR</div>
+        <div style="font-family:var(--font-display);font-size:19px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--navy);margin-bottom:6px">The Back of House</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.5">Copilot-first, for data and process.</div>
+      </summary>
+      <div style="padding:0 22px 22px">
+        <ul style="margin:0 0 14px;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:9px">
+          <li style="font-size:13px;line-height:1.55;display:flex;gap:8px;color:var(--text)"><span style="font-family:var(--font-display);font-weight:800;color:var(--teal);flex-shrink:0">1</span>Summarize a Teams meeting.</li>
+          <li style="font-size:13px;line-height:1.55;display:flex;gap:8px;color:var(--text)"><span style="font-family:var(--font-display);font-weight:800;color:var(--teal);flex-shrink:0">2</span>Turn Q3 figures into a board narrative (Claude).</li>
+          <li style="font-size:13px;line-height:1.55;display:flex;gap:8px;color:var(--text)"><span style="font-family:var(--font-display);font-weight:800;color:var(--teal);flex-shrink:0">3</span>Draft a job description with Copilot.</li>
+        </ul>
+        <div style="background:var(--teal-xpale);border-left:3px solid var(--teal);padding:11px 14px;font-size:12px;font-style:italic;line-height:1.5;color:var(--text)">"I'm writing a board report on our Q3 expense variance. Here are the anonymized figures: [Show A, Show B…]. Write a 3-paragraph narrative — factual, concise, for the Board Finance Committee."</div>
       </div>
+    </details>
+
+    <details class="track-card" style="background:var(--white);border:1px solid var(--border)">
+      <summary style="cursor:pointer;padding:22px">
+        <div style="font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:6px">Anyone, ready to go further</div>
+        <div style="font-family:var(--font-display);font-size:19px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--navy);margin-bottom:6px">The Power User</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.5">All three tools, used strategically.</div>
+      </summary>
+      <div style="padding:0 22px 22px">
+        <ul style="margin:0 0 14px;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:9px">
+          <li style="font-size:13px;line-height:1.55;display:flex;gap:8px;color:var(--text)"><span style="font-family:var(--font-display);font-weight:800;color:var(--teal);flex-shrink:0">1</span>Learn the CRAFT prompt framework.</li>
+          <li style="font-size:13px;line-height:1.55;display:flex;gap:8px;color:var(--text)"><span style="font-family:var(--font-display);font-weight:800;color:var(--teal);flex-shrink:0">2</span>Analyze a spreadsheet in ChatGPT.</li>
+          <li style="font-size:13px;line-height:1.55;display:flex;gap:8px;color:var(--text)"><span style="font-family:var(--font-display);font-weight:800;color:var(--teal);flex-shrink:0">3</span>Chain three tools on one real project.</li>
+        </ul>
+        <div style="background:var(--teal-xpale);border-left:3px solid var(--teal);padding:11px 14px;font-size:12px;font-style:italic;line-height:1.5;color:var(--text)">Context, Role, Action, Format, Tone — "Context: development at a nonprofit arts center. Role: major-gifts fundraiser. Action: draft a re-engagement email…"</div>
+      </div>
+    </details>
+
+  </div>
+  <div style="margin-top:28px">
+    <div style="font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:10px">Watch &amp; learn</div>
+    <div style="display:flex;flex-direction:column;gap:7px">
+      <a href="https://www.youtube.com/results?search_query=claude+ai+full+tutorial+beginners+2025" target="_blank" rel="noopener" style="font-size:13px;color:var(--teal-dark);text-decoration:none">▶ Full Claude Tutorial for Beginners</a>
+      <a href="https://www.youtube.com/results?search_query=25+essential+chatgpt+tips+beginners+2025" target="_blank" rel="noopener" style="font-size:13px;color:var(--teal-dark);text-decoration:none">▶ 25 Essential ChatGPT Tips</a>
+      <a href="https://www.youtube.com/results?search_query=microsoft+365+copilot+beginners+guide+2025" target="_blank" rel="noopener" style="font-size:13px;color:var(--teal-dark);text-decoration:none">▶ M365 Copilot Beginner's Guide</a>
     </div>
   </div>
 </div>
 
-<!-- TRACK SELECTOR -->
-<div class="stage-select-section" id="tracks">
-  <div class="section-kicker">Step 1</div>
-  <div class="section-heading">Pick Your Track</div>
-  <p class="section-desc">Where are you starting from? Choose the track that fits you — there's no wrong answer. Each track walks you through 5 hands-on tasks, sized for where you are right now.</p>
-
-  <div class="track-tabs">
-    <button class="track-tab active" onclick="switchTrack('first')">🎬 First Curtain <br><span style="font-size:9px;font-weight:500;opacity:.6;text-transform:none;letter-spacing:0;">New to AI · Start here</span></button>
-    <button class="track-tab" onclick="switchTrack('writing')">✍️ The Writer's Room <br><span style="font-size:9px;font-weight:500;opacity:.6;text-transform:none;letter-spacing:0;">Comms, Development, Marketing</span></button>
-    <button class="track-tab" onclick="switchTrack('ops')">⚙️ The Back of House <br><span style="font-size:9px;font-weight:500;opacity:.6;text-transform:none;letter-spacing:0;">Finance, Operations, Admin, HR</span></button>
-    <button class="track-tab" onclick="switchTrack('power')">🚀 The Power User <br><span style="font-size:9px;font-weight:500;opacity:.6;text-transform:none;letter-spacing:0;">Ready to go deeper</span></button>
+<div class="cta-band" style="padding:40px;background:var(--navy);display:flex;align-items:center;gap:28px;flex-wrap:wrap">
+  <div style="flex:1;min-width:260px">
+    <div style="font-family:var(--font-display);font-size:21px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#fff;margin-bottom:6px">Ready to go deeper?</div>
+    <p style="font-size:13.5px;line-height:1.6;margin:0;color:rgba(255,255,255,.7)">The full AI Playbook covers 14 tools, 20 real Bushnell use cases, a tool-picker, a prompt library, the official AI policy, and a full glossary.</p>
   </div>
+  <a href="bushnell-ai-hub-v5-arts.html" style="font-family:var(--font-display);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;background:var(--teal);color:#fff;padding:14px 28px;text-decoration:none">Open the AI Playbook →</a>
+</div>
 
-  <!-- FIRST CURTAIN -->
-  <div class="track-panel active" id="track-first">
-    <div class="track-intro">
-      <div class="track-intro-text">
-        <h3>First Curtain — Start Here</h3>
-        <p>You may have heard about AI but haven't had a reason to try it yet, or you've dabbled but felt unsure what to actually do with it. This track gets you productive in under an hour. Complete all 5 tasks and you'll walk away with a real result — not just a demo.</p>
-        <div style="margin-top:14px;font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--teal);">Best Tool for This Track: Claude (claude.ai)</div>
-      </div>
-      <div class="track-stat-row">
-        <div class="track-stat">
-          <div class="track-stat-num">5</div>
-          <div><div class="track-stat-lbl">Tasks to Complete</div><div style="font-size:11px;color:rgba(255,255,255,.35);margin-top:2px;font-family:var(--font-body);">~45–60 minutes total</div></div>
-        </div>
-        <div class="track-stat">
-          <div class="track-stat-num">0</div>
-          <div><div class="track-stat-lbl">Technical Skill Required</div><div style="font-size:11px;color:rgba(255,255,255,.35);margin-top:2px;font-family:var(--font-body);">Just type in plain English</div></div>
-        </div>
-      </div>
+<div class="section-pad" style="padding:44px 40px;background:var(--white)">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px"><span style="width:32px;height:1px;background:var(--teal)"></span><span style="font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--teal)">Key terms</span></div>
+  <h2 style="font-family:var(--font-display);font-size:24px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--navy);margin:0 0 20px">Glossary</h2>
+  <div class="glossary-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px 24px">
+    <div>
+      <div style="font-family:var(--font-display);font-weight:700;font-size:14.5px;color:var(--navy);margin-bottom:3px">Prompt</div>
+      <div style="font-size:12.5px;line-height:1.55;color:var(--muted)">The instruction you type — the clearer and more specific, the better the result.</div>
     </div>
-    <div class="steps-list" id="steps-first">
-
-      <div class="step-item" onclick="toggleStep(this)">
-        <div class="step-num-col"><span class="step-digit">01</span><span class="step-check">✓</span></div>
-        <div class="step-body">
-          <div class="step-content">
-            <div class="step-title">Open Claude & Say Hello</div>
-            <div class="step-desc">Go to claude.ai, sign in with your work email, and have your first real conversation with an AI.</div>
-          </div>
-          <div class="step-tool-badge claude">Claude</div>
-          <div class="step-expand">›</div>
-        </div>
-        <div class="step-detail">
-          <div class="step-detail-inner">
-            <p>Go to <strong>claude.ai</strong> — you have a paid license, so sign in or create an account with your Bushnell email. Once you're in, don't overthink it. Just type something like:</p>
-            <div class="prompt-box">
-              <div class="prompt-box-lbl">Try This Prompt</div>
-              <p>"Hi! I work at The Bushnell Center for the Arts in Hartford, CT. I'm trying to learn how to use AI tools at work. Can you briefly explain what you can help me with and give me one concrete example relevant to an arts organization?"</p>
-            </div>
-            <p style="margin-top:10px;">Notice how it responds — this is a conversation, not a search engine. You can ask follow-up questions, tell it to change things, or just say "explain that differently."</p>
-            <button class="try-btn" onclick="event.stopPropagation();window.open('https://claude.ai','_blank')">Open Claude →</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="step-item" onclick="toggleStep(this)">
-        <div class="step-num-col"><span class="step-digit">02</span><span class="step-check">✓</span></div>
-        <div class="step-body">
-          <div class="step-content">
-            <div class="step-title">Ask It to Write Something for You</div>
-            <div class="step-desc">Give Claude a real writing task from your actual work. See what it produces in seconds.</div>
-          </div>
-          <div class="step-tool-badge claude">Claude</div>
-          <div class="step-expand">›</div>
-        </div>
-        <div class="step-detail">
-          <div class="step-detail-inner">
-            <p>Pick something real — an email you've been putting off, a social post, a memo summary. The more context you give, the better the result.</p>
-            <div class="prompt-box">
-              <div class="prompt-box-lbl">Example Prompts</div>
-              <p>"Write a warm, professional email to a group of donors thanking them for attending our gala last week. Keep it to 3 short paragraphs."</p>
-            </div>
-            <div class="prompt-box" style="margin-top:8px;">
-              <div class="prompt-box-lbl">Or Try</div>
-              <p>"Draft a 2-sentence out-of-office message for me. I'll be out this Friday for a staff event and returning Monday."</p>
-            </div>
-            <p style="margin-top:10px;"><strong>Key lesson:</strong> If the first draft isn't quite right, don't start over — just reply with what you'd like changed: "Make it shorter" or "Add a call to action." AI works best as a back-and-forth.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="step-item" onclick="toggleStep(this)">
-        <div class="step-num-col"><span class="step-digit">03</span><span class="step-check">✓</span></div>
-        <div class="step-body">
-          <div class="step-content">
-            <div class="step-title">Try Copilot in Microsoft 365</div>
-            <div class="step-desc">Open Teams or Outlook and use Copilot to summarize a thread or draft a reply — without leaving your inbox.</div>
-          </div>
-          <div class="step-tool-badge copilot">Copilot</div>
-          <div class="step-expand">›</div>
-        </div>
-        <div class="step-detail">
-          <div class="step-detail-inner">
-            <p>Copilot lives inside the Microsoft 365 apps you already use every day. You don't need to go anywhere new.</p>
-            <ul>
-              <li>In <strong>Outlook</strong>: Open a long email thread. Look for the Copilot button (✨ or "Summary by Copilot") — click it and see a summary appear in seconds.</li>
-              <li>In <strong>Teams</strong>: After a meeting, open the recap. Copilot can show action items and decisions.</li>
-              <li>In <strong>Word</strong>: Open a blank doc and look for "Draft with Copilot" at the top. Give it a prompt and watch a first draft appear.</li>
-            </ul>
-            <p style="margin-top:10px;"><strong>Note:</strong> Copilot features require your M365 E5 license to be activated. If you don't see the Copilot icon, contact IT to confirm your license is enabled.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="step-item" onclick="toggleStep(this)">
-        <div class="step-num-col"><span class="step-digit">04</span><span class="step-check">✓</span></div>
-        <div class="step-body">
-          <div class="step-content">
-            <div class="step-title">Learn the Golden Rule: Don't Share Private Data</div>
-            <div class="step-desc">The most important habit in AI use. Understand what's safe to share — and what isn't.</div>
-          </div>
-          <div class="step-tool-badge any">All Tools</div>
-          <div class="step-expand">›</div>
-        </div>
-        <div class="step-detail">
-          <div class="step-detail-inner">
-            <p>AI tools are incredibly useful — but they're external platforms. Information you type in can be used to train future models or be reviewed by the company's safety team. The rule is simple:</p>
-            <ul>
-              <li><strong>✓ Safe:</strong> General questions, anonymized examples, public information, draft writing, brainstorming</li>
-              <li><strong>✗ Never:</strong> Individual donor names + dollar amounts, employee salary/HR data, patron personal data, confidential board materials, vendor contract specifics</li>
-            </ul>
-            <p style="margin-top:10px;">When in doubt, ask yourself: "Would I be comfortable if this appeared in a Google search?" If no — don't type it. Generalize or anonymize first.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="step-item" onclick="toggleStep(this)">
-        <div class="step-num-col"><span class="step-digit">05</span><span class="step-check">✓</span></div>
-        <div class="step-body">
-          <div class="step-content">
-            <div class="step-title">Get Your First Real Win</div>
-            <div class="step-desc">Use AI to complete an actual task from your to-do list today. Not a test — a real deliverable.</div>
-          </div>
-          <div class="step-tool-badge any">Your Choice</div>
-          <div class="step-expand">›</div>
-        </div>
-        <div class="step-detail">
-          <div class="step-detail-inner">
-            <p>Now pick something real from your work week. Use any tool you've tried so far. Some ideas:</p>
-            <ul>
-              <li>Draft a meeting agenda or recap</li>
-              <li>Write a first pass at an event description</li>
-              <li>Summarize a long email thread using Copilot</li>
-              <li>Ask Claude to help you think through a decision</li>
-              <li>Use ChatGPT to brainstorm 10 names for a program or campaign</li>
-            </ul>
-            <p style="margin-top:10px;"><strong>The goal:</strong> Leave today with something you can actually use — a draft, a list, a summary — that AI helped you create. That's when it stops feeling abstract and starts feeling like a superpower.</p>
-          </div>
-        </div>
-      </div>
-
+    <div>
+      <div style="font-family:var(--font-display);font-weight:700;font-size:14.5px;color:var(--navy);margin-bottom:3px">Role prompt</div>
+      <div style="font-size:12.5px;line-height:1.55;color:var(--muted)">Telling the AI who it should act as before asking it to do something.</div>
     </div>
-  </div><!-- /first curtain -->
-
-  <!-- WRITER'S ROOM -->
-  <div class="track-panel" id="track-writing">
-    <div class="track-intro">
-      <div class="track-intro-text">
-        <h3>The Writer's Room</h3>
-        <p>For staff in Marketing, Development, Communications, and anyone who spends significant time crafting language — emails, grants, social posts, donor appeals, press releases. AI won't replace your voice. It will give you a brilliant first draft to react to instead of a blank page.</p>
-        <div style="margin-top:14px;font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--teal);">Primary Tool: Claude · Secondary: ChatGPT, Copilot</div>
-      </div>
-      <div class="track-stat-row">
-        <div class="track-stat"><div class="track-stat-num">5</div><div><div class="track-stat-lbl">Tasks</div><div style="font-size:11px;color:rgba(255,255,255,.35);margin-top:2px;font-family:var(--font-body);">~60–90 minutes</div></div></div>
-        <div class="track-stat"><div class="track-stat-num">∞</div><div><div class="track-stat-lbl">Blank Pages Defeated</div><div style="font-size:11px;color:rgba(255,255,255,.35);margin-top:2px;font-family:var(--font-body);">First drafts in seconds</div></div></div>
-      </div>
+    <div>
+      <div style="font-family:var(--font-display);font-weight:700;font-size:14.5px;color:var(--navy);margin-bottom:3px">Hallucination</div>
+      <div style="font-size:12.5px;line-height:1.55;color:var(--muted)">A confident but incorrect answer. Always verify facts, stats, and dates.</div>
     </div>
-    <div class="steps-list">
-      <div class="step-item" onclick="toggleStep(this)">
-        <div class="step-num-col"><span class="step-digit">01</span><span class="step-check">✓</span></div>
-        <div class="step-body"><div class="step-content"><div class="step-title">Set the Stage: Give Claude Your Voice</div><div class="step-desc">Teach Claude who The Bushnell is and how you communicate before asking it to write anything.</div></div><div class="step-tool-badge claude">Claude</div><div class="step-expand">›</div></div>
-        <div class="step-detail"><div class="step-detail-inner">
-          <p>Before any writing task, open a new Claude conversation and establish context. This "role prompt" sets the tone for everything that follows in that session.</p>
-          <div class="prompt-box"><div class="prompt-box-lbl">Role Prompt to Start Every Writing Session</div><p>"You are a communications professional at The Bushnell Center for the Arts in Hartford, CT — a nonprofit performing arts center with a mission to elevate the human spirit through the arts. Our voice is warm, professional, and community-centered. We serve a diverse audience and are committed to accessibility and inclusion. I'll be asking you to help me draft communications. Always match our tone and avoid corporate jargon."</p></div>
-          <p style="margin-top:10px;">Once you've set this up, save it as a note or a pinned conversation so you can paste it quickly next time.</p>
-        </div></div>
-      </div>
-      <div class="step-item" onclick="toggleStep(this)">
-        <div class="step-num-col"><span class="step-digit">02</span><span class="step-check">✓</span></div>
-        <div class="step-body"><div class="step-content"><div class="step-title">Draft a Donor Communication</div><div class="step-desc">Use Claude to write a donor thank-you, appeal, or stewardship note. Refine until it sounds like you.</div></div><div class="step-tool-badge claude">Claude</div><div class="step-expand">›</div></div>
-        <div class="step-detail"><div class="step-detail-inner">
-          <div class="prompt-box"><div class="prompt-box-lbl">Example Prompt (after setting role)</div><p>"Write a thank-you letter for donors who gave to our education programs last quarter. 3 paragraphs, warm but not saccharine. Acknowledge their impact specifically on youth programming. Include a soft ask to consider renewing at the same level."</p></div>
-          <p style="margin-top:10px;"><strong>Important:</strong> Never include real donor names, amounts, or contact information in your prompt. Use placeholders like [Donor Name] and fill them in after.</p>
-        </div></div>
-      </div>
-      <div class="step-item" onclick="toggleStep(this)">
-        <div class="step-num-col"><span class="step-digit">03</span><span class="step-check">✓</span></div>
-        <div class="step-body"><div class="step-content"><div class="step-title">Repurpose One Piece of Content into Five</div><div class="step-desc">Take a press release or event description and let ChatGPT spin it into social posts, email subject lines, and more.</div></div><div class="step-tool-badge chatgpt">ChatGPT</div><div class="step-expand">›</div></div>
-        <div class="step-detail"><div class="step-detail-inner">
-          <p>Paste an existing press release or program description into ChatGPT, then ask:</p>
-          <div class="prompt-box"><div class="prompt-box-lbl">Content Repurposing Prompt</div><p>"Based on the press release below, give me: 1) Three Instagram captions (each under 150 characters, different angles), 2) Two email subject line options, 3) One Facebook post with a question to drive engagement, 4) A 280-character tweet. Keep The Bushnell's warm, arts-centered voice throughout."</p></div>
-          <p style="margin-top:10px;">One piece of content → 7 deliverables in under 2 minutes. That's the time savings that starts to add up.</p>
-        </div></div>
-      </div>
-      <div class="step-item" onclick="toggleStep(this)">
-        <div class="step-num-col"><span class="step-digit">04</span><span class="step-check">✓</span></div>
-        <div class="step-body"><div class="step-content"><div class="step-title">Use Copilot to Draft Your Next Grant Section</div><div class="step-desc">Paste an anonymized grant prompt into Copilot in Word and let it generate a first-draft narrative.</div></div><div class="step-tool-badge copilot">Copilot</div><div class="step-expand">›</div></div>
-        <div class="step-detail"><div class="step-detail-inner">
-          <p>Open Microsoft Word and use Draft with Copilot. Grant writing tip: break the grant into sections and work on one at a time.</p>
-          <div class="prompt-box"><div class="prompt-box-lbl">Grant Needs Statement Prompt</div><p>"Write a 3-paragraph needs statement for a community arts education grant. The organization is a nonprofit performing arts center serving diverse Hartford communities. Focus on: arts access gaps for underserved youth, the organization's 15-year track record in education programs, and the specific unmet need for after-school arts programming."</p></div>
-          <p style="margin-top:10px;">Always review AI-drafted grant content with your Development Director before submitting. AI gives you a starting point — your expertise and knowledge of the funder makes it competitive.</p>
-        </div></div>
-      </div>
-      <div class="step-item" onclick="toggleStep(this)">
-        <div class="step-num-col"><span class="step-digit">05</span><span class="step-check">✓</span></div>
-        <div class="step-body"><div class="step-content"><div class="step-title">Build Your Personal Prompt Library</div><div class="step-desc">Save 3 prompts that worked well for you this week. Your future self will thank you.</div></div><div class="step-tool-badge any">All Tools</div><div class="step-expand">›</div></div>
-        <div class="step-detail"><div class="step-detail-inner">
-          <p>The best AI users don't reinvent the wheel every time. Create a simple Word doc or OneNote page called "My AI Prompts" and save the prompts that produced good results. Include:</p>
-          <ul>
-            <li>The prompt text itself</li>
-            <li>Which tool worked best for it</li>
-            <li>A note on when to use it</li>
-          </ul>
-          <p style="margin-top:10px;">Over time, this becomes your personal shortcut library — and a resource you can share with your team.</p>
-        </div></div>
-      </div>
+    <div>
+      <div style="font-family:var(--font-display);font-weight:700;font-size:14.5px;color:var(--navy);margin-bottom:3px">Context window</div>
+      <div style="font-size:12.5px;line-height:1.55;color:var(--muted)">How much text the AI can "remember" in one conversation.</div>
     </div>
-  </div><!-- /writer's room -->
-
-  <!-- BACK OF HOUSE -->
-  <div class="track-panel" id="track-ops">
-    <div class="track-intro">
-      <div class="track-intro-text">
-        <h3>The Back of House</h3>
-        <p>For Finance, Operations, HR, Administration, and anyone who deals with data, processes, reports, and documentation. AI won't replace your expertise — it will handle the tedious first draft so you can focus on the judgment calls that actually require you.</p>
-        <div style="margin-top:14px;font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--teal);">Primary Tool: Copilot (M365) · Secondary: Claude, ChatGPT</div>
-      </div>
-      <div class="track-stat-row">
-        <div class="track-stat"><div class="track-stat-num">5</div><div><div class="track-stat-lbl">Tasks</div><div style="font-size:11px;color:rgba(255,255,255,.35);margin-top:2px;font-family:var(--font-body);">~60–90 minutes</div></div></div>
-        <div class="track-stat"><div class="track-stat-num">↓</div><div><div class="track-stat-lbl">Time on Routine Work</div><div style="font-size:11px;color:rgba(255,255,255,.35);margin-top:2px;font-family:var(--font-body);">More time for real decisions</div></div></div>
-      </div>
+    <div>
+      <div style="font-family:var(--font-display);font-weight:700;font-size:14.5px;color:var(--navy);margin-bottom:3px">Fine-tuning</div>
+      <div style="font-size:12.5px;line-height:1.55;color:var(--muted)">Training a model further on specific data — not something you'll do day-to-day.</div>
     </div>
-    <div class="steps-list">
-      <div class="step-item" onclick="toggleStep(this)">
-        <div class="step-num-col"><span class="step-digit">01</span><span class="step-check">✓</span></div>
-        <div class="step-body"><div class="step-content"><div class="step-title">Summarize a Meeting with Copilot in Teams</div><div class="step-desc">Let Copilot turn your next Teams meeting into a structured recap with action items — automatically.</div></div><div class="step-tool-badge copilot">Copilot</div><div class="step-expand">›</div></div>
-        <div class="step-detail"><div class="step-detail-inner">
-          <p>After your next Teams meeting, open the meeting in Teams and look for the <strong>Recap</strong> tab. Copilot automatically generates a summary, action items, and key decisions. You can also ask it questions: "What did we decide about the budget?" or "Who is responsible for the venue contract?"</p>
-          <p style="margin-top:10px;">If transcript/recap isn't appearing, make sure Teams meeting recording and transcription is enabled by your IT admin.</p>
-        </div></div>
-      </div>
-      <div class="step-item" onclick="toggleStep(this)">
-        <div class="step-num-col"><span class="step-digit">02</span><span class="step-check">✓</span></div>
-        <div class="step-body"><div class="step-content"><div class="step-title">Turn Data into a Narrative with Claude</div><div class="step-desc">Paste anonymized figures into Claude and ask it to write a board-ready narrative explanation.</div></div><div class="step-tool-badge claude">Claude</div><div class="step-expand">›</div></div>
-        <div class="step-detail"><div class="step-detail-inner">
-          <div class="prompt-box"><div class="prompt-box-lbl">Example: Variance Narrative Prompt</div><p>"I'm writing a board report and need help drafting the narrative for our Q3 expense variance. Here are the anonymized figures: [paste figures with show names replaced by Show A, Show B, etc.]. Write a 3-paragraph narrative explaining the significant variances, likely causes, and any corrective actions planned. Audience is our Board Finance Committee — factual, concise, professional."</p></div>
-          <p style="margin-top:10px;"><strong>Critical:</strong> Always have your Finance Director or CFO review AI-generated financial narratives before presenting to the board. AI drafts it — your expertise validates it.</p>
-        </div></div>
-      </div>
-      <div class="step-item" onclick="toggleStep(this)">
-        <div class="step-num-col"><span class="step-digit">03</span><span class="step-check">✓</span></div>
-        <div class="step-body"><div class="step-content"><div class="step-title">Use Asana AI to Manage Your Projects</div><div class="step-desc">Let Asana's built-in AI summarize project status, identify blockers, and draft task descriptions.</div></div><div class="step-tool-badge asana">Asana AI</div><div class="step-expand">›</div></div>
-        <div class="step-detail"><div class="step-detail-inner">
-          <p>If your team uses Asana, you already have access to Asana Intelligence — AI built directly into your project management tool.</p>
-          <ul>
-            <li><strong>Project Status Reports:</strong> Ask Asana AI to draft a status update based on completed and pending tasks</li>
-            <li><strong>Smart Summaries:</strong> Get a quick overview of where a project stands without reading every task</li>
-            <li><strong>Task Drafting:</strong> Describe what needs to happen and Asana AI will break it into subtasks</li>
-            <li><strong>Risk Identification:</strong> AI can flag tasks that are at risk of missing their due dates</li>
-          </ul>
-          <p style="margin-top:10px;">Look for the ✨ icon or "Smart" features within your Asana projects to access these tools.</p>
-        </div></div>
-      </div>
-      <div class="step-item" onclick="toggleStep(this)">
-        <div class="step-num-col"><span class="step-digit">04</span><span class="step-check">✓</span></div>
-        <div class="step-body"><div class="step-content"><div class="step-title">Draft an HR Document or Policy Communication</div><div class="step-desc">Use Claude to write a job description, onboarding checklist, or policy update in plain language.</div></div><div class="step-tool-badge claude">Claude</div><div class="step-expand">›</div></div>
-        <div class="step-detail"><div class="step-detail-inner">
-          <div class="prompt-box"><div class="prompt-box-lbl">Job Description Prompt</div><p>"Write a job description for a [Role Title] at a nonprofit performing arts center. The role reports to [Department Head]. Key responsibilities include [list 3–4]. We value diversity, equity, and inclusion — our tagline is 'Working Together, Welcoming All.' Keep the language welcoming and accessible, avoid jargon."</p></div>
-          <p style="margin-top:10px;"><strong>Privacy rule:</strong> Never include individual employee names, salary information, performance records, or specific HR situations in any AI prompt. Use general role descriptions only.</p>
-        </div></div>
-      </div>
-      <div class="step-item" onclick="toggleStep(this)">
-        <div class="step-num-col"><span class="step-digit">05</span><span class="step-check">✓</span></div>
-        <div class="step-body"><div class="step-content"><div class="step-title">Build a Slide Deck Draft with Copilot in PowerPoint</div><div class="step-desc">Give Copilot a topic and watch it generate a complete slide deck in under a minute.</div></div><div class="step-tool-badge copilot">Copilot</div><div class="step-expand">›</div></div>
-        <div class="step-detail"><div class="step-detail-inner">
-          <p>Open PowerPoint and click <strong>Copilot</strong> in the Home ribbon. Choose "Create presentation about..." and give it a prompt:</p>
-          <div class="prompt-box"><div class="prompt-box-lbl">Example Prompt</div><p>"Create a 6-slide presentation summarizing Q3 operations highlights for a staff all-hands meeting. Include slides on: overview, key accomplishments, challenges and responses, upcoming Q4 priorities, and a closing thank-you slide."</p></div>
-          <p style="margin-top:10px;">Copilot will generate the full deck with layout and placeholder content. You then edit, adjust, and add your real data. It's a starting structure, not a final product.</p>
-        </div></div>
-      </div>
-    </div>
-  </div><!-- /back of house -->
-
-  <!-- POWER USER -->
-  <div class="track-panel" id="track-power">
-    <div class="track-intro">
-      <div class="track-intro-text">
-        <h3>The Power User</h3>
-        <p>You've used AI before and you're ready to move beyond basic prompting. This track is about building habits, workflows, and skills that multiply your output — and start to change how you think about your work. Expect to stretch.</p>
-        <div style="margin-top:14px;font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--teal);">All 4 Tools — Used Strategically</div>
-      </div>
-      <div class="track-stat-row">
-        <div class="track-stat"><div class="track-stat-num">5</div><div><div class="track-stat-lbl">Advanced Tasks</div><div style="font-size:11px;color:rgba(255,255,255,.35);margin-top:2px;font-family:var(--font-body);">~90–120 minutes</div></div></div>
-        <div class="track-stat"><div class="track-stat-num">2×</div><div><div class="track-stat-lbl">Output Multiplier</div><div style="font-size:11px;color:rgba(255,255,255,.35);margin-top:2px;font-family:var(--font-body);">When you use the right tool for each job</div></div></div>
-      </div>
-    </div>
-    <div class="steps-list">
-      <div class="step-item" onclick="toggleStep(this)">
-        <div class="step-num-col"><span class="step-digit">01</span><span class="step-check">✓</span></div>
-        <div class="step-body"><div class="step-content"><div class="step-title">Master the Art of the Prompt</div><div class="step-desc">Learn the CRAFT framework for writing prompts that consistently get excellent results.</div></div><div class="step-tool-badge any">All Tools</div><div class="step-expand">›</div></div>
-        <div class="step-detail"><div class="step-detail-inner">
-          <p>Great prompts share a structure. Use <strong>CRAFT</strong> to build yours:</p>
-          <ul>
-            <li><strong>C — Context:</strong> Who you are, your org, the situation</li>
-            <li><strong>R — Role:</strong> What role you want the AI to play ("Act as a fundraising expert...")</li>
-            <li><strong>A — Action:</strong> The specific thing you need ("Write / Summarize / Analyze / Draft...")</li>
-            <li><strong>F — Format:</strong> How you want it ("3 bullet points / a 2-paragraph email / a table...")</li>
-            <li><strong>T — Tone:</strong> Voice and register ("Warm and professional / Formal / Concise...")</li>
-          </ul>
-          <div class="prompt-box" style="margin-top:10px;"><div class="prompt-box-lbl">CRAFT In Action</div><p>"Context: I work in development at a nonprofit arts center. Role: Act as an experienced major gifts fundraiser. Action: Draft a re-engagement email for a lapsed donor who gave $5,000 three years ago but hasn't responded to our last two appeals. Format: 3 short paragraphs with a clear subject line. Tone: Warm, personal, no pressure — focus on reconnection."</p></div>
-        </div></div>
-      </div>
-      <div class="step-item" onclick="toggleStep(this)">
-        <div class="step-num-col"><span class="step-digit">02</span><span class="step-check">✓</span></div>
-        <div class="step-body"><div class="step-content"><div class="step-title">Use ChatGPT for Data Analysis</div><div class="step-desc">Upload an anonymized spreadsheet to ChatGPT and ask it to find patterns, create charts, and tell you what it sees.</div></div><div class="step-tool-badge chatgpt">ChatGPT</div><div class="step-expand">›</div></div>
-        <div class="step-detail"><div class="step-detail-inner">
-          <p>ChatGPT's data analysis feature (available with your paid license) can analyze spreadsheets and generate charts — no Excel formulas needed.</p>
-          <ul>
-            <li>Export a report (attendance, box office trends, donor data) to CSV or Excel</li>
-            <li><strong>Anonymize it first</strong> — replace patron names with IDs, show names with [Show A/B/C]</li>
-            <li>Upload the file using the paperclip icon in ChatGPT</li>
-          </ul>
-          <div class="prompt-box"><div class="prompt-box-lbl">Analysis Prompt</div><p>"Analyze this attendance data. What are the top 3 trends you see? Which show types perform best on weekends vs. weekdays? Create a bar chart showing attendance by category."</p></div>
-        </div></div>
-      </div>
-      <div class="step-item" onclick="toggleStep(this)">
-        <div class="step-num-col"><span class="step-digit">03</span><span class="step-check">✓</span></div>
-        <div class="step-body"><div class="step-content"><div class="step-title">Build a Custom Workflow with Multiple Tools</div><div class="step-desc">Chain Claude, ChatGPT, and Copilot together for a project — using each where it's strongest.</div></div><div class="step-tool-badge any">All Tools</div><div class="step-expand">›</div></div>
-        <div class="step-detail"><div class="step-detail-inner">
-          <p>The best AI users know that different tools are stronger for different tasks. Here's a sample workflow for a board report:</p>
-          <ul>
-            <li><strong>Step 1 — ChatGPT:</strong> Upload the anonymized data file → get charts and trend analysis</li>
-            <li><strong>Step 2 — Claude:</strong> Paste the analysis summary → ask it to write the narrative section for the board packet</li>
-            <li><strong>Step 3 — Copilot in PowerPoint:</strong> Use the narrative as input → build the slide deck</li>
-            <li><strong>Step 4 — You:</strong> Review everything, add real context and judgment, finalize</li>
-          </ul>
-          <p style="margin-top:10px;">Think of it as an assembly line where AI handles the labor-intensive steps and you handle the decisions.</p>
-        </div></div>
-      </div>
-      <div class="step-item" onclick="toggleStep(this)">
-        <div class="step-num-col"><span class="step-digit">04</span><span class="step-check">✓</span></div>
-        <div class="step-body"><div class="step-content"><div class="step-title">Use Asana AI to Run Your Weekly Review</div><div class="step-desc">Ask Asana AI to surface at-risk tasks, overdue items, and team workload — and brief you in 60 seconds.</div></div><div class="step-tool-badge asana">Asana AI</div><div class="step-expand">›</div></div>
-        <div class="step-detail"><div class="step-detail-inner">
-          <p>For managers and project leads, Asana Intelligence can become your Monday morning briefing. Use it to:</p>
-          <ul>
-            <li>Generate a status update for any project in natural language</li>
-            <li>Identify tasks that have been stuck or are at risk</li>
-            <li>Automatically draft a project update to share with stakeholders</li>
-            <li>Ask natural language questions: "What's incomplete this week?" "Who has the most overdue tasks?"</li>
-          </ul>
-          <p style="margin-top:10px;">Build this into a Monday morning ritual: open Asana, ask AI for your weekly briefing, then plan your week from there.</p>
-        </div></div>
-      </div>
-      <div class="step-item" onclick="toggleStep(this)">
-        <div class="step-num-col"><span class="step-digit">05</span><span class="step-check">✓</span></div>
-        <div class="step-body"><div class="step-content"><div class="step-title">Teach Someone Else</div><div class="step-desc">The surest way to master something is to explain it to a colleague. Share what you've learned.</div></div><div class="step-tool-badge any">You</div><div class="step-expand">›</div></div>
-        <div class="step-detail"><div class="step-detail-inner">
-          <p>Pick one colleague who hasn't used AI yet and walk them through a single task together. You'll learn more from that 20-minute session than from an hour of reading. Ideas:</p>
-          <ul>
-            <li>Sit with someone and help them draft their first AI prompt</li>
-            <li>Share a prompt from your prompt library and explain why it works</li>
-            <li>Show them Copilot summarizing a meeting recap in Teams</li>
-            <li>Share this guide with your team</li>
-          </ul>
-          <p style="margin-top:10px;">Then share what you both learned with the AI Taskforce. We're all building this together.</p>
-        </div></div>
-      </div>
-    </div>
-  </div><!-- /power user -->
-
-</div><!-- /stage-select-section -->
-
-<!-- TOOL SPOTLIGHT -->
-<div class="tools-section" id="tools">
-  <div class="section-kicker">Step 2</div>
-  <div class="section-heading">Your Licensed AI Stack</div>
-  <p class="section-desc" style="margin-bottom:32px;">Four tools, four distinct strengths. You don't have to use all of them — start with one and add others when you're ready.</p>
-
-  <div class="tool-spotlight-grid">
-    <div class="tool-spot" style="--tc:var(--claude);" onclick="openToolModal('claude')">
-      <div class="ts-icon">🧠</div>
-      <div class="ts-name">Claude</div>
-      <div class="ts-maker">By Anthropic — claude.ai</div>
-      <div class="ts-license">Paid License · Start Here</div>
-      <div class="ts-desc">The best all-around writer in the AI world. Exceptional at nuanced, human-sounding prose — donor communications, grant narratives, any message where tone and care matter most. Also great for long documents and complex reasoning.</div>
-      <div class="ts-strengths">
-        <div class="ts-strength-item">Long-form writing with genuine warmth and nuance</div>
-        <div class="ts-strength-item">Processing very long documents (contracts, reports)</div>
-        <div class="ts-strength-item">Multi-step reasoning and planning</div>
-        <div class="ts-strength-item">Following complex, detailed instructions</div>
-      </div>
-      <div class="ts-open">Learn More & Get Started</div>
-    </div>
-    <div class="tool-spot" style="--tc:var(--chatgpt);" onclick="openToolModal('chatgpt')">
-      <div class="ts-icon">💬</div>
-      <div class="ts-name">ChatGPT</div>
-      <div class="ts-maker">By OpenAI — chatgpt.com</div>
-      <div class="ts-license">Paid License</div>
-      <div class="ts-desc">The most versatile AI platform. Upload spreadsheets for instant data analysis, generate images with DALL·E, brainstorm, code, and connect to a massive ecosystem of integrations. The Swiss Army knife of the group.</div>
-      <div class="ts-strengths">
-        <div class="ts-strength-item">Upload & analyze spreadsheets with instant charts</div>
-        <div class="ts-strength-item">Image generation (DALL·E 3) for concept visuals</div>
-        <div class="ts-strength-item">Brainstorming and idea generation</div>
-        <div class="ts-strength-item">Content repurposing across formats</div>
-      </div>
-      <div class="ts-open">Learn More & Get Started</div>
-    </div>
-    <div class="tool-spot" style="--tc:var(--copilot);" onclick="openToolModal('copilot')">
-      <div class="ts-icon">🪟</div>
-      <div class="ts-name">Copilot</div>
-      <div class="ts-maker">By Microsoft — Built into M365</div>
-      <div class="ts-license">M365 E5 — Already Included</div>
-      <div class="ts-desc">AI that lives inside the apps you already use: Outlook, Teams, Word, Excel, PowerPoint. No new tabs, no copy-pasting. Just AI assistance exactly where you're already working.</div>
-      <div class="ts-strengths">
-        <div class="ts-strength-item">Summarizes Teams meetings with action items</div>
-        <div class="ts-strength-item">Drafts emails and replies directly in Outlook</div>
-        <div class="ts-strength-item">Builds PowerPoint decks from a prompt or Word doc</div>
-        <div class="ts-strength-item">Analyzes data and creates formulas in Excel</div>
-      </div>
-      <div class="ts-open">Learn More & Get Started</div>
-    </div>
-    <div class="tool-spot" style="--tc:var(--asana);" onclick="openToolModal('asana')">
-      <div class="ts-icon">📋</div>
-      <div class="ts-name">Asana AI</div>
-      <div class="ts-maker">By Asana — Built into your account</div>
-      <div class="ts-license">Included in Your License</div>
-      <div class="ts-desc">AI woven into your project management. Automatically generates status reports, surfaces at-risk tasks, drafts project updates, and answers questions about your projects in plain English — all from within Asana.</div>
-      <div class="ts-strengths">
-        <div class="ts-strength-item">Auto-generate project status reports</div>
-        <div class="ts-strength-item">Surface blocked or at-risk tasks automatically</div>
-        <div class="ts-strength-item">Break a goal into tasks and subtasks</div>
-        <div class="ts-strength-item">Ask natural-language questions about project data</div>
-      </div>
-      <div class="ts-open">Learn More & Get Started</div>
+    <div>
+      <div style="font-family:var(--font-display);font-weight:700;font-size:14.5px;color:var(--navy);margin-bottom:3px">Anonymize</div>
+      <div style="font-size:12.5px;line-height:1.55;color:var(--muted)">Replacing real names, amounts, or identifiers with placeholders before pasting.</div>
     </div>
   </div>
 </div>
 
-<!-- WATCH & LEARN -->
-<div class="section section-alt" id="videos">
-  <div class="section-kicker">Watch & Learn</div>
-  <div class="section-heading">Video Tutorials</div>
-  <p class="section-desc" style="margin-bottom:32px;">Three YouTube videos per tool — all free, all beginner-friendly. Each link opens a pre-filtered YouTube search. Once you're there, sort by <strong>"This year"</strong> to surface the most current uploads.</p>
+<div class="section-pad" style="padding:8px 40px 52px;background:var(--white)">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px"><span style="width:32px;height:1px;background:var(--teal)"></span><span style="font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--teal)">Questions</span></div>
+  <h2 style="font-family:var(--font-display);font-size:24px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--navy);margin:0 0 20px">FAQ</h2>
 
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;">
-
-    <!-- Claude -->
-    <div style="background:var(--white);border:1px solid var(--border);border-top:3px solid var(--claude);padding:24px;">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
-        <span style="font-size:20px;">🧠</span>
-        <div style="font-family:var(--font-display);font-size:16px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--navy);">Claude</div>
-        <span style="font-family:var(--font-display);font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--claude);margin-left:auto;">★ Paid License</span>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:10px;">
-        <a href="https://www.youtube.com/results?search_query=claude+ai+full+tutorial+beginners+2025" target="_blank" rel="noopener" style="display:flex;align-items:flex-start;gap:12px;text-decoration:none;padding:12px;background:var(--bg);border:1px solid var(--border);transition:all .2s;" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--border)'">
-          <div style="width:36px;height:36px;background:var(--teal-pale);border:1px solid var(--border-teal);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;">▶</div>
-          <div>
-            <div style="font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--navy);margin-bottom:3px;">Full Claude Tutorial for Beginners</div>
-            <div style="font-size:11px;color:var(--muted);line-height:1.5;">YouTube · Covers prompting basics, Projects, web search, and Artifacts. Look for 2025–2026 uploads for current features.</div>
-          </div>
-        </a>
-        <a href="https://www.youtube.com/results?search_query=claude+ai+tips+for+work+productivity+2025" target="_blank" rel="noopener" style="display:flex;align-items:flex-start;gap:12px;text-decoration:none;padding:12px;background:var(--bg);border:1px solid var(--border);transition:all .2s;" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--border)'">
-          <div style="width:36px;height:36px;background:var(--teal-pale);border:1px solid var(--border-teal);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;">▶</div>
-          <div>
-            <div style="font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--navy);margin-bottom:3px;">Claude AI Tips for Work & Productivity</div>
-            <div style="font-size:11px;color:var(--muted);line-height:1.5;">YouTube · Practical workplace walkthroughs — writing, summarizing, and using Projects to save context across sessions.</div>
-          </div>
-        </a>
-        <a href="https://www.youtube.com/results?search_query=how+to+write+better+prompts+claude+ai+2025" target="_blank" rel="noopener" style="display:flex;align-items:flex-start;gap:12px;text-decoration:none;padding:12px;background:var(--bg);border:1px solid var(--border);transition:all .2s;" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--border)'">
-          <div style="width:36px;height:36px;background:var(--teal-pale);border:1px solid var(--border-teal);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;">▶</div>
-          <div>
-            <div style="font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--navy);margin-bottom:3px;">How to Write Better Prompts — Claude</div>
-            <div style="font-size:11px;color:var(--muted);line-height:1.5;">YouTube · Prompt engineering for everyday users. No technical background needed — just clearer instructions.</div>
-          </div>
-        </a>
-      </div>
-    </div>
-
-    <!-- ChatGPT -->
-    <div style="background:var(--white);border:1px solid var(--border);border-top:3px solid var(--chatgpt);padding:24px;">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
-        <span style="font-size:20px;">💬</span>
-        <div style="font-family:var(--font-display);font-size:16px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--navy);">ChatGPT</div>
-        <span style="font-family:var(--font-display);font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--chatgpt);margin-left:auto;">★ Paid License</span>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:10px;">
-        <a href="https://www.youtube.com/results?search_query=25+essential+chatgpt+tips+beginners+skillademia+2025" target="_blank" rel="noopener" style="display:flex;align-items:flex-start;gap:12px;text-decoration:none;padding:12px;background:var(--bg);border:1px solid var(--border);transition:all .2s;" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--border)'">
-          <div style="width:36px;height:36px;background:rgba(16,163,127,0.1);border:1px solid rgba(16,163,127,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;">▶</div>
-          <div>
-            <div style="font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--navy);margin-bottom:3px;">25 Essential ChatGPT Tips — Skillademia</div>
-            <div style="font-size:11px;color:var(--muted);line-height:1.5;">YouTube · ~20 min. Covers perfect prompts, custom instructions, data analysis, Canvas, and Custom GPTs. Widely recommended for beginners.</div>
-          </div>
-        </a>
-        <a href="https://www.youtube.com/results?search_query=chatgpt+data+analysis+upload+spreadsheet+csv+tutorial+2025" target="_blank" rel="noopener" style="display:flex;align-items:flex-start;gap:12px;text-decoration:none;padding:12px;background:var(--bg);border:1px solid var(--border);transition:all .2s;" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--border)'">
-          <div style="width:36px;height:36px;background:rgba(16,163,127,0.1);border:1px solid rgba(16,163,127,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;">▶</div>
-          <div>
-            <div style="font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--navy);margin-bottom:3px;">ChatGPT Data Analysis — Upload a Spreadsheet</div>
-            <div style="font-size:11px;color:var(--muted);line-height:1.5;">YouTube · Upload a CSV or Excel file and get instant charts. Directly applicable to box office and attendance data analysis.</div>
-          </div>
-        </a>
-        <a href="https://www.youtube.com/results?search_query=chatgpt+content+repurposing+social+media+nonprofit+2025" target="_blank" rel="noopener" style="display:flex;align-items:flex-start;gap:12px;text-decoration:none;padding:12px;background:var(--bg);border:1px solid var(--border);transition:all .2s;" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--border)'">
-          <div style="width:36px;height:36px;background:rgba(16,163,127,0.1);border:1px solid rgba(16,163,127,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;">▶</div>
-          <div>
-            <div style="font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--navy);margin-bottom:3px;">ChatGPT for Content Repurposing</div>
-            <div style="font-size:11px;color:var(--muted);line-height:1.5;">YouTube · Turn one press release into Instagram captions, email subject lines, tweets, and more in under 5 minutes.</div>
-          </div>
-        </a>
-      </div>
-    </div>
-
-    <!-- Copilot -->
-    <div style="background:var(--white);border:1px solid var(--border);border-top:3px solid var(--copilot);padding:24px;">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
-        <span style="font-size:20px;">🪟</span>
-        <div style="font-family:var(--font-display);font-size:16px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--navy);">Copilot</div>
-        <span style="font-family:var(--font-display);font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--copilot);margin-left:auto;">★ M365 E5</span>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:10px;">
-        <a href="https://www.youtube.com/results?search_query=microsoft+365+copilot+beginners+guide+2025" target="_blank" rel="noopener" style="display:flex;align-items:flex-start;gap:12px;text-decoration:none;padding:12px;background:var(--bg);border:1px solid var(--border);transition:all .2s;" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--border)'">
-          <div style="width:36px;height:36px;background:rgba(0,120,212,0.1);border:1px solid rgba(0,120,212,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;">▶</div>
-          <div>
-            <div style="font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--navy);margin-bottom:3px;">M365 Copilot Beginner's Guide</div>
-            <div style="font-size:11px;color:var(--muted);line-height:1.5;">YouTube · Look for Mike Tholfsen's 2025 walkthrough — widely recommended, covers Copilot in Outlook, Teams, Word, and more with live demos.</div>
-          </div>
-        </a>
-        <a href="https://www.youtube.com/results?search_query=copilot+outlook+summarize+email+teams+meeting+recap+2025" target="_blank" rel="noopener" style="display:flex;align-items:flex-start;gap:12px;text-decoration:none;padding:12px;background:var(--bg);border:1px solid var(--border);transition:all .2s;" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--border)'">
-          <div style="width:36px;height:36px;background:rgba(0,120,212,0.1);border:1px solid rgba(0,120,212,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;">▶</div>
-          <div>
-            <div style="font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--navy);margin-bottom:3px;">Copilot in Outlook & Teams — Email & Meeting Recaps</div>
-            <div style="font-size:11px;color:var(--muted);line-height:1.5;">YouTube · The two highest-impact Copilot features for daily work — summarizing email threads and generating meeting recaps with action items.</div>
-          </div>
-        </a>
-        <a href="https://www.youtube.com/results?search_query=copilot+powerpoint+create+presentation+from+prompt+word+2025" target="_blank" rel="noopener" style="display:flex;align-items:flex-start;gap:12px;text-decoration:none;padding:12px;background:var(--bg);border:1px solid var(--border);transition:all .2s;" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--border)'">
-          <div style="width:36px;height:36px;background:rgba(0,120,212,0.1);border:1px solid rgba(0,120,212,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;">▶</div>
-          <div>
-            <div style="font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--navy);margin-bottom:3px;">Copilot in PowerPoint & Word</div>
-            <div style="font-size:11px;color:var(--muted);line-height:1.5;">YouTube · Build a complete slide deck from a prompt, or draft a document from scratch — both in under 2 minutes.</div>
-          </div>
-        </a>
-      </div>
-    </div>
-
-    <!-- Asana AI -->
-    <div style="background:var(--white);border:1px solid var(--border);border-top:3px solid var(--asana);padding:24px;">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
-        <span style="font-size:20px;">📋</span>
-        <div style="font-family:var(--font-display);font-size:16px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--navy);">Asana AI</div>
-        <span style="font-family:var(--font-display);font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--asana);margin-left:auto;">★ Included</span>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:10px;">
-        <a href="https://www.youtube.com/results?search_query=asana+ai+features+tutorial+2025+smart+status" target="_blank" rel="noopener" style="display:flex;align-items:flex-start;gap:12px;text-decoration:none;padding:12px;background:var(--bg);border:1px solid var(--border);transition:all .2s;" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--border)'">
-          <div style="width:36px;height:36px;background:rgba(240,106,106,0.1);border:1px solid rgba(240,106,106,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;">▶</div>
-          <div>
-            <div style="font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--navy);margin-bottom:3px;">Asana AI Features Overview</div>
-            <div style="font-size:11px;color:var(--muted);line-height:1.5;">YouTube · Covers Smart Status, Smart Summaries, and AI-generated project updates. Filter for 2025 videos to see current features.</div>
-          </div>
-        </a>
-        <a href="https://www.youtube.com/results?search_query=asana+ai+studio+workflow+automation+tutorial+2025" target="_blank" rel="noopener" style="display:flex;align-items:flex-start;gap:12px;text-decoration:none;padding:12px;background:var(--bg);border:1px solid var(--border);transition:all .2s;" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--border)'">
-          <div style="width:36px;height:36px;background:rgba(240,106,106,0.1);border:1px solid rgba(240,106,106,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;">▶</div>
-          <div>
-            <div style="font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--navy);margin-bottom:3px;">Asana AI Studio — Workflow Automation</div>
-            <div style="font-size:11px;color:var(--muted);line-height:1.5;">YouTube · How to build no-code AI-powered rules inside Asana. Automate task naming, status checks, and project updates.</div>
-          </div>
-        </a>
-        <a href="https://www.youtube.com/c/Asana" target="_blank" rel="noopener" style="display:flex;align-items:flex-start;gap:12px;text-decoration:none;padding:12px;background:var(--bg);border:1px solid var(--border);transition:all .2s;" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--border)'">
-          <div style="width:36px;height:36px;background:rgba(240,106,106,0.1);border:1px solid rgba(240,106,106,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;">▶</div>
-          <div>
-            <div style="font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--navy);margin-bottom:3px;">Official Asana YouTube Channel</div>
-            <div style="font-size:11px;color:var(--muted);line-height:1.5;">YouTube · Asana's official channel — short "How to Asana" video tutorials covering individual features. Subscribe for new releases.</div>
-          </div>
-        </a>
-      </div>
-    </div>
-
-  </div>
-
-  <div style="margin-top:20px;padding:14px 18px;background:var(--white);border:1px solid var(--border);border-left:3px solid var(--gold);display:flex;align-items:flex-start;gap:10px;">
-    <span style="font-size:16px;flex-shrink:0;">💡</span>
-    <div style="font-size:12px;line-height:1.65;color:var(--muted);">
-      <strong style="color:var(--text-mid);">Getting current results:</strong> After clicking any link, filter YouTube by <strong>"This year"</strong> to surface 2025–2026 videos. AI tools update frequently — recent videos will reflect the features you actually have access to today.
-    </div>
-  </div>
+  <details class="faq-item" style="border-bottom:1px solid var(--border);padding:14px 0">
+    <summary style="cursor:pointer;font-family:var(--font-display);font-weight:700;font-size:15px;letter-spacing:.3px;color:var(--navy)">Is my data safe if I paste it into these tools?</summary>
+    <p style="font-size:13px;line-height:1.6;margin:9px 0 0;color:var(--muted)">Our licensed tools offer stronger protection than free consumer accounts, but the safest rule is still: anonymize donor, HR, and financial specifics before pasting anything.</p>
+  </details>
+  <details class="faq-item" style="border-bottom:1px solid var(--border);padding:14px 0">
+    <summary style="cursor:pointer;font-family:var(--font-display);font-weight:700;font-size:15px;letter-spacing:.3px;color:var(--navy)">Do I need to disclose that I used AI?</summary>
+    <p style="font-size:13px;line-height:1.6;margin:9px 0 0;color:var(--muted)">For internal drafts, no. For public-facing content or grant submissions, check with your director — some funders want disclosure.</p>
+  </details>
+  <details class="faq-item" style="border-bottom:1px solid var(--border);padding:14px 0">
+    <summary style="cursor:pointer;font-family:var(--font-display);font-weight:700;font-size:15px;letter-spacing:.3px;color:var(--navy)">What if the AI gets something wrong?</summary>
+    <p style="font-size:13px;line-height:1.6;margin:9px 0 0;color:var(--muted)">It will, occasionally, and confidently. Always verify names, numbers, and dates before anything goes out.</p>
+  </details>
+  <details class="faq-item" style="border-bottom:1px solid var(--border);padding:14px 0">
+    <summary style="cursor:pointer;font-family:var(--font-display);font-weight:700;font-size:15px;letter-spacing:.3px;color:var(--navy)">Which tool should I start with?</summary>
+    <p style="font-size:13px;line-height:1.6;margin:9px 0 0;color:var(--muted)">If you write often, start with Claude. If you work mostly in Outlook/Word/Teams, start with Copilot — it's already there.</p>
+  </details>
 </div>
 
-<!-- DO'S & DON'TS -->
-<div class="safety-section" id="safety">
-  <div class="section-kicker">Step 3</div>
-  <div class="section-heading">Rules of the Road</div>
-  <p class="section-desc" style="margin-bottom:32px;">AI tools are powerful — and that means knowing the guardrails matters as much as knowing the shortcuts. These aren't bureaucratic rules; they protect our patrons, donors, and colleagues.</p>
+<div class="footer-bar" style="padding:26px 40px;background:var(--navy);font-family:var(--font-display);font-size:11px;letter-spacing:.5px;color:rgba(255,255,255,.5)">For internal use only · Questions? <a href="mailto:ai-taskforce@bushnell.org" style="color:var(--teal-light)">ai-taskforce@bushnell.org</a></div>
 
-  <div class="safety-grid">
-    <div class="safety-col">
-      <div class="safety-col-label do-lbl">✓ Do This</div>
-      <div class="safety-item do-item"><div class="safety-item-icon">✓</div><div class="safety-item-text"><strong>Start with a role prompt.</strong> Tell the AI who you are, what The Bushnell is, and what tone you need before asking it to write anything.</div></div>
-      <div class="safety-item do-item"><div class="safety-item-icon">✓</div><div class="safety-item-text"><strong>Anonymize all data.</strong> Replace patron names with IDs, show names with [Show A], dollar amounts with [Amount X] before pasting anything into an AI tool.</div></div>
-      <div class="safety-item do-item"><div class="safety-item-icon">✓</div><div class="safety-item-text"><strong>Always review AI output before using it.</strong> AI is a first-draft generator, not a final product. Read everything and edit to match your voice and the actual facts.</div></div>
-      <div class="safety-item do-item"><div class="safety-item-icon">✓</div><div class="safety-item-text"><strong>Use it for the routine so you can focus on the exceptional.</strong> Let AI handle the first pass so your expertise can go into the judgment, nuance, and strategy that only you can provide.</div></div>
-      <div class="safety-item do-item"><div class="safety-item-icon">✓</div><div class="safety-item-text"><strong>Ask follow-up questions.</strong> If the first response isn't right, say so. "Make it shorter," "Add more warmth," "Use a different example." AI conversation is iterative.</div></div>
-      <div class="safety-item do-item"><div class="safety-item-icon">✓</div><div class="safety-item-text"><strong>Share what's working with your team.</strong> Good prompts are reusable. If you find something that works, document it and share it.</div></div>
+<!-- TOOL MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModalOnBackdrop(event)">
+  <div class="modal-box" id="modal-box">
+    <div id="modal-content"></div>
+    <div style="padding:16px 30px 26px;display:flex;gap:10px;justify-content:flex-end">
+      <button onclick="closeModal()" style="font-family:var(--font-display);font-size:11.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;background:none;border:none;color:var(--muted);cursor:pointer;padding:10px 14px">Close</button>
+      <a id="modal-cta" target="_blank" style="font-family:var(--font-display);font-size:11.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;background:var(--teal);color:#fff;padding:10px 22px;text-decoration:none">Open →</a>
     </div>
-    <div class="safety-col">
-      <div class="safety-col-label dont-lbl">✗ Don't Do This</div>
-      <div class="safety-item dont-item"><div class="safety-item-icon">✗</div><div class="safety-item-text"><strong>Don't paste real donor names + giving amounts.</strong> Ever. This is private data that belongs to our patrons — treat it with the same care you would any confidential record.</div></div>
-      <div class="safety-item dont-item"><div class="safety-item-icon">✗</div><div class="safety-item-text"><strong>Don't share employee salaries, HR situations, or performance details.</strong> These are confidential personnel matters. Generalize to role types, never to specific individuals.</div></div>
-      <div class="safety-item dont-item"><div class="safety-item-icon">✗</div><div class="safety-item-text"><strong>Don't treat AI output as fact.</strong> AI can "hallucinate" — generating confident-sounding information that is simply wrong. Always verify specific facts, statistics, and dates.</div></div>
-      <div class="safety-item dont-item"><div class="safety-item-icon">✗</div><div class="safety-item-text"><strong>Don't submit AI-generated grant content without expert review.</strong> Have your Development Director or relevant department lead review any AI-assisted grant materials before submitting.</div></div>
-      <div class="safety-item dont-item"><div class="safety-item-icon">✗</div><div class="safety-item-text"><strong>Don't share confidential board or legal materials.</strong> Strategic plans, board executive session content, vendor contracts, and legal correspondence should not be entered into any external AI tool.</div></div>
-      <div class="safety-item dont-item"><div class="safety-item-icon">✗</div><div class="safety-item-text"><strong>Don't forget to read performer/union rights requirements.</strong> For content featuring artists or performers, confirm usage rights align with any union or contract obligations before publishing.</div></div>
-    </div>
-  </div>
-</div>
-
-<!-- GLOSSARY -->
-<div class="glossary-section" id="glossary">
-  <div class="section-kicker">Step 4</div>
-  <div class="section-heading">Key Terms — Plain English</div>
-  <p class="section-desc" style="margin-bottom:28px;">AI has a lot of jargon. Here's what the terms you'll actually encounter actually mean.</p>
-  <div class="glossary-grid">
-    <div class="gloss-card reveal"><div class="gloss-term">AI (Artificial Intelligence)</div><div class="gloss-def">Computer systems trained on enormous amounts of text and data to understand and generate human language. The tools in this guide are all AI-powered assistants.</div></div>
-    <div class="gloss-card reveal"><div class="gloss-term">LLM (Large Language Model)</div><div class="gloss-def">The underlying technology behind Claude, ChatGPT, and Copilot. A system trained on vast amounts of text to predict and generate language. When someone says "LLM," they mean the AI engine itself.</div></div>
-    <div class="gloss-card reveal"><div class="gloss-term">Prompt</div><div class="gloss-def">The instruction or question you type to the AI. Better prompts = better results. Think of it like giving clear directions to a very capable new colleague who knows nothing about your specific situation yet.</div></div>
-    <div class="gloss-card reveal"><div class="gloss-term">Hallucination</div><div class="gloss-def">When an AI confidently states something that is factually wrong. AI can invent statistics, misattribute quotes, or get dates wrong — with total confidence. Always verify specific facts before using them.</div></div>
-    <div class="gloss-card reveal"><div class="gloss-term">Context Window</div><div class="gloss-def">How much information the AI can "hold in mind" during a single conversation. Modern AI tools have large context windows — Claude can process very long documents in one go. When you start a new chat, it forgets the previous one.</div></div>
-    <div class="gloss-card reveal"><div class="gloss-term">Role Prompt</div><div class="gloss-def">A prompt that tells the AI what role to play and what context to assume. Example: "You are a communications professional at a nonprofit arts center." This shapes everything that follows in the conversation.</div></div>
-    <div class="gloss-card reveal"><div class="gloss-term">Iteration</div><div class="gloss-def">Refining the AI's output through follow-up instructions. "Make it shorter." "Add more warmth." "Change the opening." The best results come from going back and forth, not from expecting perfection on the first try.</div></div>
-    <div class="gloss-card reveal"><div class="gloss-term">Copilot</div><div class="gloss-def">Microsoft's AI assistant, built into Office 365 apps (Outlook, Teams, Word, Excel, PowerPoint). Unlike standalone AI tools, Copilot works inside the applications you already use every day.</div></div>
-    <div class="gloss-card reveal"><div class="gloss-term">Generative AI</div><div class="gloss-def">AI that creates new content — text, images, code — rather than just finding or organizing existing information. Claude, ChatGPT, and Copilot are all generative AI tools.</div></div>
-    <div class="gloss-card reveal"><div class="gloss-term">Anonymize</div><div class="gloss-def">Replacing identifying information with generic placeholders before sharing data with an AI tool. Example: "John Smith" becomes "[Donor]"; "$25,000" becomes "[Major Gift Amount]." A critical privacy habit.</div></div>
-    <div class="gloss-card reveal"><div class="gloss-term">Token</div><div class="gloss-def">The unit AI uses to measure text length. Roughly 4 characters or ¾ of a word. Not something you usually need to think about — but relevant when processing very long documents (you may hit limits).</div></div>
-    <div class="gloss-card reveal"><div class="gloss-term">Asana Intelligence</div><div class="gloss-def">Asana's built-in AI feature set. Generates project status reports, surfaces at-risk tasks, drafts updates, and answers questions about your Asana data — without leaving your project management tool.</div></div>
-  </div>
-</div>
-
-<!-- FAQ -->
-<div class="faq-section" id="faq">
-  <div class="section-kicker">Common Questions</div>
-  <div class="section-heading">FAQs</div>
-  <p class="section-desc" style="margin-bottom:28px;">The questions everyone is thinking but might not want to ask out loud.</p>
-  <div class="faq-list">
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">Is AI going to replace my job? <span class="faq-chevron">›</span></button>
-      <div class="faq-a">The short answer: no. AI is a tool that handles routine, repetitive, or first-draft tasks — it can't replace the judgment, relationships, institutional knowledge, and creative spark that make your work valuable. The Bushnell's mission is built on human connection. The most likely outcome is that people who use AI well will be able to do more, faster — not that AI will do what they do.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">Is it safe to use AI with Bushnell information? <span class="faq-chevron">›</span></button>
-      <div class="faq-a">It depends on what information. General information about The Bushnell, public programs, and anonymized data is fine to use with our licensed tools (Claude, ChatGPT, Copilot). What's not safe: specific donor names + amounts, patron personal data, employee HR records, confidential board materials, or vendor contract specifics. When in doubt, anonymize or generalize before pasting anything.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">Can I trust what AI tells me? <span class="faq-chevron">›</span></button>
-      <div class="faq-a">Trust it as a starting point — not as a source of fact. AI is excellent at drafting language, organizing ideas, and processing text you give it. It is much less reliable for specific facts, statistics, dates, and anything it has to "know" from its training. Always verify specific claims before including them in communications or reports. For writing tasks where you supply the facts, AI is highly trustworthy. For research tasks where it has to retrieve facts — be skeptical and check.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">What's the difference between Claude, ChatGPT, and Copilot? When do I use which? <span class="faq-chevron">›</span></button>
-      <div class="faq-a">Think of it this way: Use Claude when writing quality and nuance matter most — donor communications, grant narratives, anything where tone is critical. Use ChatGPT when you need to analyze data (upload a spreadsheet), generate images, or brainstorm at scale. Use Copilot when you want AI without switching apps — it works directly inside Outlook, Teams, Word, Excel, and PowerPoint. Use Asana AI when you want AI to help manage your projects and tasks without leaving Asana. For most writing tasks, start with Claude. For everything else, match the tool to the task.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">Why isn't Copilot showing up in my Office apps? <span class="faq-chavron">›</span></button>
-      <div class="faq-a">Copilot requires your Microsoft 365 E5 license to be fully activated and configured. If you don't see the Copilot button in Outlook, Teams, or Word, contact IT to confirm your license includes Copilot features and that it's been enabled for your account. Some organizations roll out Copilot in phases, so timing may vary.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">How do I get better results from AI? My prompts feel generic. <span class="faq-chevron">›</span></button>
-      <div class="faq-a">The most common issue is not enough context. AI only knows what you tell it. Add: (1) who you are and what organization you work for, (2) who the audience is, (3) what tone you need, (4) the specific format you want (length, structure, style), and (5) any constraints. Also: don't stop at the first response. Tell it what to change. "Make it warmer." "Cut it in half." "Add a specific call to action." The best results come from 2–3 rounds of refinement, not the first draft.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">Does AI remember what I said in a previous conversation? <span class="faq-chevron">›</span></button>
-      <div class="faq-a">Not by default. Each new chat starts completely fresh — the AI has no memory of previous sessions. This is why role prompts matter: you need to re-establish context at the start of each new conversation. Some tools (like ChatGPT with Memory enabled) can remember information across sessions, but this is an optional feature you need to turn on — and you should be mindful about what you allow it to remember.</div>
-    </div>
-  </div>
-</div>
-
-<!-- NEXT STEPS -->
-<div class="next-section" id="next">
-  <div class="next-texture"></div>
-  <div class="next-inner">
-    <div class="section-kicker" style="color:var(--teal-light);">Step 5</div>
-    <div class="next-heading">You're Just Getting Started</div>
-    <p class="next-sub">This guide is your on-ramp. The Bushnell AI Hub has much more — deeper dives on every tool, use case walkthroughs for every department, and a growing library of prompt templates built specifically for arts organizations.</p>
-    <div class="next-cards">
-      <div class="next-card" onclick="window.open('bushnell-ai-hub-v5-arts.html','_blank')">
-        <div class="next-card-icon">📚</div>
-        <div class="next-card-title">Full AI Playbook</div>
-        <div class="next-card-desc">The complete Bushnell AI Hub — 25+ use cases, every tool in depth, department filters, and the full set of guidelines and resources.</div>
-      </div>
-      <div class="next-card">
-        <div class="next-card-icon">💾</div>
-        <div class="next-card-title">Build Your Prompt Library</div>
-        <div class="next-card-desc">Start saving prompts that work. Create a shared Word doc or OneNote with your team — a growing library of prompts built for Bushnell's specific needs.</div>
-      </div>
-      <div class="next-card">
-        <div class="next-card-icon">🤝</div>
-        <div class="next-card-title">Share What You Learn</div>
-        <div class="next-card-desc">Found a prompt that works brilliantly? Hit a wall and figured out how to get past it? Email the AI Taskforce — we're building this knowledge base together.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- TOOL MODALS -->
-<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
-  <div class="modal" id="modal-content">
-    <div class="modal-header">
-      <div class="modal-tag" id="modal-tag"></div>
-      <div class="modal-title" id="modal-title"></div>
-      <div class="modal-byline" id="modal-byline"></div>
-      <button class="modal-close" onclick="closeModalDirect()">✕</button>
-    </div>
-    <div class="modal-body" id="modal-body"></div>
-    <div class="modal-cta" id="modal-cta"></div>
   </div>
 </div>
 
 <script>
-// ── TRACK SWITCHING ──
-function switchTrack(id){
-  document.querySelectorAll('.track-tab').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.track-panel').forEach(p=>p.classList.remove('active'));
-  const idx = ['first','writing','ops','power'].indexOf(id);
-  document.querySelectorAll('.track-tab')[idx].classList.add('active');
-  document.getElementById('track-'+id).classList.add('active');
-}
-
-// ── STEP TOGGLE ──
-function toggleStep(el){
-  const wasOpen = el.classList.contains('open');
-  // Close all
-  document.querySelectorAll('.step-item.open').forEach(s=>s.classList.remove('open'));
-  if(!wasOpen) el.classList.add('open');
-}
-
-// ── FAQ TOGGLE ──
-function toggleFaq(btn){
-  const item = btn.parentElement;
-  const wasOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item.open').forEach(f=>f.classList.remove('open'));
-  if(!wasOpen) item.classList.add('open');
-}
-
-// ── SCROLL HELPERS ──
-function scrollToSection(id){
-  document.getElementById(id).scrollIntoView({behavior:'smooth'});
-}
-
-// ── MODAL DATA ──
 const toolData = {
-  claude:{
-    tag:'Paid License · claude.ai',
-    title:'Claude',
-    byline:'By Anthropic — claude.ai',
-    body:`
-      <div class="modal-section">
-        <h3>What it is</h3>
-        <p>Claude is Anthropic's AI assistant — widely considered the best AI for nuanced, human-sounding writing. It excels at long-form content, careful reasoning, and following complex multi-step instructions. Think of it as your brilliant writing collaborator who never gets tired and always delivers a first draft.</p>
-      </div>
-      <div class="modal-section">
-        <h3>How to access it</h3>
-        <p>Go to <strong>claude.ai</strong> and sign in or create a free account with your Bushnell work email. Your organization has a paid license — you'll have access to the full Claude experience without the free-tier limitations.</p>
-      </div>
-      <div class="modal-section">
-        <h3>Best for at The Bushnell</h3>
-        <ul>
-          <li>Donor thank-you letters and stewardship communications</li>
-          <li>Grant narrative drafts (needs statements, program descriptions)</li>
-          <li>Meeting summaries and action item recaps</li>
-          <li>Job descriptions and HR policy language</li>
-          <li>Processing and summarizing long documents</li>
-          <li>Any writing where warmth and tone matter</li>
-        </ul>
-      </div>
-      <div class="modal-section">
-        <h3>Your first prompt to try</h3>
-        <div class="prompt-box">
-          <div class="prompt-box-lbl">Start Here</div>
-          <p>"You are a communications professional at The Bushnell Center for the Arts in Hartford, CT. Our mission is to elevate the human spirit through the arts. Help me draft a warm, 3-paragraph email to thank a group of volunteers who helped at our recent gala."</p>
-        </div>
-      </div>
-      <div class="modal-note"><strong>Privacy reminder:</strong> Never include real donor names, patron data, employee information, or confidential financial details in your Claude prompts. Anonymize before pasting.</div>
-    `,
-    cta:'<a class="modal-cta-btn" href="https://claude.ai" target="_blank">Open Claude →</a>'
-  },
-  chatgpt:{
-    tag:'Paid License · chatgpt.com',
-    title:'ChatGPT',
-    byline:'By OpenAI — chatgpt.com',
-    body:`
-      <div class="modal-section">
-        <h3>What it is</h3>
-        <p>ChatGPT is the most widely used AI platform in the world — exceptionally versatile. Beyond text, it can analyze uploaded spreadsheets with instant charts, generate images via DALL·E 3, write and run code, and connect to a broad ecosystem of integrations. Think of it as the Swiss Army knife of the AI toolkit.</p>
-      </div>
-      <div class="modal-section">
-        <h3>How to access it</h3>
-        <p>Go to <strong>chatgpt.com</strong> and sign in with Google or create an account. Your organization has a paid license. For data analysis, use the paperclip icon to upload files. For image generation, simply describe what you want.</p>
-      </div>
-      <div class="modal-section">
-        <h3>Best for at The Bushnell</h3>
-        <ul>
-          <li>Analyzing anonymized attendance or box office data — upload a CSV and get instant charts</li>
-          <li>Image concept generation for poster ideas and social graphics</li>
-          <li>Brainstorming — season themes, campaign names, program ideas</li>
-          <li>Content repurposing — turn one press release into posts for multiple platforms</li>
-          <li>Building Excel formulas without needing to know the syntax</li>
-        </ul>
-      </div>
-      <div class="modal-section">
-        <h3>Data analysis quick start</h3>
-        <ul>
-          <li>Export your data to CSV or Excel</li>
-          <li>Anonymize: replace names with IDs, show names with [Show A/B/C]</li>
-          <li>Upload with the paperclip icon</li>
-          <li>Ask: "What are the top 3 trends in this data? Show me a chart."</li>
-        </ul>
-      </div>
-      <div class="modal-note"><strong>Image rights reminder:</strong> AI-generated images require a rights review before public use. Always confirm before publishing any AI-created visual.</div>
-    `,
-    cta:'<a class="modal-cta-btn" href="https://chatgpt.com" target="_blank">Open ChatGPT →</a>'
-  },
-  copilot:{
-    tag:'Included in M365 E5',
-    title:'Copilot',
-    byline:'By Microsoft — Built into Office 365',
-    body:`
-      <div class="modal-section">
-        <h3>What it is</h3>
-        <p>Copilot is the only AI tool in your stack that lives inside the apps you already use every day. It summarizes email threads in Outlook, builds PowerPoint decks from a brief, recaps meetings in Teams, and analyzes data in Excel — without ever leaving the application or copy-pasting anything.</p>
-      </div>
-      <div class="modal-section">
-        <h3>How to access it</h3>
-        <p>Look for the Copilot button (✨) in Outlook, Teams, Word, Excel, and PowerPoint. If you don't see it, contact IT — your M365 E5 license includes Copilot but it needs to be activated for your account.</p>
-      </div>
-      <div class="modal-section">
-        <h3>Best for at The Bushnell</h3>
-        <ul>
-          <li><strong>Outlook:</strong> Summarize long email threads, draft replies, clean up your writing</li>
-          <li><strong>Teams:</strong> Get meeting recaps with action items and key decisions automatically</li>
-          <li><strong>Word:</strong> Draft with Copilot — give a prompt, get a complete first draft</li>
-          <li><strong>PowerPoint:</strong> "Create a 6-slide presentation about..." and watch it build the deck</li>
-          <li><strong>Excel:</strong> "Analyze this data" or "Create a formula that..." without knowing the syntax</li>
-        </ul>
-      </div>
-      <div class="modal-section">
-        <h3>Fastest win: Outlook email summary</h3>
-        <p>Open any long email thread in Outlook. Click the Copilot button. Click "Summary by Copilot." In seconds you'll see a structured summary of the whole thread — no more scrolling through 40 replies to find the key decision.</p>
-      </div>
-      <div class="modal-note"><strong>Note:</strong> Copilot within Microsoft 365 operates within Microsoft's enterprise data protection policies, which offer additional safeguards compared to standalone consumer AI tools. It is still best practice to avoid pasting confidential personnel or donor data.</div>
-    `,
-    cta:'<span class="modal-cta-btn" style="cursor:default;">Access via your Microsoft 365 Apps</span>'
-  },
-  asana:{
-    tag:'Included in Your License',
-    title:'Asana AI',
-    byline:'By Asana — Built into your Asana account',
-    body:`
-      <div class="modal-section">
-        <h3>What it is</h3>
-        <p>Asana Intelligence is AI built directly into your project management tool. It doesn't require switching tabs or copy-pasting — it works on your actual project data to generate status updates, surface risks, draft task descriptions, and answer questions about your work in plain English.</p>
-      </div>
-      <div class="modal-section">
-        <h3>How to access it</h3>
-        <p>Look for the ✨ (sparkle) icon or "Smart" features within your Asana projects and tasks. Asana Intelligence is included in your organization's license — no additional setup required.</p>
-      </div>
-      <div class="modal-section">
-        <h3>Best for at The Bushnell</h3>
-        <ul>
-          <li><strong>Status Reports:</strong> Ask Asana to draft a project status update based on task completion — saves 20+ minutes every week</li>
-          <li><strong>Risk Surfacing:</strong> Automatically identifies tasks that are overdue or at risk before they become emergencies</li>
-          <li><strong>Task Generation:</strong> Describe a goal and Asana AI breaks it into tasks and subtasks</li>
-          <li><strong>Natural Language Queries:</strong> "What's incomplete this week?" "What did we finish last month?" — answers without manual filtering</li>
-          <li><strong>Stakeholder Updates:</strong> Generate a shareable project update in seconds</li>
-        </ul>
-      </div>
-      <div class="modal-section">
-        <h3>Fastest win: Weekly project briefing</h3>
-        <p>Open your main project in Asana. Look for the Copilot or AI icon and ask: "Give me a status summary of this project." You'll get a structured overview of what's done, what's in progress, and what's at risk — in under 30 seconds.</p>
-      </div>
-      <div class="modal-note"><strong>Note:</strong> Asana AI operates on the data already in your Asana workspace. It does not require you to paste external information in — it reads your existing project data directly.</div>
-    `,
-    cta:'<span class="modal-cta-btn" style="cursor:default;">Access via your Asana Account</span>'
-  }
+  claude:{name:'Claude',maker:'Anthropic · claude.ai',color:'#c9a84c',
+    what:'The best AI for nuanced, human-sounding writing. Long-form, careful reasoning, complex multi-step instructions — a writing collaborator that delivers a first draft, not a search result.',
+    best:['Donor thank-yous and stewardship letters','Grant narrative drafts (needs statements, program copy)','Meeting summaries and action-item recaps','Job descriptions and HR policy language'],
+    tryPrompt:'"You are a communications professional at The Bushnell. Help me draft a warm, 3-paragraph thank-you to our gala volunteers."',
+    note:'Never paste real donor names, amounts, or personnel details.', cta:'https://claude.ai'},
+  chatgpt:{name:'ChatGPT',maker:'OpenAI · chatgpt.com',color:'#10a37f',
+    what:'The most versatile tool in the stack. Analyzes uploaded spreadsheets with instant charts, generates images, writes code, brainstorms — the Swiss Army knife.',
+    best:['Anonymized attendance/box office analysis','Poster & social image concept generation','Content repurposing — one release into many posts','Excel formulas without knowing the syntax'],
+    tryPrompt:'"Analyze this attendance data. What are the top 3 trends? Show me a chart."',
+    note:'AI-generated images need a rights review before publishing.', cta:'https://chatgpt.com'},
+  copilot:{name:'Copilot',maker:'Microsoft · built into M365',color:'#0078d4',
+    what:'The only tool that lives inside the apps you already use. Summarizes threads in Outlook, recaps meetings in Teams, drafts in Word, builds decks in PowerPoint — no new tabs, no copy-paste.',
+    best:['Summarize long email threads in Outlook','Teams meeting recaps with action items','Draft a full deck from a one-line prompt','Excel analysis and formulas in plain English'],
+    tryPrompt:'Open a long email thread → click Copilot → "Summary by Copilot."',
+    note:'Still avoid pasting donor or personnel specifics, even here.', cta:null}
 };
 
 function openToolModal(id){
-  const d = toolData[id];
-  if(!d) return;
-  document.getElementById('modal-tag').textContent = d.tag;
-  document.getElementById('modal-title').textContent = d.title;
-  document.getElementById('modal-byline').textContent = d.byline;
-  document.getElementById('modal-body').innerHTML = d.body;
-  document.getElementById('modal-cta').innerHTML = d.cta;
+  const t = toolData[id];
+  if(!t) return;
+  document.getElementById('modal-content').innerHTML = `
+    <div style="padding:30px 30px 8px;border-top:4px solid ${t.color}">
+      <div style="font-family:var(--font-display);font-size:10.5px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted-light);margin-bottom:6px">${t.maker}</div>
+      <h3 style="font-family:var(--font-display);font-size:26px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--navy);margin:0 0 14px">${t.name}</h3>
+      <p style="font-size:14px;line-height:1.65;margin:0 0 16px;color:var(--text)">${t.what}</p>
+      <div style="font-family:var(--font-display);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--teal);margin-bottom:8px">Best for</div>
+      <ul style="margin:0 0 16px;padding-left:18px;font-size:13.5px;line-height:1.65;color:var(--text)">
+        ${t.best.map(b=>`<li>${b}</li>`).join('')}
+      </ul>
+      <div style="background:var(--teal-xpale);border-left:3px solid var(--teal);padding:11px 14px;font-size:12.5px;font-style:italic;line-height:1.55;margin-bottom:14px;color:var(--text)">${t.tryPrompt}</div>
+      <p style="font-size:11.5px;line-height:1.5;color:var(--muted);margin:0 0 22px">${t.note}</p>
+    </div>
+  `;
+  const ctaEl = document.getElementById('modal-cta');
+  if(t.cta){ ctaEl.href = t.cta; ctaEl.style.display = 'inline-block'; }
+  else { ctaEl.style.display = 'none'; }
   document.getElementById('modal-overlay').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
-function closeModal(e){
-  if(e.target === document.getElementById('modal-overlay')) closeModalDirect();
-}
-function closeModalDirect(){
+function closeModal(){
   document.getElementById('modal-overlay').classList.remove('open');
   document.body.style.overflow = '';
 }
-
-// ── SCROLL PROGRESS HIGHLIGHT ──
-const sections = ['tracks','tools','safety','glossary','next'];
-const progIds  = ['prog-1','prog-2','prog-3','prog-4','prog-5'];
-window.addEventListener('scroll',()=>{
-  let current = 0;
-  sections.forEach((id,i)=>{
-    const el = document.getElementById(id);
-    if(el && window.scrollY >= el.offsetTop - 120) current = i;
-  });
-  progIds.forEach((pid,i)=>{
-    const el = document.getElementById(pid);
-    if(!el) return;
-    el.classList.remove('active','done');
-    if(i < current) el.classList.add('done');
-    else if(i === current) el.classList.add('active');
-  });
-});
-
-// ── REVEAL ON SCROLL ──
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting) e.target.classList.add('visible');
-  });
-},{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+function closeModalOnBackdrop(e){
+  if(e.target === document.getElementById('modal-overlay')) closeModal();
+}
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal(); });
 </script>
 </body>
 </html>
