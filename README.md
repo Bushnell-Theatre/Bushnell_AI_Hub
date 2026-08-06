@@ -73,7 +73,7 @@ Everything lives inline in the two HTML files; there is currently no shared data
 | Training-video placeholders ("Training resource coming soon") | `index.html`, "Watch & learn" block — carries an inline `TODO(AI Task Force)` comment; replace only with links the AI Task Force has actually reviewed and approved |
 | Staff Voices and its illustrative-example disclaimer | `ai-playbook.html`, `<!-- STAFF VOICES -->` section — the disclaimer directly above the quotes must stay unless every quote and attribution has been individually verified with the named staff member |
 | Official AI policy text | `ai-playbook.html`, `<!-- POLICY -->` section |
-| Last-reviewed date | See "Last-reviewed" below — not yet tracked per-page; add a visible date near the footer of each file when a content review is completed, and record it in `CONTRIBUTING.md`'s checklist history |
+| Last-reviewed date | A visible "Last reviewed: YYYY-MM-DD" line in the footer of both `index.html` and `ai-playbook.html`, directly below the AI Task Force contact line. Update the date in both files together whenever a content review is completed, and record it in `CONTRIBUTING.md`'s checklist history |
 
 ### Why no shared files yet
 
