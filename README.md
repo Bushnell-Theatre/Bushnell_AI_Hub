@@ -22,10 +22,11 @@ ai-playbook.html                              # The AI Playbook — the full ref
 .gitignore                                    # Ignores local *.bak files
 README.md                                     # This file
 CONTRIBUTING.md                               # Pre-publication review checklist
-Bushnell_AI_Hub_Claude_Handoff.md             # Process document for AI-assisted implementation phases (not deployed; not part of the site)
 ```
 
 There is no build system, package manager, or dependency file in this repository. Both HTML files load Google Fonts from a CDN `<link>` and are otherwise fully self-contained (no external JS libraries).
+
+A local, untracked `Bushnell_AI_Hub_Claude_Handoff.md` may exist on a contributor's machine as a process document for AI-assisted implementation work. It is excluded from the repository (not tracked by git) and must never be committed — it is not part of the site and has no bearing on what gets deployed.
 
 ## Local preview
 
@@ -46,12 +47,17 @@ python -m http.server 8000
 
 ## Deployment (evidence-based)
 
-Deployment is handled by `.github/workflows/azure-static-web-apps-zealous-flower-023093b0f.yml`, which:
+Deployment is handled by `.github/workflows/azure-static-web-apps-zealous-flower-023093b0f.yml`. What the workflow file itself shows:
 
-- Triggers **only on push to `main`** (and on pull requests targeting `main`).
-- Deploys via `Azure/static-web-apps-deploy@v1` with `app_location: "/"` and **no build/output step** — the repository's static files are uploaded as-is.
+- It triggers on pushes to `main` and on pull requests targeting `main`.
+- It uses `Azure/static-web-apps-deploy@v1`.
+- `app_location` is `"/"`.
+- `api_location` and `output_location` are both set to `""` (empty).
+- There is no repository-defined package manager, build script, or build configuration anywhere in this repo.
 
-**Practical consequence: pushing to `dev` does not deploy anything.** The `dev` branch exists specifically so learner-facing changes can be independently reviewed before they ever reach `main` and go live. Nothing in this repository merges to `main` or deploys without explicit human authorization — no automation in this repo does that on its own.
+That is the extent of what the repository's evidence supports. It does **not** by itself prove that files are uploaded unmodified or that no build behavior occurs inside the Azure action — that is internal to `Azure/static-web-apps-deploy@v1` and this repository does not document it. Don't state or assume more than the bullet points above.
+
+**Practical consequence: pushing only to `dev` does not trigger this workflow** — it only runs on `main` pushes and PRs targeting `main`. The `dev` branch exists specifically so learner-facing changes can be independently reviewed before they ever reach `main`. Nothing in this repository merges to `main` or deploys without explicit human authorization — no automation in this repo does that on its own.
 
 ## Where to maintain content
 
