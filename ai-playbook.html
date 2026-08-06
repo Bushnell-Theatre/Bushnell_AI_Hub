@@ -52,7 +52,7 @@ a:hover{color:var(--teal-dark)}
   <div class="hero-inner" style="position:relative;z-index:1;max-width:760px;padding:0 40px">
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px"><span style="width:28px;height:1px;background:var(--teal-light)"></span><span style="font-family:var(--font-display);font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--teal-light)">The Full Reference</span></div>
     <h1 style="font-family:var(--font-display);font-size:clamp(34px,4.6vw,54px);font-weight:700;line-height:.98;letter-spacing:1px;text-transform:uppercase;color:#fff;margin:0 0 20px">The AI Playbook</h1>
-    <p style="font-family:var(--font-serif);font-size:17px;line-height:1.8;color:rgba(255,255,255,.8);max-width:64ch;margin:0">Every tool, every real Bushnell use case, the tool-picker, a ready-to-use prompt library, our official AI policy, and a full glossary. New here? <a href="index.html" style="color:var(--teal-light);font-weight:500">Start with AI 101</a> first — three tools and 15 minutes.</p>
+    <p style="font-family:var(--font-serif);font-size:17px;line-height:1.8;color:rgba(255,255,255,.8);max-width:64ch;margin:0">Every tool, every real Bushnell use case, the tool-picker, a ready-to-use prompt library, our official AI policy, and a full glossary. New here? <a href="index.html" style="color:var(--teal-light);font-weight:500">Start with AI 101</a> first — three approved tools and your first safe prompt in about 15 minutes.</p>
   </div>
 </div>
 
@@ -81,6 +81,7 @@ a:hover{color:var(--teal-dark)}
   <div id="wizard-result" style="display:none;max-width:480px;text-align:center;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--teal);padding:36px">
     <div id="wizard-result-icon" style="font-size:46px;margin-bottom:10px"></div>
     <div id="wizard-result-tool" style="font-family:var(--font-display);font-size:24px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--navy);margin-bottom:10px"></div>
+    <div id="wizard-result-badge" style="display:inline-block;font-family:var(--font-display);font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:1.5px solid;padding:5px 12px;margin-bottom:14px"></div>
     <p id="wizard-result-why" style="font-size:13.5px;line-height:1.65;color:var(--muted);margin:0 0 16px"></p>
     <button style="font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;background:none;border:1px solid var(--border);padding:10px 20px;cursor:pointer;color:var(--text)" onclick="wizardRestart()">Start Over</button>
   </div>
@@ -105,8 +106,8 @@ a:hover{color:var(--teal-dark)}
     </div>
     <div style="background:var(--bg-alt);border-left:3px solid var(--teal);padding:20px 24px">
       <div style="font-family:var(--font-display);font-size:17px;font-weight:700;letter-spacing:.3px;color:var(--navy);margin-bottom:8px">Is my data safe when I use these tools?</div>
-      <p style="font-size:13.5px;line-height:1.6;color:var(--text);margin:0 0 10px">Never enter donor names, financial data, personnel records, or confidential contracts into a public AI tool. Claude and Copilot have data protection suitable for professional use. When in doubt, anonymize first.</p>
-      <div style="font-size:12px;font-weight:600;color:var(--teal-dark)">✦ Use approved tools, anonymize sensitive data, follow the policy.</div>
+      <p style="font-size:13.5px;line-height:1.6;color:var(--text);margin:0 0 10px">Claude, ChatGPT, and Copilot are all approved and suitable for professional use — but only through your Bushnell-managed workspace, never a personal or public account. Even then, never enter donor names, financial data, personnel records, or confidential contracts. When in doubt, anonymize first.</p>
+      <div style="font-size:12px;font-weight:600;color:var(--teal-dark)">✦ Use your Bushnell-managed workspace, anonymize sensitive data, follow the policy.</div>
     </div>
     <div style="background:var(--bg-alt);border-left:3px solid var(--teal);padding:20px 24px">
       <div style="font-family:var(--font-display);font-size:17px;font-weight:700;letter-spacing:.3px;color:var(--navy);margin-bottom:8px">Do I need to be technical to use this?</div>
@@ -131,7 +132,7 @@ a:hover{color:var(--teal-dark)}
 <div class="section-pad" style="padding:52px 40px;background:var(--bg-alt)">
   <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px"><span style="width:32px;height:1px;background:var(--teal)"></span><span style="font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--teal)">Meet the Company</span></div>
   <h2 style="font-family:var(--font-display);font-size:34px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);line-height:1;margin:0 0 8px">The AI Ensemble</h2>
-  <p style="font-size:15px;color:var(--muted);max-width:64ch;line-height:1.65;margin:0 0 28px">Our three licensed tools, in full — plus eleven more worth knowing about if a task calls for them.</p>
+  <p style="font-size:15px;color:var(--muted);max-width:64ch;line-height:1.65;margin:0 0 28px">Our three approved tools, in full — plus eleven more that exist but are not yet approved for Bushnell work.</p>
   <div class="ensemble-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px">
 
     <div class="ensemble-card" style="background:var(--white);border:1px solid var(--border);border-top:3px solid #c9a84c;padding:24px;cursor:pointer" onclick="openEnsembleModal('claude')">
@@ -172,7 +173,8 @@ a:hover{color:var(--teal-dark)}
 
   </div>
 
-  <div style="font-family:var(--font-display);font-size:10.5px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:10px">Also worth knowing</div>
+  <div style="font-family:var(--font-display);font-size:10.5px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:6px">Also worth knowing</div>
+  <p style="font-size:12.5px;color:var(--red);font-weight:600;margin:0 0 10px">None of the tools below are approved for Bushnell work — check with the AI Task Force before using any of them.</p>
   <div style="display:flex;flex-direction:column;border-top:1px solid var(--border);background:var(--white)">
     <div style="display:flex;gap:18px;padding:13px 20px;border-bottom:1px solid var(--border);align-items:baseline"><div style="width:120px;flex-shrink:0;font-family:var(--font-display);font-weight:700;font-size:14px;color:var(--navy)">Gemini</div><div style="width:180px;flex-shrink:0;font-size:11px;color:var(--muted-light)">Google · gemini.google.com</div><div style="font-size:13px;line-height:1.5;color:var(--muted)">Real-time web search and deep Google Workspace integration; strong for current-events research and huge documents.</div></div>
     <div style="display:flex;gap:18px;padding:13px 20px;border-bottom:1px solid var(--border);align-items:baseline"><div style="width:120px;flex-shrink:0;font-family:var(--font-display);font-weight:700;font-size:14px;color:var(--navy)">Perplexity</div><div style="width:180px;flex-shrink:0;font-size:11px;color:var(--muted-light)">Perplexity AI · perplexity.ai</div><div style="font-size:13px;line-height:1.5;color:var(--muted)">Cited, sourced answers — the go-to for funder research and fact-checking.</div></div>
@@ -201,6 +203,7 @@ a:hover{color:var(--teal-dark)}
         <li style="font-size:14px;line-height:1.6;color:var(--text);padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--teal);font-weight:700">—</span>Review before you send — AI is a first draft, not a final.</li>
         <li style="font-size:14px;line-height:1.6;color:var(--text);padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--teal);font-weight:700">—</span>Iterate — "shorter," "more warmth," "try again."</li>
         <li style="font-size:14px;line-height:1.6;color:var(--text);padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--teal);font-weight:700">—</span>Share good prompts — what works for you works for your team.</li>
+        <li style="font-size:14px;line-height:1.6;color:var(--text);padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--teal);font-weight:700">—</span>Only use Claude, ChatGPT, and Microsoft Copilot — any other AI tool needs AI Task Force approval first.</li>
       </ul>
     </div>
     <div>
@@ -211,6 +214,7 @@ a:hover{color:var(--teal-dark)}
         <li style="font-size:14px;line-height:1.6;color:var(--text);padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--red);font-weight:700">—</span>Verify facts, stats, and dates — AI hallucinates confidently.</li>
         <li style="font-size:14px;line-height:1.6;color:var(--text);padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--red);font-weight:700">—</span>No grant content without expert review — Development Director signs off.</li>
         <li style="font-size:14px;line-height:1.6;color:var(--text);padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--red);font-weight:700">—</span>No board, legal, or strategic documents — keep these offline.</li>
+        <li style="font-size:14px;line-height:1.6;color:var(--text);padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--red);font-weight:700">—</span>Don't use a personal or public ChatGPT or Claude account for work — only your Bushnell-managed workspace, ever.</li>
       </ul>
     </div>
   </div>
@@ -220,13 +224,14 @@ a:hover{color:var(--teal-dark)}
 <div class="section-pad" style="padding:52px 40px;background:var(--bg-alt)">
   <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px"><span style="width:32px;height:1px;background:var(--teal)"></span><span style="font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--teal)">Ready to Use</span></div>
   <h2 style="font-family:var(--font-display);font-size:34px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);line-height:1;margin:0 0 8px">The Prompt Library</h2>
-  <p style="font-size:15px;color:var(--muted);max-width:62ch;line-height:1.65;margin:0 0 28px">Copy any prompt, paste it into your tool of choice, fill in the brackets.</p>
+  <p style="font-size:15px;color:var(--muted);max-width:62ch;line-height:1.65;margin:0 0 12px">Copy any prompt, paste it into your Bushnell-managed tool of choice, fill in the brackets.</p>
+  <p style="font-size:12.5px;color:var(--red);font-weight:600;max-width:62ch;line-height:1.6;margin:0 0 28px">Every bracket must be filled with a fictional placeholder or fully anonymized value — never a real donor name, gift amount, financial figure, or personnel detail.</p>
   <div class="prompt-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
 
     <div style="background:var(--white);border:1px solid var(--border);padding:20px">
       <div style="font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:8px">Development</div>
       <div style="font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px">Major Donor Thank-You</div>
-      <p style="font-size:12px;line-height:1.6;color:var(--muted);margin:0 0 14px">You are an experienced nonprofit development professional. Write a warm, personal thank-you letter to [Donor Name] for their gift of [Amount] to support [Program/Season]. Grateful but not sycophantic, mission-focused, ends with a brief impact update. 200 words max.</p>
+      <p style="font-size:12px;line-height:1.6;color:var(--muted);margin:0 0 14px">You are an experienced nonprofit development professional. Write a warm, personal thank-you letter to [Donor Name — fictional placeholder, never a real name] for their gift of [Amount — fictional placeholder, never a real figure] to support [Program/Season]. Grateful but not sycophantic, mission-focused, ends with a brief impact update. 200 words max.</p>
       <button class="prompt-copy-btn" style="font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:none;border:1px solid var(--teal);color:var(--teal);padding:8px 14px;cursor:pointer" onclick="copyPrompt(this)">Copy Prompt</button>
     </div>
     <div style="background:var(--white);border:1px solid var(--border);padding:20px">
@@ -250,25 +255,25 @@ a:hover{color:var(--teal-dark)}
     <div style="background:var(--white);border:1px solid var(--border);padding:20px">
       <div style="font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:8px">Operations</div>
       <div style="font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px">Meeting Recap</div>
-      <p style="font-size:12px;line-height:1.6;color:var(--muted);margin:0 0 14px">Here are my rough notes from today's [Meeting Name] meeting: [PASTE NOTES]. Produce: a 3-bullet summary, a decisions list, an action items table (Task/Owner/Due Date), and a follow-up email draft.</p>
+      <p style="font-size:12px;line-height:1.6;color:var(--muted);margin:0 0 14px">Here are my rough notes from today's [Meeting Name] meeting: [PASTE NOTES — remove real names, dollar amounts, and personnel details first]. Produce: a 3-bullet summary, a decisions list, an action items table (Task/Owner/Due Date), and a follow-up email draft.</p>
       <button class="prompt-copy-btn" style="font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:none;border:1px solid var(--teal);color:var(--teal);padding:8px 14px;cursor:pointer" onclick="copyPrompt(this)">Copy Prompt</button>
     </div>
     <div style="background:var(--white);border:1px solid var(--border);padding:20px">
       <div style="font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:8px">Operations</div>
       <div style="font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px">Vendor Proposal Review</div>
-      <p style="font-size:12px;line-height:1.6;color:var(--muted);margin:0 0 14px">Here is a vendor proposal summary: [PASTE SUMMARY]. Identify the 3 most important questions to ask before signing, flag unusual or risky terms, and suggest comparison points against alternatives.</p>
+      <p style="font-size:12px;line-height:1.6;color:var(--muted);margin:0 0 14px">Here is a vendor proposal summary: [PASTE SUMMARY — remove real pricing, account numbers, and contract-specific terms first]. Identify the 3 most important questions to ask before signing, flag unusual or risky terms, and suggest comparison points against alternatives.</p>
       <button class="prompt-copy-btn" style="font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:none;border:1px solid var(--teal);color:var(--teal);padding:8px 14px;cursor:pointer" onclick="copyPrompt(this)">Copy Prompt</button>
     </div>
     <div style="background:var(--white);border:1px solid var(--border);padding:20px">
       <div style="font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:8px">Finance</div>
       <div style="font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px">Budget Variance Narrative</div>
-      <p style="font-size:12px;line-height:1.6;color:var(--muted);margin:0 0 14px">Here is our budget vs. actual data for [Period]: [PASTE DATA]. Write a 2-paragraph narrative for a board finance committee: summarize the overall variance, highlight the 2-3 most significant line items, explain likely causes in plain language.</p>
+      <p style="font-size:12px;line-height:1.6;color:var(--muted);margin:0 0 14px">Here is our budget vs. actual data for [Period]: [PASTE DATA — anonymized figures only, e.g. "Show A / Show B," never real dollar amounts tied to real accounts]. Write a 2-paragraph narrative for a board finance committee: summarize the overall variance, highlight the 2-3 most significant line items, explain likely causes in plain language.</p>
       <button class="prompt-copy-btn" style="font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:none;border:1px solid var(--teal);color:var(--teal);padding:8px 14px;cursor:pointer" onclick="copyPrompt(this)">Copy Prompt</button>
     </div>
     <div style="background:var(--white);border:1px solid var(--border);padding:20px">
       <div style="font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:8px">Finance</div>
       <div style="font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px">Grant Financial Report</div>
-      <p style="font-size:12px;line-height:1.6;color:var(--muted);margin:0 0 14px">I need the financial narrative section of a grant report to [Funder Name]. Spending summary: [PASTE DATA]. Write 150-200 words explaining how funds were spent vs. the approved budget, noting variances and demonstrating responsible stewardship.</p>
+      <p style="font-size:12px;line-height:1.6;color:var(--muted);margin:0 0 14px">I need the financial narrative section of a grant report to [Funder Name]. Spending summary: [PASTE DATA — anonymized figures only, never real dollar amounts tied to real accounts]. Write 150-200 words explaining how funds were spent vs. the approved budget, noting variances and demonstrating responsible stewardship.</p>
       <button class="prompt-copy-btn" style="font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:none;border:1px solid var(--teal);color:var(--teal);padding:8px 14px;cursor:pointer" onclick="copyPrompt(this)">Copy Prompt</button>
     </div>
     <div style="background:var(--white);border:1px solid var(--border);padding:20px">
@@ -287,7 +292,7 @@ a:hover{color:var(--teal-dark)}
   <h2 style="font-family:var(--font-display);font-size:34px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);line-height:1;margin:0 0 20px">The Bushnell's AI Policy</h2>
   <div style="background:var(--navy);padding:24px 28px;margin-bottom:28px">
     <div style="font-family:var(--font-display);font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--teal-light);margin-bottom:10px">◆ Official Policy Statement</div>
-    <p style="font-size:14px;line-height:1.7;margin:0;color:rgba(255,255,255,.82)">The Bushnell recognizes the growing use of Artificial Intelligence, including Generative AI tools, in the workplace. AI can enhance efficiency and productivity, but its use must align with The Bushnell's security, confidentiality, and compliance standards. The Bushnell has established an AI Committee responsible for overseeing and administering this policy.</p>
+    <p style="font-size:14px;line-height:1.7;margin:0;color:rgba(255,255,255,.82)">The Bushnell recognizes the growing use of Artificial Intelligence, including Generative AI tools, in the workplace. AI can enhance efficiency and productivity, but its use must align with The Bushnell's security, confidentiality, and compliance standards. The Bushnell has established an AI Task Force responsible for overseeing and administering this policy.</p>
   </div>
 
   <div style="margin-bottom:32px">
@@ -297,12 +302,12 @@ a:hover{color:var(--teal-dark)}
       <div style="background:var(--bg-alt);padding:20px">
         <div style="font-family:var(--font-display);font-weight:800;font-size:26px;color:var(--teal);margin-bottom:8px">01</div>
         <div style="font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--navy);margin-bottom:6px">Submit a Proposal</div>
-        <p style="font-size:12.5px;line-height:1.55;color:var(--muted);margin:0">Submit a detailed proposal to the AI Committee outlining intended use, benefits, and potential risks.</p>
+        <p style="font-size:12.5px;line-height:1.55;color:var(--muted);margin:0">Submit a detailed proposal to the AI Task Force outlining intended use, benefits, and potential risks.</p>
       </div>
       <div style="background:var(--bg-alt);padding:20px">
         <div style="font-family:var(--font-display);font-weight:800;font-size:26px;color:var(--teal);margin-bottom:8px">02</div>
-        <div style="font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--navy);margin-bottom:6px">Committee Assessment</div>
-        <p style="font-size:12.5px;line-height:1.55;color:var(--muted);margin:0">The AI Committee evaluates ethical and legal implications; additional members may be assigned as needed.</p>
+        <div style="font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--navy);margin-bottom:6px">Task Force Assessment</div>
+        <p style="font-size:12.5px;line-height:1.55;color:var(--muted);margin:0">The AI Task Force evaluates ethical and legal implications; additional members may be assigned as needed.</p>
       </div>
       <div style="background:var(--bg-alt);padding:20px">
         <div style="font-family:var(--font-display);font-weight:800;font-size:26px;color:var(--teal);margin-bottom:8px">03</div>
@@ -320,7 +325,7 @@ a:hover{color:var(--teal-dark)}
     <div style="background:var(--bg-alt);padding:20px"><div style="font-size:26px;margin-bottom:8px">🛡️</div><div style="font-family:var(--font-display);font-weight:700;font-size:14.5px;color:var(--navy);margin-bottom:6px">Security Best Practices</div><p style="font-size:12.5px;line-height:1.55;color:var(--muted);margin:0">Apply the same security best practices used for all company and customer data — strong passwords, up-to-date software, and The Bushnell's data retention and disposal policies.</p></div>
     <div style="background:var(--bg-alt);padding:20px"><div style="font-size:26px;margin-bottom:8px">🚫</div><div style="font-family:var(--font-display);font-weight:700;font-size:14.5px;color:var(--navy);margin-bottom:6px">Compliance with All Company Policies</div><p style="font-size:12.5px;line-height:1.55;color:var(--muted);margin:0">Use generative AI in accordance with all Bushnell policies, including anti-harassment and anti-discrimination. AI must never be used to create harmful or discriminatory content.</p></div>
     <div style="background:var(--bg-alt);padding:20px"><div style="font-size:26px;margin-bottom:8px">🔍</div><div style="font-family:var(--font-display);font-weight:700;font-size:14.5px;color:var(--navy);margin-bottom:6px">Fact-Check Everything</div><p style="font-size:12.5px;line-height:1.55;color:var(--muted);margin:0">Set aside time to fact-check AI-generated materials. Statistics, citations, names, and dates must be verified against primary sources before appearing in any official document.</p></div>
-    <div style="background:var(--bg-alt);padding:20px"><div style="font-size:26px;margin-bottom:8px">❓</div><div style="font-family:var(--font-display);font-weight:700;font-size:14.5px;color:var(--navy);margin-bottom:6px">Questions &amp; the AI Committee</div><p style="font-size:12.5px;line-height:1.55;color:var(--muted);margin:0">The AI Committee oversees this policy, reviews new tool proposals, and provides guidance. If unsure whether a use is appropriate — ask before you act.</p></div>
+    <div style="background:var(--bg-alt);padding:20px"><div style="font-size:26px;margin-bottom:8px">❓</div><div style="font-family:var(--font-display);font-weight:700;font-size:14.5px;color:var(--navy);margin-bottom:6px">Questions &amp; the AI Task Force</div><p style="font-size:12.5px;line-height:1.55;color:var(--muted);margin:0">The AI Task Force oversees this policy, reviews new tool proposals, and provides guidance. If unsure whether a use is appropriate — ask before you act.</p></div>
   </div>
 </div>
 
@@ -351,7 +356,8 @@ a:hover{color:var(--teal-dark)}
 <!-- STAFF VOICES -->
 <div class="section-pad" style="padding:52px 40px;background:var(--white)">
   <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px"><span style="width:32px;height:1px;background:var(--teal)"></span><span style="font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--teal)">From the Company</span></div>
-  <h2 style="font-family:var(--font-display);font-size:34px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);line-height:1;margin:0 0 20px">Staff Voices</h2>
+  <h2 style="font-family:var(--font-display);font-size:34px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);line-height:1;margin:0 0 8px">Staff Voices</h2>
+  <p style="font-size:12.5px;color:var(--red);font-weight:600;margin:0 0 20px">Illustrative examples of how staff might describe their experience — not verified quotes from named individuals.</p>
   <div class="quotes-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
     <div style="background:var(--bg-alt);padding:22px">
       <p style="font-family:var(--font-serif);font-style:italic;font-size:14px;line-height:1.65;color:var(--text);margin:0 0 12px">"I was skeptical at first — I've been writing grant proposals for fifteen years. But Claude gave me a solid starting point for a needs statement in about two minutes."</p>
@@ -368,7 +374,7 @@ a:hover{color:var(--teal-dark)}
   </div>
 </div>
 
-<div class="footer-bar" style="padding:26px 40px;background:var(--navy);font-family:var(--font-display);font-size:11px;letter-spacing:.5px;color:rgba(255,255,255,.5)">For internal use only · Review policy before sharing externally · <a href="mailto:ai-taskforce@bushnell.org" style="color:var(--teal-light)">ai-taskforce@bushnell.org</a></div>
+<div class="footer-bar" style="padding:26px 40px;background:var(--navy);font-family:var(--font-display);font-size:11px;letter-spacing:.5px;color:rgba(255,255,255,.5)">For internal use only · Review policy before sharing externally · Contact the AI Task Force at <a href="mailto:ai-taskforce@bushnell.org" style="color:var(--teal-light)">ai-taskforce@bushnell.org</a></div>
 
 <!-- ENSEMBLE TOOL MODAL -->
 <div class="modal-overlay" id="ensemble-modal-overlay" onclick="closeEnsembleModalOnBackdrop(event)">
@@ -387,15 +393,18 @@ const ensembleToolData = {
   claude:{name:'Claude',maker:'Anthropic · claude.ai',color:'#c9a84c',icon:'<svg viewBox="0 0 24 24" width="32" height="32" fill="#c9a84c" aria-hidden="true"><path d="M17.3041 3.541h-3.6718l6.696 16.918H24Zm-10.6082 0L0 20.459h3.7442l1.3693-3.5527h7.0052l1.3693 3.5528h3.7442L10.5363 3.5409Zm-.3712 10.2232 2.2914-5.9456 2.2914 5.9456Z"/></svg>',cta:'https://claude.ai',
     what:'Exceptional at nuanced reasoning, long-form writing, and following complex multi-step instructions. Its writing feels genuinely human — making it ideal for donor communications, grant narratives, and any message where tone and care matter most.',
     strengths:['Nuanced, human-like writing & tone control','Processing very long documents (contracts, scripts, reports)','Complex multi-step reasoning and planning','Thoughtful, careful, balanced outputs'],
-    tryPrompt:'"You are a communications professional at The Bushnell. Help me draft a warm, 3-paragraph thank-you to our gala volunteers."'},
+    tryPrompt:'"You are a communications professional at The Bushnell. Help me draft a warm, 3-paragraph thank-you to our gala volunteers."',
+    note:'Access only through your Bushnell-managed Claude workspace — never a personal or public account. Never paste real donor, financial, or personnel details.'},
   chatgpt:{name:'ChatGPT',maker:'OpenAI · chatgpt.com',color:'#10a37f',icon:'<svg viewBox="0 0 24 24" width="32" height="32" fill="#10a37f" aria-hidden="true"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg>',cta:'https://chatgpt.com',
     what:'The most versatile and widely integrated AI platform. Strong across data analysis, brainstorming, image generation, and coding. Excellent for uploading spreadsheets and getting instant visual analysis — particularly useful for box office and attendance data.',
     strengths:['Upload & analyze spreadsheets with instant charts','Image creation via DALL·E 3 (posters, graphics concepts)','Code generation and formula building','Broadest plugin and integration ecosystem'],
-    tryPrompt:'"Analyze this attendance data. What are the top 3 trends? Show me a chart."'},
+    tryPrompt:'"Analyze this attendance data. What are the top 3 trends? Show me a chart."',
+    note:'Access only through your Bushnell-managed ChatGPT workspace — never a personal or public account. AI-generated images still need a rights review before publishing.'},
   copilot:{name:'Copilot',maker:'Microsoft · built into M365',color:'#0078d4',icon:'<svg viewBox="0 0 1322.9 1147.5" width="32" height="27.7" fill="#0078d4" aria-hidden="true"><path d="m711.19 265.2c-27.333 0-46.933 3.07-58.8 9.33 27.067-80.267 47.6-210.13 168-210.13 114.93 0 108.4 138.27 157.87 200.8zm107.33 112.93c-35.467 125.2-70 251.2-110.13 375.33-12.133 36.4-45.733 61.6-84 61.6h-136.27c9.3333-14 16.8-28.933 21.467-45.733 35.467-125.07 70-251.07 110.13-375.33 12.133-36.4 45.733-61.6 84-61.6h136.27c-9.3333 14-16.8 28.934-21.467 45.734m-316.13 704.8c-114.93 0-108.4-138.13-157.87-200.67h267.07c27.467 0 47.067-3.07 58.8-9.33-27.067 80.266-47.6 210-168 210m777.47-758.93h0.93c-32.667-38.266-82.267-57.866-146.67-57.866h-36.4c-34.533-2.8-65.333-26.134-76.533-58.8l-36.4-103.6c-21.463-61.737-80.263-103.74-145.73-103.74h-475.07c-175.6 0-251.2 225.07-292.27 361.33-38.267 127.07-126 341.73-24.267 462.13 46.667 55.067 116.67 57.867 183.07 57.867 34.533 2.8 65.333 26.133 76.533 58.8l36.4 103.6c21.467 61.733 80.267 103.73 145.6 103.73h475.2c175.47 0 251.07-225.07 292.27-361.33 30.8-100.8 68.133-224.93 66.267-324.8 0-50.534-11.2-100-42.933-137.33"/></svg>',cta:null,
     what:'AI that lives right inside the apps you already use every day. Summarizes emails in Outlook, builds presentations in PowerPoint, recaps meetings in Teams, and analyzes data in Excel — without switching tools or copy-pasting anything.',
     strengths:['Native integration with all Microsoft 365 apps','Auto-summarizes Teams meetings with action items','Draft and improve emails right in Outlook','Build slide decks from a Word doc or prompt'],
-    tryPrompt:'Open a long email thread → click Copilot → "Summary by Copilot."'}
+    tryPrompt:'Open a long email thread → click Copilot → "Summary by Copilot."',
+    note:'Already tied to your Bushnell Microsoft 365 account. Still avoid pasting donor or personnel specifics, even here.'}
 };
 
 function openEnsembleModal(id){
@@ -412,6 +421,7 @@ function openEnsembleModal(id){
         ${t.strengths.map(s=>`<li>${s}</li>`).join('')}
       </ul>
       <div style="background:var(--teal-xpale);border-left:3px solid var(--teal);padding:11px 14px;font-size:12.5px;font-style:italic;line-height:1.55;margin-bottom:14px;color:var(--text)">${t.tryPrompt}</div>
+      <p style="font-size:11.5px;line-height:1.5;color:var(--muted);margin:0">${t.note}</p>
     </div>
   `;
   const ctaEl = document.getElementById('ensemble-modal-cta');
@@ -430,25 +440,27 @@ function closeEnsembleModalOnBackdrop(e){
 document.addEventListener('keydown', e => { if(e.key === 'Escape'){ closeEnsembleModal(); } });
 
 // ── CAST THE RIGHT TOOL WIZARD ──
+// Only Claude, ChatGPT, and Microsoft Copilot are approved for Bushnell work.
+// Every other tool below requires prior AI Task Force approval before use — see approved:false.
 const wizardStep2Data = {
   writing: {q:'What does the output need to do?', options:[
-    {label:'Maintain relationship, warmth, or mission voice', icon:'🧠', tool:'Claude', why:'Best for nuanced writing that requires tone control, warmth, and careful reasoning — donor letters, grants, board documents, and anything where voice and relationship matter.'},
-    {label:'Brainstorm ideas or create multiple variations', icon:'💬', tool:'ChatGPT', why:'Excellent for brainstorming, generating multiple options, and creative copy variations.'},
-    {label:'Improve or summarize a document I already have open', icon:'🪟', tool:'Copilot', why:'Right inside Word, Outlook, or Teams — draft, summarize, or improve documents without leaving your Microsoft apps.'}
+    {label:'Maintain relationship, warmth, or mission voice', icon:'🧠', tool:'Claude', approved:true, why:'Best for nuanced writing that requires tone control, warmth, and careful reasoning — donor letters, grants, board documents, and anything where voice and relationship matter.'},
+    {label:'Brainstorm ideas or create multiple variations', icon:'💬', tool:'ChatGPT', approved:true, why:'Excellent for brainstorming, generating multiple options, and creative copy variations.'},
+    {label:'Improve or summarize a document I already have open', icon:'🪟', tool:'Copilot', approved:true, why:'Right inside Word, Outlook, or Teams — draft, summarize, or improve documents without leaving your Microsoft apps.'}
   ]},
   research: {q:'What kind of research do you need?', options:[
-    {label:'Cited sources I can actually reference', icon:'🔍', tool:'Perplexity', why:'The gold standard for cited research — every answer links to its source. Use it for funder research and fact-checking.'},
-    {label:'Analyze data I can upload (CSV, Excel)', icon:'💬', tool:'ChatGPT', why:'Upload a CSV or Excel file directly — it reads it, creates charts, surfaces trends, and writes the narrative.'},
-    {label:'Current events or real-time industry trends', icon:'♊', tool:'Gemini', why:'Real-time web access and Google Workspace integration — ideal for current events and industry news.'},
-    {label:'What audiences are saying on social media', icon:'⚡', tool:'Grok', why:'Live access to X (Twitter) — see what audiences are saying right now about shows or cultural topics.'}
+    {label:'Cited sources I can actually reference', icon:'🔍', tool:'Perplexity', approved:false, why:'The gold standard for cited research — every answer links to its source. Requires AI Task Force approval before use — it is not yet an approved Bushnell tool.'},
+    {label:'Analyze data I can upload (CSV, Excel)', icon:'💬', tool:'ChatGPT', approved:true, why:'Upload a CSV or Excel file directly — it reads it, creates charts, surfaces trends, and writes the narrative.'},
+    {label:'Current events or real-time industry trends', icon:'♊', tool:'Gemini', approved:false, why:'Real-time web access and Google Workspace integration — ideal for current events and industry news. Requires AI Task Force approval before use — it is not yet an approved Bushnell tool.'},
+    {label:'What audiences are saying on social media', icon:'⚡', tool:'Grok', approved:false, why:'Live access to X (Twitter) — see what audiences are saying right now about shows or cultural topics. Requires AI Task Force approval before use — it is not yet an approved Bushnell tool.'}
   ]},
   office: {q:'Which platform do you work in most?', options:[
-    {label:'Microsoft 365 — Outlook, Teams, Word, Excel', icon:'🪟', tool:'Copilot', why:'Built directly into Outlook, Word, Excel, PowerPoint, and Teams — no switching apps.'},
-    {label:'Google Workspace — Gmail, Docs, Sheets, Slides', icon:'♊', tool:'Gemini', why:'Lives inside Gmail, Docs, Sheets, and Slides — draft, summarize, and analyze without leaving Google tools.'}
+    {label:'Microsoft 365 — Outlook, Teams, Word, Excel', icon:'🪟', tool:'Copilot', approved:true, why:'Built directly into Outlook, Word, Excel, PowerPoint, and Teams — no switching apps.'},
+    {label:'Google Workspace — Gmail, Docs, Sheets, Slides', icon:'♊', tool:'Gemini', approved:false, why:'Lives inside Gmail, Docs, Sheets, and Slides — draft, summarize, and analyze without leaving Google tools. Requires AI Task Force approval before use — it is not yet an approved Bushnell tool.'}
   ]},
   design: {q:"What's your design goal?", options:[
-    {label:'Create social graphics using our brand assets', icon:'🎨', tool:'Canva AI', why:'If you already use Canva, its AI features work inside your existing brand kit — no learning curve.'},
-    {label:'Generate image concepts or illustration ideas', icon:'💬', tool:'ChatGPT', why:'DALL·E 3 inside ChatGPT can generate concept images and visual ideas for brainstorming.'}
+    {label:'Create social graphics using our brand assets', icon:'🎨', tool:'Canva AI', approved:false, why:'If you already use Canva, its AI features work inside your existing brand kit. Requires AI Task Force approval before use — it is not yet an approved Bushnell tool.'},
+    {label:'Generate image concepts or illustration ideas', icon:'💬', tool:'ChatGPT', approved:true, why:'DALL·E 3 inside ChatGPT can generate concept images and visual ideas for brainstorming.'}
   ]}
 };
 
@@ -469,6 +481,16 @@ function wizardShowResult(cat, idx){
   document.getElementById('wizard-result-icon').textContent = o.icon;
   document.getElementById('wizard-result-tool').textContent = o.tool;
   document.getElementById('wizard-result-why').textContent = o.why;
+  const badge = document.getElementById('wizard-result-badge');
+  if(o.approved){
+    badge.textContent = '✓ Approved for Bushnell use';
+    badge.style.color = 'var(--teal-dark)';
+    badge.style.borderColor = 'var(--teal)';
+  } else {
+    badge.textContent = '⚠ Requires AI Task Force approval before use';
+    badge.style.color = 'var(--red)';
+    badge.style.borderColor = 'var(--red)';
+  }
   document.getElementById('wizard-result').style.display = 'block';
 }
 function wizardBack(){
