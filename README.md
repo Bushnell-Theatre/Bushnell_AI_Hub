@@ -9,7 +9,7 @@ This site teaches Bushnell staff with little or no AI experience how to safely a
 The site is two **independent, self-contained** HTML documents. Each has its own inline `<style>` and `<script>` block and can be opened directly in a browser with no build step. They are not currently split into shared files on purpose — see "Why no shared files yet" below.
 
 - **`index.html`** — "AI 101: Start Here." The entry point and the beginner's guided journey (8 numbered steps), the three-tool card grid, Rules of the Road, a "Try It Safely" fictional-prompt walkthrough, role-based practice tracks, a short glossary, and an FAQ.
-- **`ai-playbook.html`** — "The AI Playbook." The deeper reference: an interactive tool-picker wizard, myth-busting FAQ, the full 14-tool ensemble (3 approved + 11 not-yet-approved), the Prompt Library, the official AI policy, a longer glossary, and Staff Voices.
+- **`ai-playbook.html`** — "The AI Playbook." The deeper reference: an interactive tool-picker wizard, myth-busting FAQ, the full 13-tool ensemble (3 approved + 10 not-yet-approved), the Prompt Library, the official AI policy, a longer glossary, and Staff Voices.
 
 The two pages cross-link (`index.html` → "Open the AI Playbook", `ai-playbook.html` → "← Start Here") but do not share any files today.
 

@@ -162,7 +162,7 @@ a:hover{color:var(--teal-dark)}
 <div class="section-pad" style="padding:52px 40px;background:var(--bg-alt)">
   <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px"><span style="width:32px;height:1px;background:var(--teal)"></span><span style="font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--teal)">Meet the Company</span></div>
   <h2 style="font-family:var(--font-display);font-size:34px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);line-height:1;margin:0 0 8px">The AI Ensemble</h2>
-  <p style="font-size:15px;color:var(--muted);max-width:64ch;line-height:1.65;margin:0 0 28px">Our three approved tools, in full — plus eleven more that exist but are not yet approved for Bushnell work.</p>
+  <p style="font-size:15px;color:var(--muted);max-width:64ch;line-height:1.65;margin:0 0 28px">Our three approved tools, in full — plus ten more that exist but are not yet approved for Bushnell work.</p>
   <div class="ensemble-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px">
 
     <button type="button" class="ensemble-card" data-ensemble="claude" aria-label="Claude — Anthropic. Select for full detail." style="border:1px solid var(--border);border-top:3px solid var(--claude);padding:24px;cursor:pointer">
@@ -208,13 +208,12 @@ a:hover{color:var(--teal-dark)}
   <div style="display:flex;flex-direction:column;border-top:1px solid var(--border);background:var(--white)">
     <div class="worth-row"><div class="worth-name">Gemini</div><div class="worth-maker">Google · gemini.google.com</div><div class="worth-desc">Real-time web search and deep Google Workspace integration; strong for current-events research and huge documents.</div></div>
     <div class="worth-row"><div class="worth-name">Perplexity</div><div class="worth-maker">Perplexity AI · perplexity.ai</div><div class="worth-desc">Cited, sourced answers — the go-to for funder research and fact-checking.</div></div>
-    <div class="worth-row"><div class="worth-name">Grok</div><div class="worth-maker">xAI · grok.com</div><div class="worth-desc">Live X/Twitter access — good for reading real-time audience and cultural sentiment.</div></div>
     <div class="worth-row"><div class="worth-name">NotebookLM</div><div class="worth-maker">Google · notebooklm.google.com</div><div class="worth-desc">Upload your own documents; it answers only from those sources, with citations.</div></div>
     <div class="worth-row"><div class="worth-name">Canva AI</div><div class="worth-maker">Canva · canva.com</div><div class="worth-desc">Magic Write and Magic Design inside the Canva your marketing team already uses.</div></div>
     <div class="worth-row"><div class="worth-name">Grammarly</div><div class="worth-maker">grammarly.com</div><div class="worth-desc">Grammar, tone, and rewriting help across Gmail, Outlook, Word, and your browser.</div></div>
     <div class="worth-row"><div class="worth-name">Descript</div><div class="worth-maker">descript.com</div><div class="worth-desc">Edit audio/video by editing a transcript — good for highlight reels and podcasts.</div></div>
     <div class="worth-row"><div class="worth-name">Notion</div><div class="worth-maker">notion.so</div><div class="worth-desc">All-in-one workspace with AI agents that can execute multi-step tasks.</div></div>
-    <div class="worth-row"><div class="worth-name">Gamma</div><div class="worth-maker">gamma.app</div><div class="worth-desc">Turns a text prompt into a polished deck, doc, or webpage in under a minute.</div></div>
+    <div class="worth-row"><div class="worth-name">Beautiful.ai</div><div class="worth-maker">beautiful.ai</div><div class="worth-desc">Auto-designs and reformats slides as you type — a faster way to build a polished, on-brand deck.</div></div>
     <div class="worth-row"><div class="worth-name">Buffer</div><div class="worth-maker">buffer.com</div><div class="worth-desc">Schedule and analyze social posts, with AI caption variations built in.</div></div>
     <div class="worth-row"><div class="worth-name">ElevenLabs</div><div class="worth-maker">elevenlabs.io</div><div class="worth-desc">Lifelike AI narration and voiceover — useful for accessibility audio and video.</div></div>
   </div>
@@ -536,8 +535,7 @@ const wizardStep2Data = {
   research: {q:'What kind of research do you need?', options:[
     {label:'Cited sources I can actually reference', icon:'🔍', tool:'Perplexity', approved:false, why:'The gold standard for cited research — every answer links to its source. Requires AI Task Force approval before use — it is not yet an approved Bushnell tool.'},
     {label:'Analyze data I can upload (CSV, Excel)', icon:'💬', tool:'ChatGPT', approved:true, why:'Upload a CSV or Excel file directly — it reads it, creates charts, surfaces trends, and writes the narrative.'},
-    {label:'Current events or real-time industry trends', icon:'♊', tool:'Gemini', approved:false, why:'Real-time web access and Google Workspace integration — ideal for current events and industry news. Requires AI Task Force approval before use — it is not yet an approved Bushnell tool.'},
-    {label:'What audiences are saying on social media', icon:'⚡', tool:'Grok', approved:false, why:'Live access to X (Twitter) — see what audiences are saying right now about shows or cultural topics. Requires AI Task Force approval before use — it is not yet an approved Bushnell tool.'}
+    {label:'Current events or real-time industry trends', icon:'♊', tool:'Gemini', approved:false, why:'Real-time web access and Google Workspace integration — ideal for current events and industry news. Requires AI Task Force approval before use — it is not yet an approved Bushnell tool.'}
   ]},
   office: {q:'Which platform do you work in most?', options:[
     {label:'Microsoft 365 — Outlook, Teams, Word, Excel', icon:'🪟', tool:'Copilot', approved:true, why:'Built directly into Outlook, Word, Excel, PowerPoint, and Teams — no switching apps.'},
