@@ -44,6 +44,10 @@ a:hover{color:var(--teal-dark)}
 .worth-maker{width:180px;flex-shrink:0;font-size:11px;color:var(--muted-light);}
 .worth-desc{font-size:13px;line-height:1.5;color:var(--muted);flex:1;min-width:200px;}
 
+.policy-intro-kicker{font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin:0 0 8px;}
+.policy-intro{background:var(--navy);padding:24px 28px;margin-bottom:16px;}
+.policy-approval{background:var(--teal-pale);padding:24px 28px;}
+
 @media(max-width:900px){
   .ensemble-grid,.myths-grid,.approval-grid,.policy-grid,.glossary-grid,.prompt-grid,.quotes-grid,.rules-grid{grid-template-columns:1fr !important;}
 }
@@ -238,8 +242,8 @@ a:hover{color:var(--teal-dark)}
     <div>
       <h3 style="font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin:0 0 14px;padding-bottom:8px;border-bottom:2px solid var(--red)">Don't do this</h3>
       <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px">
-        <li style="font-size:14px;line-height:1.6;color:var(--text);padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--red);font-weight:700" aria-hidden="true">—</span>No real donor names or gift amounts — ever.</li>
-        <li style="font-size:14px;line-height:1.6;color:var(--text);padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--red);font-weight:700" aria-hidden="true">—</span>No HR, salary, or personnel details — generalize only.</li>
+        <li style="font-size:14px;line-height:1.6;color:var(--text);padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--red);font-weight:700" aria-hidden="true">—</span><strong>No Personally Identifiable Information (PII) — ever.</strong> No real names, addresses, emails, phone numbers, or ID numbers for any donor, patron, employee, or vendor.</li>
+        <li style="font-size:14px;line-height:1.6;color:var(--text);padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--red);font-weight:700" aria-hidden="true">—</span><strong>No financial information — ever.</strong> No gift amounts, salaries, bank details, or account numbers.</li>
         <li style="font-size:14px;line-height:1.6;color:var(--text);padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--red);font-weight:700" aria-hidden="true">—</span>Verify facts, stats, and dates — AI hallucinates confidently.</li>
         <li style="font-size:14px;line-height:1.6;color:var(--text);padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--red);font-weight:700" aria-hidden="true">—</span>No grant content without expert review — Development Director signs off.</li>
         <li style="font-size:14px;line-height:1.6;color:var(--text);padding-left:18px;position:relative"><span style="position:absolute;left:0;color:var(--red);font-weight:700" aria-hidden="true">—</span>No board, legal, or strategic documents — keep these offline.</li>
@@ -319,34 +323,13 @@ a:hover{color:var(--teal-dark)}
 <div class="section-pad" style="padding:52px 40px;background:var(--white)">
   <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px"><span style="width:32px;height:1px;background:var(--teal)"></span><span style="font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--teal)">House Rules</span></div>
   <h2 style="font-family:var(--font-display);font-size:34px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);line-height:1;margin:0 0 20px">The Bushnell's AI Policy</h2>
-  <div style="background:var(--navy);padding:24px 28px;margin-bottom:28px">
+  <div class="policy-intro-kicker">◆ Policy</div>
+  <div class="policy-intro">
     <div style="font-family:var(--font-display);font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--teal-light);margin-bottom:10px">◆ Official Policy Statement</div>
     <p style="font-size:14px;line-height:1.7;margin:0;color:rgba(255,255,255,.82)">The Bushnell recognizes the growing use of Artificial Intelligence, including Generative AI tools, in the workplace. AI can enhance efficiency and productivity, but its use must align with The Bushnell's security, confidentiality, and compliance standards. The Bushnell has established an AI Task Force responsible for overseeing and administering this policy.</p>
   </div>
 
-  <div style="margin-bottom:32px">
-    <div style="font-family:var(--font-display);font-weight:700;font-size:18px;letter-spacing:.3px;color:var(--navy);margin-bottom:8px">🔑 GenAI Technology Approval Process</div>
-    <p style="font-size:13.5px;line-height:1.65;color:var(--muted);margin:0 0 16px;max-width:70ch">If you want to use a new AI tool not already approved (e.g. beyond Claude, ChatGPT, and Copilot), you must get approval before using, purchasing, subscribing to, or installing it. All software purchases route through IT.</p>
-    <div class="approval-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
-      <div style="background:var(--bg-alt);padding:20px">
-        <div style="font-family:var(--font-display);font-weight:800;font-size:26px;color:var(--teal);margin-bottom:8px">01</div>
-        <div style="font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--navy);margin-bottom:6px">Submit a Proposal</div>
-        <p style="font-size:12.5px;line-height:1.55;color:var(--muted);margin:0">Submit a detailed proposal to the AI Task Force outlining intended use, benefits, and potential risks.</p>
-      </div>
-      <div style="background:var(--bg-alt);padding:20px">
-        <div style="font-family:var(--font-display);font-weight:800;font-size:26px;color:var(--teal);margin-bottom:8px">02</div>
-        <div style="font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--navy);margin-bottom:6px">Task Force Assessment</div>
-        <p style="font-size:12.5px;line-height:1.55;color:var(--muted);margin:0">The AI Task Force evaluates ethical and legal implications; additional members may be assigned as needed.</p>
-      </div>
-      <div style="background:var(--bg-alt);padding:20px">
-        <div style="font-family:var(--font-display);font-weight:800;font-size:26px;color:var(--teal);margin-bottom:8px">03</div>
-        <div style="font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--navy);margin-bottom:6px">Approval &amp; Deployment</div>
-        <p style="font-size:12.5px;line-height:1.55;color:var(--muted);margin:0">Only upon approval can the tool be installed, deployed, or subscribed to. IT manages all purchases.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="policy-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+  <div class="policy-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px">
     <div style="background:var(--bg-alt);padding:20px"><div style="font-size:26px;margin-bottom:8px" aria-hidden="true">🧠</div><div style="font-family:var(--font-display);font-weight:700;font-size:14.5px;color:var(--navy);margin-bottom:6px">Human Judgment Always Applies</div><p style="font-size:12.5px;line-height:1.55;color:var(--muted);margin:0">AI should not be used as a substitute for human judgment. Employees are responsible for verifying the accuracy and reliability of AI-generated outputs before using them in decisions or communications.</p></div>
     <div style="background:var(--bg-alt);padding:20px"><div style="font-size:26px;margin-bottom:8px" aria-hidden="true">🔐</div><div style="font-family:var(--font-display);font-weight:700;font-size:14.5px;color:var(--navy);margin-bottom:6px">Protection of Confidential Information</div><p style="font-size:12.5px;line-height:1.55;color:var(--muted);margin:0">Maintain the highest level of privacy with all information exchanged with an AI tool. Do not upload or share data that is confidential, proprietary, or protected by regulation.</p></div>
     <div style="background:var(--bg-alt);padding:20px"><div style="font-size:26px;margin-bottom:8px" aria-hidden="true">👤</div><div style="font-family:var(--font-display);font-weight:700;font-size:14.5px;color:var(--navy);margin-bottom:6px">Data Privacy &amp; PII</div><p style="font-size:12.5px;line-height:1.55;color:var(--muted);margin:0">AI tools must not publicly disclose, store, or share PII of employees, customers, patrons, donors, or vendors. All data privacy laws must be followed.</p></div>
@@ -355,6 +338,29 @@ a:hover{color:var(--teal-dark)}
     <div style="background:var(--bg-alt);padding:20px"><div style="font-size:26px;margin-bottom:8px" aria-hidden="true">🚫</div><div style="font-family:var(--font-display);font-weight:700;font-size:14.5px;color:var(--navy);margin-bottom:6px">Compliance with All Company Policies</div><p style="font-size:12.5px;line-height:1.55;color:var(--muted);margin:0">Use generative AI in accordance with all Bushnell policies, including anti-harassment and anti-discrimination. AI must never be used to create harmful or discriminatory content.</p></div>
     <div style="background:var(--bg-alt);padding:20px"><div style="font-size:26px;margin-bottom:8px" aria-hidden="true">🔍</div><div style="font-family:var(--font-display);font-weight:700;font-size:14.5px;color:var(--navy);margin-bottom:6px">Fact-Check Everything</div><p style="font-size:12.5px;line-height:1.55;color:var(--muted);margin:0">Set aside time to fact-check AI-generated materials. Statistics, citations, names, and dates must be verified against primary sources before appearing in any official document.</p></div>
     <div style="background:var(--bg-alt);padding:20px"><div style="font-size:26px;margin-bottom:8px" aria-hidden="true">❓</div><div style="font-family:var(--font-display);font-weight:700;font-size:14.5px;color:var(--navy);margin-bottom:6px">Questions &amp; the AI Task Force</div><p style="font-size:12.5px;line-height:1.55;color:var(--muted);margin:0">The AI Task Force oversees this policy, reviews new tool proposals, and provides guidance. If unsure whether a use is appropriate — ask before you act.</p></div>
+  </div>
+
+  <div class="policy-intro-kicker">🔑 Procedure</div>
+  <div class="policy-approval">
+    <div style="font-family:var(--font-display);font-weight:700;font-size:18px;letter-spacing:.3px;color:var(--navy);margin-bottom:8px">Procedure: Requesting a New AI Tool</div>
+    <p style="font-size:13.5px;line-height:1.65;color:var(--muted);margin:0 0 16px;max-width:70ch">If you want to use a new AI tool not already approved (e.g. beyond Claude, ChatGPT, and Copilot), you must get approval before using, purchasing, subscribing to, or installing it. All software purchases route through IT.</p>
+    <div class="approval-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+      <div style="background:var(--white);padding:20px">
+        <div style="font-family:var(--font-display);font-weight:800;font-size:26px;color:var(--teal);margin-bottom:8px">01</div>
+        <div style="font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--navy);margin-bottom:6px">Submit a Proposal</div>
+        <p style="font-size:12.5px;line-height:1.55;color:var(--muted);margin:0">Submit a detailed proposal to the AI Task Force outlining intended use, benefits, and potential risks.</p>
+      </div>
+      <div style="background:var(--white);padding:20px">
+        <div style="font-family:var(--font-display);font-weight:800;font-size:26px;color:var(--teal);margin-bottom:8px">02</div>
+        <div style="font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--navy);margin-bottom:6px">Task Force Assessment</div>
+        <p style="font-size:12.5px;line-height:1.55;color:var(--muted);margin:0">The AI Task Force evaluates ethical and legal implications; additional members may be assigned as needed.</p>
+      </div>
+      <div style="background:var(--white);padding:20px">
+        <div style="font-family:var(--font-display);font-weight:800;font-size:26px;color:var(--teal);margin-bottom:8px">03</div>
+        <div style="font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--navy);margin-bottom:6px">Approval &amp; Deployment</div>
+        <p style="font-size:12.5px;line-height:1.55;color:var(--muted);margin:0">Only upon approval can the tool be installed, deployed, or subscribed to. IT manages all purchases.</p>
+      </div>
+    </div>
   </div>
 </div>
 
