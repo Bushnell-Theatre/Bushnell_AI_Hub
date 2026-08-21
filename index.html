@@ -45,7 +45,7 @@ details summary{list-style:none}
 .tool-card:focus-visible{outline-offset:-3px;}
 
 @media(max-width:900px){
-  .tools-grid,.tracks-grid,.glossary-grid,.rules-grid{grid-template-columns:1fr !important;}
+  .tools-grid,.tracks-grid,.glossary-grid,.rules-grid,.learn-grid{grid-template-columns:1fr !important;}
 }
 @media(max-width:600px){
   nav,.hero-inner,.section-pad,.cta-band,.footer-bar{padding-left:20px !important;padding-right:20px !important;}
@@ -187,13 +187,43 @@ details summary{list-style:none}
     </details>
 
   </div>
-  <div style="margin-top:28px">
-    <div style="font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:10px">Watch &amp; learn</div>
-    <!-- TODO(AI Task Force): find, review, and approve beginner-friendly training videos for Claude, ChatGPT, and Microsoft Copilot, then replace the placeholders below with the approved links. -->
-    <div style="display:flex;flex-direction:column;gap:7px">
-      <div style="font-size:13px;color:var(--muted-light);font-style:italic">Claude — Training resource coming soon</div>
-      <div style="font-size:13px;color:var(--muted-light);font-style:italic">ChatGPT — Training resource coming soon</div>
-      <div style="font-size:13px;color:var(--muted-light);font-style:italic">Microsoft Copilot — Training resource coming soon</div>
+  <div style="margin-top:40px">
+    <div style="font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:6px">Go Deeper</div>
+    <h3 style="font-family:var(--font-display);font-size:20px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--navy);margin:0 0 6px">Watch &amp; Learn</h3>
+    <p style="font-size:13.5px;color:var(--muted);max-width:70ch;line-height:1.6;margin:0 0 20px">A short guided path for each tool, using each vendor's own official training. Watch, then learn, then practice — then review Bushnell's Rules of the Road before using it with real work.</p>
+    <!-- Curated from each vendor's own official training catalog (Anthropic Academy, OpenAI Academy, Microsoft Learn) -- not third-party or dated YouTube search links. Durations are approximate and vendor-stated; recheck periodically for staleness. -->
+    <div class="learn-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+
+      <div style="background:var(--white);border:1px solid var(--border);border-top:3px solid var(--claude);padding:22px">
+        <div style="font-family:var(--font-display);font-size:16px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--navy);margin-bottom:12px">Claude</div>
+        <ol style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px">
+          <li style="font-size:13px;line-height:1.5;color:var(--text)"><span style="display:block;font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:2px">Watch</span><a href="https://www.youtube.com/watch?v=0vZ_UVLhSQQ" target="_blank" rel="noopener noreferrer">Getting Started with Claude.ai</a> <span style="color:var(--muted-light)">— official Anthropic video</span></li>
+          <li style="font-size:13px;line-height:1.5;color:var(--text)"><span style="display:block;font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:2px">Learn</span><a href="https://anthropic.skilljar.com/claude-101" target="_blank" rel="noopener noreferrer">Claude 101</a> <span style="color:var(--muted-light)">— Anthropic Academy, ~20 min (free sign-in required)</span></li>
+          <li style="font-size:13px;line-height:1.5;color:var(--text)"><span style="display:block;font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:2px">Practice</span><a href="https://anthropic.skilljar.com/ai-fluency-for-nonprofits" target="_blank" rel="noopener noreferrer">AI Fluency for Nonprofits</a> <span style="color:var(--muted-light)">— Anthropic × GivingTuesday (free sign-in required)</span></li>
+          <li style="font-size:13px;line-height:1.5;color:var(--text)"><span style="display:block;font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:2px">Bushnell Rules</span><a href="#rules">Review the Rules of the Road →</a></li>
+        </ol>
+      </div>
+
+      <div style="background:var(--white);border:1px solid var(--border);border-top:3px solid var(--chatgpt);padding:22px">
+        <div style="font-family:var(--font-display);font-size:16px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--navy);margin-bottom:12px">ChatGPT</div>
+        <ol style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px">
+          <li style="font-size:13px;line-height:1.5;color:var(--text)"><span style="display:block;font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:2px">Watch</span><a href="https://academy.openai.com/public/clubs/work-users-ynjqu/videos/chatgpt-101-a-guide-to-your-ai-superassistant-recording" target="_blank" rel="noopener noreferrer">ChatGPT 101: A Guide to Your AI Superassistant</a> <span style="color:var(--muted-light)">— OpenAI Academy, ~40 min (free sign-in required)</span></li>
+          <li style="font-size:13px;line-height:1.5;color:var(--text)"><span style="display:block;font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:2px">Learn</span><a href="https://academy.openai.com/public/courses/ai-foundations-juzjs" target="_blank" rel="noopener noreferrer">AI Foundations</a> <span style="color:var(--muted-light)">— OpenAI Academy, self-paced (free sign-in required)</span></li>
+          <li style="font-size:13px;line-height:1.5;color:var(--text)"><span style="display:block;font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:2px">Practice</span><a href="https://academy.openai.com/public/courses/applied-ai-foundations-hgk7r" target="_blank" rel="noopener noreferrer">Applied AI Foundations</a> <span style="color:var(--muted-light)">— OpenAI Academy (free sign-in required)</span></li>
+          <li style="font-size:13px;line-height:1.5;color:var(--text)"><span style="display:block;font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:2px">Bushnell Rules</span><a href="#rules">Review the Rules of the Road →</a></li>
+        </ol>
+      </div>
+
+      <div style="background:var(--white);border:1px solid var(--border);border-top:3px solid var(--copilot);padding:22px">
+        <div style="font-family:var(--font-display);font-size:16px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--navy);margin-bottom:12px">Copilot</div>
+        <ol style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px">
+          <li style="font-size:13px;line-height:1.5;color:var(--text)"><span style="display:block;font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:2px">Watch</span><a href="https://support.microsoft.com/en-US/Microsoft-365-Copilot/microsoft-365-copilot-video-tutorials" target="_blank" rel="noopener noreferrer">Microsoft Copilot video tutorials</a> <span style="color:var(--muted-light)">— Microsoft Support, short intro videos</span></li>
+          <li style="font-size:13px;line-height:1.5;color:var(--text)"><span style="display:block;font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:2px">Learn</span><a href="https://learn.microsoft.com/en-us/training/modules/get-ready-work-microsoft-365-copilot/" target="_blank" rel="noopener noreferrer">Get Ready to Work with Microsoft 365 Copilot</a> <span style="color:var(--muted-light)">— Microsoft Learn, ~22 min</span></li>
+          <li style="font-size:13px;line-height:1.5;color:var(--text)"><span style="display:block;font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:2px">Practice</span><a href="https://learn.microsoft.com/en-us/training/modules/copilot-office-applications/" target="_blank" rel="noopener noreferrer">Work Smarter with Copilot Across Your Microsoft 365 Apps</a> <span style="color:var(--muted-light)">— Microsoft Learn, ~39 min</span></li>
+          <li style="font-size:13px;line-height:1.5;color:var(--text)"><span style="display:block;font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:2px">Bushnell Rules</span><a href="#rules">Review the Rules of the Road →</a></li>
+        </ol>
+      </div>
+
     </div>
   </div>
 </div>

@@ -33,7 +33,9 @@ Work happens on `dev` first. Nothing merges to `main` or deploys without explici
 - [ ] Every example prompt, sample name, and walkthrough (including "Try It Safely") uses clearly fictional or fully anonymized information, explicitly labeled as such where a reader could otherwise mistake it for a real instruction to use real data
 
 ### Training links and Staff Voices
-- [ ] No training-video link is added unless the AI Task Force has actually reviewed and approved it — until then, the "Training resource coming soon" placeholders and their `TODO(AI Task Force)` comment stay in `index.html`
+- [ ] "Watch & Learn" in `index.html` (inside `id="paths"`) links only to each vendor's own official training catalog (Anthropic Academy, OpenAI Academy, Microsoft Learn/Support) for Claude, ChatGPT, and Copilot — not third-party creators or dated YouTube searches. This is allowed without separate AI Task Force review since it's the vendor's own training, not an outside curator's video
+- [ ] Each link's title, approximate duration, and "(free sign-in required)" note (where applicable) still match the live vendor page — vendors reorganize and rename these periodically, so recheck before publishing
+- [ ] If a link is ever replaced with a genuinely third-party (non-vendor) training video, it must be reviewed and approved by the AI Task Force first
 - [ ] Staff Voices quotes in `ai-playbook.html` are not claimed as verified unless each quote and attribution has actually been confirmed with the named staff member — otherwise the "Illustrative examples... not verified quotes" disclaimer must remain directly above them
 
 ### Accessibility and responsive behavior
