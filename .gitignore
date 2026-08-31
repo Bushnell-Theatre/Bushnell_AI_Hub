@@ -1,1 +1,8 @@
 *.bak
+
+# Local process/handoff document for AI-assisted implementation work.
+# Never part of the deployed site -- see README.md "Repository structure".
+Bushnell_AI_Hub_Claude_Handoff.md
+
+# Stray local scratch file -- not a repository deliverable.
+rules_index.txt
