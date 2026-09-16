@@ -1,8 +1,17 @@
-# Bushnell AI Hub
+# The Bushnell, Warner Theatre & Hartford Symphony Orchestra AI Hub
 
 ## Purpose and audience
 
-This site teaches Bushnell staff with little or no AI experience how to safely and confidently use the organization's three approved AI tools — Claude, ChatGPT, and Microsoft Copilot. It is written for novices: no technical background is assumed. The guiding path a first-time visitor should follow is: read the safety rules, choose a work goal, select an approved tool, access it correctly, try a safe fictional prompt, review the result critically, revise once, then consult the full Playbook when deeper guidance is needed.
+This site teaches staff at **The Bushnell**, **Warner Theatre**, and **Hartford Symphony Orchestra (HSO)** with little or no AI experience how to safely and confidently use the three currently approved AI tools — Claude, ChatGPT, and Microsoft Copilot. It is written for novices: no technical background is assumed. The guiding path a first-time visitor should follow is: read the safety rules, choose a work goal, select an approved tool, access it correctly, try a safe fictional prompt, review the result critically, revise once, then consult the full Playbook when deeper guidance is needed.
+
+### Organizational relationships
+
+These are three distinct organizations, not one — do not describe them as having identical corporate relationships:
+
+- **Warner Theatre** is a Bushnell subsidiary.
+- **Hartford Symphony Orchestra (HSO)** is an independent organization that receives shared services from The Bushnell — never describe HSO as a Bushnell department or subsidiary.
+
+The primary wordmark ("The Bushnell | Warner Theatre | Hartford Symphony Orchestra" / "AI Hub") and this audience description must stay consistent across both `index.html` and `ai-playbook.html`. See "SSO / access wording" in `CONTRIBUTING.md` before changing any access/workspace language to include HSO or Warner — that requires a confirmed access decision, not an assumption.
 
 ## The two pages
 
@@ -65,12 +74,13 @@ Everything lives inline in the two HTML files; there is currently no shared data
 
 | What | Where |
 |---|---|
+| Primary wordmark / org branding ("The Bushnell \| Warner Theatre \| Hartford Symphony Orchestra" / "AI Hub") | Both files' `<header>` block and `<title>` tag — must match exactly in both places |
 | Approved-tool status, card copy, "Best for" lists, access notes | `index.html`: `const toolData = {...}` (Claude/ChatGPT/Copilot objects). `ai-playbook.html`: `const ensembleToolData = {...}` |
 | Tool-picker wizard branches and approval flags (`approved:true/false`) | `ai-playbook.html`: `const wizardStep2Data = {...}` |
 | Safety rules ("Rules of the Road") | Both files, `id="rules"` section — currently duplicated by design; keep both copies in sync |
-| Access/SSO wording (Claude & ChatGPT via Bushnell SSO; Copilot via Bushnell Microsoft 365 account — never mix these up) | Both files, wherever Claude/ChatGPT/Copilot access is mentioned (tool notes, FAQ, Myths, Rules) |
+| Managed-account access wording — Claude & ChatGPT: "Use only the Bushnell-managed workspace account provided to you — never a personal or public account." Copilot: "Use only your organization-issued Microsoft 365 account." — never mix these two up | Both files, wherever Claude/ChatGPT/Copilot access is mentioned (tool notes, Toolkit/Ensemble intros, Try It Safely, Myths, Rules, Prompt Library). A general-access note ("Access instructions may vary by organization. Contact the AI Task Force if you have not yet received an approved managed account.") appears once per page, in the Toolkit/Ensemble intro |
 | Prompt Library templates | `ai-playbook.html`, `<!-- PROMPT LIBRARY -->` section |
-| "Watch & Learn" curated training paths (Claude/ChatGPT/Copilot) | `index.html`, inside `id="paths"` — one column per tool, each with Watch/Learn/Practice links to that vendor's own official training catalog (Anthropic Academy, OpenAI Academy, Microsoft Learn) plus a "Bushnell Rules" link back to `#rules`. Durations and sign-in requirements are vendor-stated and may drift — recheck periodically. Keep the inline comment noting this is sourced from each vendor's own catalog, not third-party or dated video-search links |
+| "Watch & Learn" curated training paths (Claude/ChatGPT/Copilot) | `index.html`, inside `id="paths"` — one column per tool, each with Watch/Learn/Practice links to that vendor's own official training catalog (Anthropic Academy, OpenAI Academy, Microsoft Learn) plus an "Our Rules" link back to `#rules`. Durations and sign-in requirements are vendor-stated and may drift — recheck periodically. Keep the inline comment noting this is sourced from each vendor's own catalog, not third-party or dated video-search links |
 | Staff Voices and its illustrative-example disclaimer | `ai-playbook.html`, `<!-- STAFF VOICES -->` section — the disclaimer directly above the quotes must stay unless every quote and attribution has been individually verified with the named staff member |
 | Official AI policy text | `ai-playbook.html`, `<!-- POLICY -->` section |
 | Last-reviewed date | A visible "Last reviewed: YYYY-MM-DD" line in the footer of both `index.html` and `ai-playbook.html`, directly below the AI Task Force contact line. Update the date in both files together whenever a content review is completed, and record it in `CONTRIBUTING.md`'s checklist history |
@@ -110,4 +120,4 @@ This repository uses a `dev`-first workflow for learner-facing changes:
 
 ## Last-reviewed
 
-This maintenance documentation (`README.md` and `CONTRIBUTING.md`) was written and last reviewed **2026-08-06**. This date reflects when this documentation was authored, not a review of the learner-facing content's accuracy — record actual content review dates using the checklist in `CONTRIBUTING.md`.
+This maintenance documentation (`README.md` and `CONTRIBUTING.md`) was written and last reviewed **2026-09-16**. This date reflects when this documentation was authored, not a review of the learner-facing content's accuracy — record actual content review dates using the checklist in `CONTRIBUTING.md`.
