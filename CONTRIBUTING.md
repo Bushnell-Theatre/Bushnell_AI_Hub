@@ -6,6 +6,13 @@ Work happens on `dev` first. Nothing merges to `main` or deploys without explici
 
 ## Before you publish, confirm:
 
+### Organizational branding (Bushnell / Warner Theatre / HSO)
+- [ ] The primary wordmark — "The Bushnell | Warner Theatre | Hartford Symphony Orchestra" over "AI Hub" — matches exactly in both files' `<header>` blocks and is reflected in both `<title>` tags
+- [ ] Warner Theatre and Hartford Symphony Orchestra (HSO) are never described as having identical corporate relationships to The Bushnell: Warner is a Bushnell subsidiary; HSO is an independent organization receiving shared services from The Bushnell, never a Bushnell department or subsidiary
+- [ ] No HSO-specific account-migration language, transitional account instructions, or personal/public-account approval has been added
+- [ ] No HSO (or Warner) authentication, licensing, tenant, or SSO details have been invented — the existing "Bushnell SSO" / "Bushnell-managed workspace" wording describes only Bushnell's own setup and stays as-is unless a confirmed access decision says otherwise
+- [ ] Audience/introductory language (hero copy, journey intro, footers) includes all three organizations; approval-status and policy-ownership wording (e.g. "Approved for Bushnell use," "The Bushnell's AI Policy") is left untouched unless a governance decision confirms it should change
+
 ### Consistency between the two pages
 - [ ] Rules of the Road (Do's and Don'ts) match, word for word, in both files
 - [ ] Tool access/note wording matches between `index.html`'s `toolData` and `ai-playbook.html`'s `ensembleToolData` for Claude, ChatGPT, and Copilot
