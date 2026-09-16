@@ -18,7 +18,7 @@ The primary wordmark ("The Bushnell | Warner Theatre | Hartford Symphony Orchest
 The site is two **independent, self-contained** HTML documents. Each has its own inline `<style>` and `<script>` block and can be opened directly in a browser with no build step. They are not currently split into shared files on purpose — see "Why no shared files yet" below.
 
 - **`index.html`** — "AI 101: Start Here." The entry point and the beginner's guided journey (8 numbered steps), the three-tool card grid, Rules of the Road, a "Try It Safely" fictional-prompt walkthrough, role-based practice tracks, a short glossary, and an FAQ.
-- **`ai-playbook.html`** — "The AI Playbook." The deeper reference: an interactive tool-picker wizard, myth-busting FAQ, the full 13-tool ensemble (3 approved + 10 not-yet-approved), the Prompt Library, the official AI policy, a longer glossary, and Staff Voices.
+- **`ai-playbook.html`** — "The AI Playbook." The deeper reference: an interactive tool-picker wizard, myth-busting FAQ, the full 15-tool ensemble (4 approved + 3 conditionally approved + 8 not-yet-approved), the Prompt Library, the official AI policy, a longer glossary, and Staff Voices.
 
 The two pages cross-link (`index.html` → "Open the AI Playbook", `ai-playbook.html` → "← Start Here") but do not share any files today.
 
@@ -76,7 +76,8 @@ Everything lives inline in the two HTML files; there is currently no shared data
 |---|---|
 | Primary wordmark / org branding ("The Bushnell \| Warner Theatre \| Hartford Symphony Orchestra" / "AI Hub") | Both files' `<header>` block and `<title>` tag — must match exactly in both places |
 | Approved-tool status, card copy, "Best for" lists, access notes | `index.html`: `const toolData = {...}` (Claude/ChatGPT/Copilot objects). `ai-playbook.html`: `const ensembleToolData = {...}` |
-| Tool-picker wizard branches and approval flags (`approved:true/false`) | `ai-playbook.html`: `const wizardStep2Data = {...}` |
+| Tool-picker wizard branches and approval flags (`approved:true/false`, plus optional `conditional:true` for Conditionally Approved tools) | `ai-playbook.html`: `const wizardStep2Data = {...}`; the three-state badge logic lives in `wizardShowResult()` |
+| Conditional-approval status (Canva AI, Beautiful.ai — per the AI Approved Tools Addendum) | `ai-playbook.html`: the "Also worth knowing" `.worth-row` entries (`.worth-status` badge + `.worth-note` condition text) and the wizard's Canva AI option. Never present these as plain "Approved" or "Not Approved" |
 | Safety rules ("Rules of the Road") | Both files, `id="rules"` section — currently duplicated by design; keep both copies in sync |
 | Managed-account access wording — Claude & ChatGPT: "Use only the Bushnell-managed workspace account provided to you — never a personal or public account." Copilot: "Use only your organization-issued Microsoft 365 account." — never mix these two up | Both files, wherever Claude/ChatGPT/Copilot access is mentioned (tool notes, Toolkit/Ensemble intros, Try It Safely, Myths, Rules, Prompt Library). A general-access note ("Access instructions may vary by organization. Contact the AI Task Force if you have not yet received an approved managed account.") appears once per page, in the Toolkit/Ensemble intro |
 | Prompt Library templates | `ai-playbook.html`, `<!-- PROMPT LIBRARY -->` section |
