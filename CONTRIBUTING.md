@@ -22,14 +22,17 @@ Work happens on `dev` first. Nothing merges to `main` or deploys without explici
 Three states exist, per the AI Approved Tools Addendum — never collapse this to a binary approved/not-approved:
 - **Approved** (Claude, ChatGPT, Copilot as the main toolkit/ensemble; Asana in "Also worth knowing") — presented as authorized, no restrictions shown
 - **Conditionally Approved** (Canva AI, Beautiful.ai, Suno.ai — all in "Also worth knowing") — labeled "Conditionally Approved" (never plain "Approved," never "Not Approved"), with its condition visible: paid/licensed tier only, public/non-sensitive work only, no non-public organizational information
-- **Not Approved** (every other tool in the "Also worth knowing" list and the wizard) — labeled "Not Approved," requires AI Task Force approval before use
+- **Not Approved** (every other tool in the "Also worth knowing" list) — labeled "Not Approved," requires AI Task Force approval before use
+
+**The "Cast the Right Tool" wizard never recommends a Not Approved tool.** Every `wizardStep2Data` answer path must resolve to Approved, Conditionally Approved, or — if no approved/conditionally-approved tool genuinely fits — a result that names the *closest approved tool* with an honest caveat about the capability gap (never an unapproved tool's name, and never overclaiming a capability the recommended tool doesn't have). `wizardShowResult()` also supports a `noTool:true` state (badge: "No Approved Tool Identified") for cases where recommending any approved tool would be misleading — currently unused in the live data but kept available.
 
 Checklist:
 - [ ] Claude, ChatGPT, and Microsoft Copilot remain the only tools in the main Toolkit/Ensemble grid, presented as fully authorized/approved
 - [ ] Asana is labeled "Approved" in the "Also worth knowing" list
 - [ ] Canva AI, Beautiful.ai, and Suno.ai are labeled "Conditionally Approved" everywhere they appear, with the paid/licensed-tier and non-sensitive-data condition visible alongside the label — not just "approved," and not "not approved"
-- [ ] Every other tool in the "Also worth knowing" list and the wizard is clearly marked "Not Approved" / requiring AI Task Force approval — never shown as already authorized
-- [ ] The wizard's `approved:true/false` flag matches this list; `conditional:true` is set only where the Addendum specifies Conditionally Approved (currently Canva AI), and `wizardShowResult()`'s three-state badge logic (approved / conditional / not approved) is not reduced back to a binary
+- [ ] Every other tool in the "Also worth knowing" list is clearly marked "Not Approved" / requiring AI Task Force approval — never shown as already authorized
+- [ ] No wizard answer path recommends a tool outside the Approved/Conditionally Approved list — check every option in every `wizardStep2Data` category, not just the ones that changed most recently
+- [ ] The wizard's `approved:true/false` flag matches this list; `conditional:true` is set only where the Addendum specifies Conditionally Approved (currently Canva AI); `wizardShowResult()`'s badge logic (approved / conditional / no-tool / not-approved) is not reduced back to a binary
 - [ ] Adding any further tool from the Addendum (e.g. the backend security/IT/HR/finance systems) requires the same explicit authorization Asana and Suno.ai received — it is not done by default just because a tool appears in the full Addendum
 
 ### Managed-account access wording

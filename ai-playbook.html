@@ -544,16 +544,16 @@ const wizardStep2Data = {
     {label:'Improve or summarize a document I already have open', icon:'🪟', tool:'Copilot', approved:true, why:'Right inside Word, Outlook, or Teams — draft, summarize, or improve documents without leaving your Microsoft apps.'}
   ]},
   research: {q:'What kind of research do you need?', options:[
-    {label:'Cited sources I can actually reference', icon:'🔍', tool:'Perplexity', approved:false, why:'The gold standard for cited research — every answer links to its source. Requires AI Task Force approval before use — it is not yet an approved Bushnell tool.'},
+    {label:'Cited sources I can actually reference', icon:'💬', tool:'ChatGPT', approved:true, why:"No approved tool matches Perplexity's live, per-claim citations. ChatGPT can still help you research and draft — verify every source and citation yourself before using it."},
     {label:'Analyze data I can upload (CSV, Excel)', icon:'💬', tool:'ChatGPT', approved:true, why:'Upload a CSV or Excel file directly — it reads it, creates charts, surfaces trends, and writes the narrative.'},
-    {label:'Current events or real-time industry trends', icon:'♊', tool:'Gemini', approved:false, why:'Real-time web access and Google Workspace integration — ideal for current events and industry news. Requires AI Task Force approval before use — it is not yet an approved Bushnell tool.'}
+    {label:'Current events or real-time industry trends', icon:'💬', tool:'ChatGPT', approved:true, why:'No approved tool guarantees live, real-time web results the way Gemini does. ChatGPT can still help you synthesize and draft from articles or data you paste in — verify anything time-sensitive yourself.'}
   ]},
   office: {q:'Which platform do you work in most?', options:[
     {label:'Microsoft 365 — Outlook, Teams, Word, Excel', icon:'🪟', tool:'Copilot', approved:true, why:'Built directly into Outlook, Word, Excel, PowerPoint, and Teams — no switching apps.'},
-    {label:'Google Workspace — Gmail, Docs, Sheets, Slides', icon:'♊', tool:'Gemini', approved:false, why:'Lives inside Gmail, Docs, Sheets, and Slides — draft, summarize, and analyze without leaving Google tools. Requires AI Task Force approval before use — it is not yet an approved Bushnell tool.'}
+    {label:'Google Workspace — Gmail, Docs, Sheets, Slides', icon:'💬', tool:'ChatGPT', approved:true, why:'No approved tool integrates directly into Google Workspace the way Copilot does with Microsoft 365. ChatGPT can still help — work in a separate tab and copy content in and out of Docs, Sheets, or Slides.'}
   ]},
   design: {q:"What's your design goal?", options:[
-    {label:'Create social graphics using our brand assets', icon:'🎨', tool:'Canva AI', approved:false, conditional:true, why:'If you already use Canva, its AI features work inside your existing brand kit. Conditionally Approved — paid/licensed tier only. Use it only for public or non-sensitive work; do not enter non-public organizational information.'},
+    {label:'Create social graphics using our brand assets', icon:'🎨', tool:'Canva AI', approved:false, conditional:true, why:'If you already use Canva, its AI features work inside your existing brand kit. Conditionally Approved. Use the paid or organization-provided licensed version only. Use it only for public or non-sensitive work; do not enter non-public organizational information.'},
     {label:'Generate image concepts or illustration ideas', icon:'💬', tool:'ChatGPT', approved:true, why:'DALL·E 3 inside ChatGPT can generate concept images and visual ideas for brainstorming.'}
   ]}
 };
@@ -595,6 +595,10 @@ function wizardShowResult(cat, idx){
     badgeText = '◐ Conditionally Approved';
     badge.style.color = 'var(--navy)';
     badge.style.borderColor = 'var(--navy)';
+  } else if(o.noTool){
+    badgeText = 'No Approved Tool Identified';
+    badge.style.color = 'var(--muted)';
+    badge.style.borderColor = 'var(--muted-light)';
   } else {
     badgeText = '⚠ Requires AI Task Force approval before use';
     badge.style.color = 'var(--red)';
