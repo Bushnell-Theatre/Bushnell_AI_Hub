@@ -19,9 +19,18 @@ Work happens on `dev` first. Nothing merges to `main` or deploys without explici
 - [ ] Any change made in one file's Rules/FAQ/Myths/access wording has been mirrored in the other
 
 ### Approved-tool status
-- [ ] Only Claude, ChatGPT, and Microsoft Copilot are ever presented as authorized/approved
-- [ ] Every other tool (in `ai-playbook.html`'s "Also worth knowing" list and the wizard's `wizardStep2Data`) is clearly marked as requiring AI Task Force approval before use — never shown as already authorized
-- [ ] The wizard's `approved:true/false` flag on every option matches this list
+Three states exist, per the AI Approved Tools Addendum — never collapse this to a binary approved/not-approved:
+- **Approved** (Claude, ChatGPT, Copilot as the main toolkit/ensemble; Asana in "Also worth knowing") — presented as authorized, no restrictions shown
+- **Conditionally Approved** (Canva AI, Beautiful.ai, Suno.ai — all in "Also worth knowing") — labeled "Conditionally Approved" (never plain "Approved," never "Not Approved"), with its condition visible: paid/licensed tier only, public/non-sensitive work only, no non-public organizational information
+- **Not Approved** (every other tool in the "Also worth knowing" list and the wizard) — labeled "Not Approved," requires AI Task Force approval before use
+
+Checklist:
+- [ ] Claude, ChatGPT, and Microsoft Copilot remain the only tools in the main Toolkit/Ensemble grid, presented as fully authorized/approved
+- [ ] Asana is labeled "Approved" in the "Also worth knowing" list
+- [ ] Canva AI, Beautiful.ai, and Suno.ai are labeled "Conditionally Approved" everywhere they appear, with the paid/licensed-tier and non-sensitive-data condition visible alongside the label — not just "approved," and not "not approved"
+- [ ] Every other tool in the "Also worth knowing" list and the wizard is clearly marked "Not Approved" / requiring AI Task Force approval — never shown as already authorized
+- [ ] The wizard's `approved:true/false` flag matches this list; `conditional:true` is set only where the Addendum specifies Conditionally Approved (currently Canva AI), and `wizardShowResult()`'s three-state badge logic (approved / conditional / not approved) is not reduced back to a binary
+- [ ] Adding any further tool from the Addendum (e.g. the backend security/IT/HR/finance systems) requires the same explicit authorization Asana and Suno.ai received — it is not done by default just because a tool appears in the full Addendum
 
 ### Managed-account access wording
 - [ ] Claude and ChatGPT access wording says: **"Use only the Bushnell-managed workspace account provided to you — never a personal or public account."** (not "Bushnell SSO" — that term was retired)

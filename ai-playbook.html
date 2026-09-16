@@ -43,6 +43,8 @@ a:hover{color:var(--teal-dark)}
 .worth-name{width:120px;flex-shrink:0;font-family:var(--font-display);font-weight:700;font-size:14px;color:var(--navy);}
 .worth-maker{width:180px;flex-shrink:0;font-size:11px;color:var(--muted-light);}
 .worth-desc{font-size:13px;line-height:1.5;color:var(--muted);flex:1;min-width:200px;}
+.worth-status{font-family:var(--font-display);font-size:9.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:3px 8px;border:1px solid;white-space:nowrap;flex-shrink:0;}
+.worth-note{flex-basis:100%;font-size:12px;line-height:1.5;color:var(--muted-light);font-style:italic;margin-top:4px;}
 
 .policy-intro-kicker{font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin:0 0 8px;}
 .policy-intro{background:var(--navy);padding:24px 28px;margin-bottom:16px;}
@@ -167,7 +169,7 @@ a:hover{color:var(--teal-dark)}
 <div class="section-pad" style="padding:52px 40px;background:var(--bg-alt)">
   <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px"><span style="width:32px;height:1px;background:var(--teal)"></span><span style="font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--teal)">Meet the Company</span></div>
   <h2 style="font-family:var(--font-display);font-size:34px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);line-height:1;margin:0 0 8px">The AI Ensemble</h2>
-  <p style="font-size:15px;color:var(--muted);max-width:64ch;line-height:1.65;margin:0 0 28px">Our three approved tools, in full — plus ten more that exist but are not yet approved for Bushnell work. Access instructions may vary by organization. Contact the AI Task Force if you have not yet received an approved managed account.</p>
+  <p style="font-size:15px;color:var(--muted);max-width:64ch;line-height:1.65;margin:0 0 28px">Our three approved tools, in full — plus twelve more, ranging from already-approved to conditionally approved to not yet approved for Bushnell work. Access instructions may vary by organization. Contact the AI Task Force if you have not yet received an approved managed account.</p>
   <div class="ensemble-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px">
 
     <button type="button" class="ensemble-card" data-ensemble="claude" aria-label="Claude — Anthropic. Select for full detail." style="border:1px solid var(--border);border-top:3px solid var(--claude);padding:24px;cursor:pointer">
@@ -209,18 +211,20 @@ a:hover{color:var(--teal-dark)}
   </div>
 
   <div style="font-family:var(--font-display);font-size:10.5px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:6px">Also worth knowing</div>
-  <p style="font-size:12.5px;color:var(--red);font-weight:600;margin:0 0 10px">None of the tools below are approved for Bushnell work — check with the AI Task Force before using any of them.</p>
+  <p style="font-size:12.5px;color:var(--muted);font-weight:600;margin:0 0 10px">The tools below range from fully <span style="color:var(--teal-dark)">Approved</span> to <span style="color:var(--navy)">Conditionally Approved</span> to <span style="color:var(--red)">Not Approved</span> — check the status next to each one. Anything marked Not Approved needs AI Task Force sign-off before use.</p>
   <div style="display:flex;flex-direction:column;border-top:1px solid var(--border);background:var(--white)">
-    <div class="worth-row"><div class="worth-name">Gemini</div><div class="worth-maker">Google · gemini.google.com</div><div class="worth-desc">Real-time web search and deep Google Workspace integration; strong for current-events research and huge documents.</div></div>
-    <div class="worth-row"><div class="worth-name">Perplexity</div><div class="worth-maker">Perplexity AI · perplexity.ai</div><div class="worth-desc">Cited, sourced answers — the go-to for funder research and fact-checking.</div></div>
-    <div class="worth-row"><div class="worth-name">NotebookLM</div><div class="worth-maker">Google · notebooklm.google.com</div><div class="worth-desc">Upload your own documents; it answers only from those sources, with citations.</div></div>
-    <div class="worth-row"><div class="worth-name">Canva AI</div><div class="worth-maker">Canva · canva.com</div><div class="worth-desc">Magic Write and Magic Design inside the Canva your marketing team already uses.</div></div>
-    <div class="worth-row"><div class="worth-name">Grammarly</div><div class="worth-maker">grammarly.com</div><div class="worth-desc">Grammar, tone, and rewriting help across Gmail, Outlook, Word, and your browser.</div></div>
-    <div class="worth-row"><div class="worth-name">Descript</div><div class="worth-maker">descript.com</div><div class="worth-desc">Edit audio/video by editing a transcript — good for highlight reels and podcasts.</div></div>
-    <div class="worth-row"><div class="worth-name">Notion</div><div class="worth-maker">notion.so</div><div class="worth-desc">All-in-one workspace with AI agents that can execute multi-step tasks.</div></div>
-    <div class="worth-row"><div class="worth-name">Beautiful.ai</div><div class="worth-maker">beautiful.ai</div><div class="worth-desc">Auto-designs and reformats slides as you type — a faster way to build a polished, on-brand deck.</div></div>
-    <div class="worth-row"><div class="worth-name">Buffer</div><div class="worth-maker">buffer.com</div><div class="worth-desc">Schedule and analyze social posts, with AI caption variations built in.</div></div>
-    <div class="worth-row"><div class="worth-name">ElevenLabs</div><div class="worth-maker">elevenlabs.io</div><div class="worth-desc">Lifelike AI narration and voiceover — useful for accessibility audio and video.</div></div>
+    <div class="worth-row"><div class="worth-name">Asana</div><span class="worth-status" style="color:var(--teal-dark);border-color:var(--teal)">Approved</span><div class="worth-maker">Asana · asana.com</div><div class="worth-desc">AI-assisted project and task management — already approved for Bushnell work. Ask IT to enable it if you don't already have access.</div></div>
+    <div class="worth-row"><div class="worth-name">Beautiful.ai</div><span class="worth-status" style="color:var(--navy);border-color:var(--navy)">Conditionally Approved</span><div class="worth-maker">beautiful.ai</div><div class="worth-desc">Auto-designs and reformats slides as you type — a faster way to build a polished, on-brand deck.</div><div class="worth-note">Use the paid or organization-provided licensed version only. Use it only for public or non-sensitive work; do not enter non-public organizational information.</div></div>
+    <div class="worth-row"><div class="worth-name">Canva AI</div><span class="worth-status" style="color:var(--navy);border-color:var(--navy)">Conditionally Approved</span><div class="worth-maker">Canva · canva.com</div><div class="worth-desc">Magic Write and Magic Design inside the Canva your marketing team already uses.</div><div class="worth-note">Use the paid or organization-provided licensed version only. Use it only for public or non-sensitive work; do not enter non-public organizational information.</div></div>
+    <div class="worth-row"><div class="worth-name">Suno.ai</div><span class="worth-status" style="color:var(--navy);border-color:var(--navy)">Conditionally Approved</span><div class="worth-maker">Suno · suno.com</div><div class="worth-desc">Generates original AI music and audio from a text prompt — useful for event or social video soundtracks.</div><div class="worth-note">Use the paid or organization-provided licensed version only. Use it only for public or non-sensitive work; do not enter non-public organizational information.</div></div>
+    <div class="worth-row"><div class="worth-name">Buffer</div><span class="worth-status" style="color:var(--red);border-color:var(--red)">Not Approved</span><div class="worth-maker">buffer.com</div><div class="worth-desc">Schedule and analyze social posts, with AI caption variations built in.</div></div>
+    <div class="worth-row"><div class="worth-name">Descript</div><span class="worth-status" style="color:var(--red);border-color:var(--red)">Not Approved</span><div class="worth-maker">descript.com</div><div class="worth-desc">Edit audio/video by editing a transcript — good for highlight reels and podcasts.</div></div>
+    <div class="worth-row"><div class="worth-name">ElevenLabs</div><span class="worth-status" style="color:var(--red);border-color:var(--red)">Not Approved</span><div class="worth-maker">elevenlabs.io</div><div class="worth-desc">Lifelike AI narration and voiceover — useful for accessibility audio and video.</div></div>
+    <div class="worth-row"><div class="worth-name">Gemini</div><span class="worth-status" style="color:var(--red);border-color:var(--red)">Not Approved</span><div class="worth-maker">Google · gemini.google.com</div><div class="worth-desc">Real-time web search and deep Google Workspace integration; strong for current-events research and huge documents.</div></div>
+    <div class="worth-row"><div class="worth-name">Grammarly</div><span class="worth-status" style="color:var(--red);border-color:var(--red)">Not Approved</span><div class="worth-maker">grammarly.com</div><div class="worth-desc">Grammar, tone, and rewriting help across Gmail, Outlook, Word, and your browser.</div></div>
+    <div class="worth-row"><div class="worth-name">NotebookLM</div><span class="worth-status" style="color:var(--red);border-color:var(--red)">Not Approved</span><div class="worth-maker">Google · notebooklm.google.com</div><div class="worth-desc">Upload your own documents; it answers only from those sources, with citations.</div></div>
+    <div class="worth-row"><div class="worth-name">Notion</div><span class="worth-status" style="color:var(--red);border-color:var(--red)">Not Approved</span><div class="worth-maker">notion.so</div><div class="worth-desc">All-in-one workspace with AI agents that can execute multi-step tasks.</div></div>
+    <div class="worth-row"><div class="worth-name">Perplexity</div><span class="worth-status" style="color:var(--red);border-color:var(--red)">Not Approved</span><div class="worth-maker">Perplexity AI · perplexity.ai</div><div class="worth-desc">Cited, sourced answers — the go-to for funder research and fact-checking.</div></div>
   </div>
 </div>
 
@@ -549,7 +553,7 @@ const wizardStep2Data = {
     {label:'Google Workspace — Gmail, Docs, Sheets, Slides', icon:'♊', tool:'Gemini', approved:false, why:'Lives inside Gmail, Docs, Sheets, and Slides — draft, summarize, and analyze without leaving Google tools. Requires AI Task Force approval before use — it is not yet an approved Bushnell tool.'}
   ]},
   design: {q:"What's your design goal?", options:[
-    {label:'Create social graphics using our brand assets', icon:'🎨', tool:'Canva AI', approved:false, why:'If you already use Canva, its AI features work inside your existing brand kit. Requires AI Task Force approval before use — it is not yet an approved Bushnell tool.'},
+    {label:'Create social graphics using our brand assets', icon:'🎨', tool:'Canva AI', approved:false, conditional:true, why:'If you already use Canva, its AI features work inside your existing brand kit. Conditionally Approved — paid/licensed tier only. Use it only for public or non-sensitive work; do not enter non-public organizational information.'},
     {label:'Generate image concepts or illustration ideas', icon:'💬', tool:'ChatGPT', approved:true, why:'DALL·E 3 inside ChatGPT can generate concept images and visual ideas for brainstorming.'}
   ]}
 };
@@ -587,6 +591,10 @@ function wizardShowResult(cat, idx){
     badgeText = '✓ Approved for Bushnell use';
     badge.style.color = 'var(--teal-dark)';
     badge.style.borderColor = 'var(--teal)';
+  } else if(o.conditional){
+    badgeText = '◐ Conditionally Approved';
+    badge.style.color = 'var(--navy)';
+    badge.style.borderColor = 'var(--navy)';
   } else {
     badgeText = '⚠ Requires AI Task Force approval before use';
     badge.style.color = 'var(--red)';
