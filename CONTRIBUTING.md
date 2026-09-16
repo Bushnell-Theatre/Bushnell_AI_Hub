@@ -10,7 +10,7 @@ Work happens on `dev` first. Nothing merges to `main` or deploys without explici
 - [ ] The primary wordmark — "The Bushnell | Warner Theatre | Hartford Symphony Orchestra" over "AI Hub" — matches exactly in both files' `<header>` blocks and is reflected in both `<title>` tags
 - [ ] Warner Theatre and Hartford Symphony Orchestra (HSO) are never described as having identical corporate relationships to The Bushnell: Warner is a Bushnell subsidiary; HSO is an independent organization receiving shared services from The Bushnell, never a Bushnell department or subsidiary
 - [ ] No HSO-specific account-migration language, transitional account instructions, or personal/public-account approval has been added
-- [ ] No HSO (or Warner) authentication, licensing, tenant, or SSO details have been invented — the existing "Bushnell SSO" / "Bushnell-managed workspace" wording describes only Bushnell's own setup and stays as-is unless a confirmed access decision says otherwise
+- [ ] No HSO (or Warner) authentication, licensing, or tenant details have been invented — the managed-account wording (see "SSO / access wording" below) is deliberately organization-neutral where it needs to be, and stays as-is otherwise unless a confirmed access decision says otherwise
 - [ ] Audience/introductory language (hero copy, journey intro, footers) includes all three organizations; approval-status and policy-ownership wording (e.g. "Approved for Bushnell use," "The Bushnell's AI Policy") is left untouched unless a governance decision confirms it should change
 
 ### Consistency between the two pages
@@ -23,10 +23,11 @@ Work happens on `dev` first. Nothing merges to `main` or deploys without explici
 - [ ] Every other tool (in `ai-playbook.html`'s "Also worth knowing" list and the wizard's `wizardStep2Data`) is clearly marked as requiring AI Task Force approval before use — never shown as already authorized
 - [ ] The wizard's `approved:true/false` flag on every option matches this list
 
-### SSO / access wording
-- [ ] Claude and ChatGPT access wording says **Bushnell SSO** through a Bushnell-managed workspace — never a personal or public account
-- [ ] Copilot access wording says it is tied to the user's **Bushnell Microsoft 365 account** — never expand the Bushnell SSO phrasing to Copilot; that is a different, unconfirmed policy
-- [ ] No sentence generalizes "sign in with Bushnell SSO" across all three tools when Copilot is included in that sentence
+### Managed-account access wording
+- [ ] Claude and ChatGPT access wording says: **"Use only the Bushnell-managed workspace account provided to you — never a personal or public account."** (not "Bushnell SSO" — that term was retired)
+- [ ] Copilot access wording says: **"Use only your organization-issued Microsoft 365 account."** — deliberately organization-neutral; never expand the Claude/ChatGPT "Bushnell-managed workspace" phrasing to Copilot
+- [ ] No sentence merges the Claude/ChatGPT and Copilot wording into one undifferentiated access instruction
+- [ ] The general-access note — "Access instructions may vary by organization. Contact the AI Task Force if you have not yet received an approved managed account." — is present once on each page (Toolkit intro on `index.html`, Ensemble intro on `ai-playbook.html`) and does not imply every HSO or Warner employee already has a managed account
 
 ### Sensitive data
 - [ ] No real donor name, gift amount, financial figure, personnel detail, or other confidential Bushnell information appears anywhere in the site, including in examples
